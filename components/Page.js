@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
   html {
-    --red: #A31621;
+    --red: #A31621; /*#FE192F A31621 */
     --black: #393939;
     --grey: #424B54;
     --lightGrey: #e1e1e1;

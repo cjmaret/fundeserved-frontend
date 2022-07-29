@@ -9,6 +9,8 @@ import {
   NavButton,
 } from './styles/styledHeader';
 import { useState } from 'react';
+import Image from 'next/image';
+import LogoImage from '../images/logo.jpg';
 
 export default function Header() {
   const [individualsHovered, setIndividualsHovered] = useState(false);
@@ -53,7 +55,9 @@ export default function Header() {
       </Link>
       <Logo>
         <Link href="/">
-          <NavLink className="logo__anchor">Fundeserved</NavLink>
+          <NavLink className="logo__anchor">
+            <Image src={LogoImage} alt="" />
+          </NavLink>
         </Link>
       </Logo>
       <Link href="/mario">

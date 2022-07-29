@@ -17,12 +17,12 @@ export const Logo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 25%;
+  align-items: center;
+  width: 15%;
   text-align: center;
   font-size: 1.5rem;
   .logo__anchor {
-    color: var(--red);
-    font-weight: 700;
+    width: 100%;
   }
 `;
 

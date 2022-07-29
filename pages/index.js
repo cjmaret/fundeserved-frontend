@@ -1,5 +1,6 @@
 import Categories from '../components/Categories';
 import Featured from '../components/Featured';
+import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 import Join from '../components/Join';
 import Lead from '../components/Lead';
@@ -14,6 +15,7 @@ export default function Home() {
       <Categories />
       <Stats />
       <Join />
+      <Footer />
     </>
   );
 }

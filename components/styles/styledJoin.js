@@ -7,8 +7,7 @@ export const JoinComponent = styled.section`
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 2rem;
   padding: 5rem 0;
-  margin: auto;
-  margin-bottom: 50rem;
+  margin: 10rem auto 25rem auto;
 `;
 
 export const Details = styled.div`
