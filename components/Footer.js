@@ -20,8 +20,8 @@ export default function Footer() {
         <Image src={LogoImage} alt="" />
       </Logo>
       <ListGroup>
-        <ListTitle>Fundraise for</ListTitle>
         <FundraiseList>
+          <ListTitle>Fundraise for</ListTitle>
           <ListItem>
             <ListLink>Medical</ListLink>
           </ListItem>
@@ -38,8 +38,6 @@ export default function Footer() {
             <ListLink>Nonprofit</ListLink>
           </ListItem>
         </FundraiseList>
-      </ListGroup>
-      <ListGroup>
         <LearnMoreList>
           <ListTitle>Learn more</ListTitle>
           <ListItem>
@@ -58,8 +56,6 @@ export default function Footer() {
             <ListLink>Pricing</ListLink>
           </ListItem>
         </LearnMoreList>
-      </ListGroup>
-      <ListGroup>
         <ResourcesList>
           <ListTitle>Resources</ListTitle>
           <ListItem>

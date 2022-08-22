@@ -10,7 +10,7 @@ export const JoinComponent = styled.section`
   padding: 2rem 0;
   margin: 5rem auto 5rem auto;
   max-width: 1080px;
-  border: 1px solid red;
+  background-color: var(--lightGrey);
   @media (min-width: 950px) {
     flex-direction: row-reverse;
     justify-content: space-around;

@@ -11,32 +11,39 @@ export const FooterComponent = styled.footer`
 `;
 
 export const Logo = styled.div`
-  width: 50%;
-  /* margin-right: 10rem; */
-  margin-bottom: 2rem;
+  width: 60%;
+  max-width: 200px;
 `;
 
 export const ListGroup = styled.div`
   display: flex;
-  width: 100%;
   flex-direction: column;
-  margin-bottom: 5vw;
-`;
+  width: 100%;
 
-export const ListTitle = styled.h4`
-  font-size: 1.75rem;
-  margin: 0 0;
-  text-align: center;
+  @media (min-width: 800px) {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
 `;
 
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 3vw;
+  font-size: 1.75rem;
   list-style: none;
   padding: 0;
   margin: 0;
+
+  margin-bottom: 2rem;
+  flex: 1;
+`;
+
+export const ListTitle = styled.h4`
+  font-size: 2rem;
+  margin: 0 0;
+  text-align: center;
 `;
 
 export const FundraiseList = styled(List)``;
