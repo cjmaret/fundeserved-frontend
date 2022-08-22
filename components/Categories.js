@@ -9,19 +9,19 @@ import {
   FilmCover,
   LinkCover,
 } from './styles/styledCategories';
-
 import { categoriesCards } from '../array-data/categories-data';
 import Image from 'next/image';
+
 export default function Categories() {
   return (
     <CategoriesComponent>
-      <CategoriesTitle>Categories</CategoriesTitle>
-      <CategoriesParagraph>Choose</CategoriesParagraph>
+      <CategoriesTitle>Choose your fundeserved category</CategoriesTitle>
+      <CategoriesParagraph>Which fraud interests you most?</CategoriesParagraph>
 
       <GridGroup>
         {categoriesCards.map((card) => (
           <Card key={card.id}>
-            <LinkCover />
+            <LinkCover href="" />
             <CardTitle>{card.title}</CardTitle>
             <FilmCover />
             <CardImageWrapper>
@@ -30,14 +30,6 @@ export default function Categories() {
                 alt=""
                 layout="fill"
                 objectFit="cover"
-                width="1000"
-                height="1000"
-                // style={{
-                //   'object-fit': 'cover',
-                //   'object-position': 'center',
-                //   width: '1000px',
-                //   height: '1000px',
-                // }}
               />
             </CardImageWrapper>
           </Card>

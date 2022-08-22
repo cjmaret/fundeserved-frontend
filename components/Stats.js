@@ -23,12 +23,12 @@ export default function Stats() {
             <StatCircle />
           </Stat>
           <Stat>
-            <StatTitle>$1.2+</StatTitle>
+            <StatTitle>$1.2B+</StatTitle>
             <StatParagraph>Donations wasted</StatParagraph>
             <StatCircle />
           </Stat>
           <Stat>
-            <StatTitle>950,000</StatTitle>
+            <StatTitle>2,500</StatTitle>
             <StatParagraph>Donors scammed</StatParagraph>
             <StatCircle />
           </Stat>
@@ -39,7 +39,7 @@ export default function Stats() {
           </Stat>
           <Stat>
             <StatTitle>0</StatTitle>
-            <StatParagraph>Improvements to the world</StatParagraph>
+            <StatParagraph>Differences made</StatParagraph>
             <StatCircle />
           </Stat>
         </StatsGroup>

@@ -15,6 +15,9 @@ import Image from 'next/image';
 export default function Join() {
   return (
     <JoinComponent>
+      <ImageWrapper>
+        <Image src={DwayneImage} alt="" />
+      </ImageWrapper>
       <Details>
         <Title>Ready to get started? Join thousands of others today.</Title>
         <ButtonGroup>
@@ -22,9 +25,6 @@ export default function Join() {
           <DonateButton>Donate</DonateButton>
         </ButtonGroup>
       </Details>
-      <ImageWrapper>
-        <Image src={DwayneImage} alt="" />
-      </ImageWrapper>
     </JoinComponent>
   );
 }

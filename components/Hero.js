@@ -1,6 +1,12 @@
 import HeroImage from '../images/hero.jpg';
 import Image from 'next/image';
-import { HeroComponent, HeroDetails, HeroButton, HeroTitle } from './styles/styledHero';
+import {
+  HeroComponent,
+  HeroDetails,
+  HeroButton,
+  HeroTitle,
+  HeroImageWrapper,
+} from './styles/styledHero';
 import Link from 'next/link';
 
 export default function Hero() {
@@ -12,12 +18,20 @@ export default function Hero() {
           <HeroButton>Fund a shitty cause</HeroButton>
         </Link>
       </HeroDetails>
-        <Image src={HeroImage} alt="hero-image" className="hero-image"></Image>
+      <HeroImageWrapper>
+        <Image
+          src={HeroImage}
+          alt="hero-image"
+          className="hero-image"
+          layout="fill"
+        />
         <style jsx global>{`
           .hero-image {
-            border-radius: 2rem;
+            /* border-radius: 2rem; */
+            object-fit: cover;
           }
         `}</style>
+      </HeroImageWrapper>
     </HeroComponent>
   );
 }

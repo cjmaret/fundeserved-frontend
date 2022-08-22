@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const HeaderComponent = styled.header`
-  width: 100%;
+  width: 95%;
   display: flex;
-  justify-content: space-between;
+  justify-content: ${(props) =>
+    props.mobileMenu ? 'center' : 'space-between'};
   align-items: center;
   font-size: 1rem;
-  padding: 1rem 1rem;
+  padding: ${(props) => (props.mobileMenu ? 'none' : '1rem 1rem')};
   margin: auto;
   @media (min-width: 1080px) {
     width: 1080px;
@@ -18,9 +19,12 @@ export const Logo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 15%;
+  width: ${(props) => (props.mobileMenu ? '5%' : '15%')};
+  max-width: 100px;
+  min-width: 100px;
   text-align: center;
   font-size: 1.5rem;
+  flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
   .logo__anchor {
     width: 100%;
   }
@@ -48,17 +52,63 @@ export const NavButton = styled.a`
   transition: all 0.4s ease;
 `;
 
-export const IndividualsNavItem = styled.div``;
-
-export const IndividualsList = styled.ul`
-  position: absolute;
-  z-index: 1;
-  background-color: white;
-  box-shadow: 1px 1px 10px #000000;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: ${(props) => (props.individualsHovered ? 'block' : 'none')};
+export const MobileMenuWrapper = styled.div`
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
 `;
 
-export const IndividualsListItem = styled.li``;
+export const IconWrapper = styled.div`
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const HamburgerIconWrapper = styled(IconWrapper)``;
+
+export const MobileMenu = styled.div`
+  display: ${(props) => (props.isMenuOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  background: white;
+  width: 100%;
+  margin: auto;
+  padding: 1rem 0.5rem;
+  position: absolute;
+  top: 64px;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 2;
+  font-size: 2rem;
+  text-align: center;
+  & > * {
+    margin: 0.5rem 0;
+  }
+`;
+
+export const CloseIconWrapper = styled(IconWrapper)``;
+
+export const Search = styled.div`
+  visibility: ${(props) => (props.isMenuOpen ? 'hidden' : 'visible')};
+  flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
+`;
+
+// export const IndividualsNavItem = styled.div``;
+
+// export const IndividualsList = styled.ul`
+//   position: ${(props) => (props.isMenuOpen ? 'relative' : 'absolute')};
+//   z-index: 1;
+//   background-color: white;
+//   box-shadow: 1px 1px 10px #000000;
+//   list-style: none;
+//   padding: 0;
+//   margin: 0;
+//   display: ${(props) => (props.individualsActive ? 'block' : 'none')};
+// `;
+
+// export const IndividualsListItem = styled.li``;

@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import styled, { createGlobalStyle } from 'styled-components';
 import Header from './Header';
+import { MobileContext } from '../contexts/mobileContext';
+import { useEffect, useState } from 'react';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -30,13 +32,13 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'graphik', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
     @media (min-width: 1080px) {
-      max-width: 1080px;
+      /* max-width: 1080px; */
       margin: auto;
     }
   }
@@ -51,24 +53,46 @@ const GlobalStyles = createGlobalStyle`
   }
 
   button {
-    font-family: 'radnika_next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'graphik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 `;
 
 const InnerStyles = styled.div`
-  max-width: var(--maxWidth);
+  /* max-width: var(--maxWidth); */
   margin: 0 auto;
-  padding: 2rem;
-  padding: 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 640px) {
+    padding: 1rem;
+  }
 `;
 
 export default function Page({ children }) {
+  const [mobileMenu, setMobileMenu] = useState();
+
+  useEffect(() => {
+    function getWindowWidth() {
+      const windowWidth = window.innerWidth;
+
+      if (windowWidth < 640) {
+        setMobileMenu(true);
+      } else {
+        setMobileMenu(false);
+      }
+    }
+    getWindowWidth();
+    window.addEventListener('resize', getWindowWidth);
+    return () => window.removeEventListener('resize', getWindowWidth);
+  });
+
   return (
-    <div>
+    <MobileContext.Provider value={mobileMenu}>
       <GlobalStyles />
       <Header />
       <InnerStyles>{children}</InnerStyles>
-    </div>
+    </MobileContext.Provider>
   );
 }
 

@@ -4,22 +4,35 @@ export const StatsComponent = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20rem 0 20rem 0;
-  margin-bottom: 5rem;
+  margin: 10vw 0;
+  max-width: 1080px;
+  width: 100%;
 `;
 
 export const Title = styled.h2`
-  font-size: 5rem;
+  font-size: 4rem;
   text-align: center;
-  margin-bottom: 5rem;
+  margin: 0 0 5vw 0;
   line-height: 1.5;
+  width: 90%;
+  @media (min-width: 950px) {
+    font-size: 5rem;
+  }
 `;
 
 export const StatsGroup = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  @media (min-width: 500px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @media (min-width: 950px) {
+    flex-wrap: nowrap;
+  }
 `;
 
 export const Stat = styled.div`
@@ -27,12 +40,16 @@ export const Stat = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 100%;
   position: relative;
+  padding: 50px 0;
+  @media (min-width: 500px) {
+    width: 50%;
+  }
 `;
 
 export const StatTitle = styled.h3`
-  font-size: 4rem;
+  font-size: 2rem;
   text-align: center;
   z-index: 1;
   color: black;
@@ -44,7 +61,7 @@ export const StatParagraph = styled.p`
   margin: 0;
   color: var(--grey);
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
 `;
 
