@@ -29,7 +29,6 @@ export const GridGroup = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  border: 1px solid red;
   @media (min-width: 500px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -37,7 +36,6 @@ export const GridGroup = styled.div`
 `;
 
 export const Card = styled.div`
-border: 1px solid red;
   display: flex;
   position: relative;
   justify-content: center;
