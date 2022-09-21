@@ -61,6 +61,9 @@ export const CardImageWrapper = styled.div`
   position: relative;
   height: 100%;
   width: 100%;
+  .card-image {
+    width: 100%;
+  }
 `;
 
 export const LinkCover = styled.a`

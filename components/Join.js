@@ -16,7 +16,7 @@ export default function Join() {
   return (
     <JoinComponent>
       <ImageWrapper>
-        <Image src={DwayneImage} alt="" />
+        <img src={DwayneImage} alt="" className='join-image' />
       </ImageWrapper>
       <Details>
         <Title>Ready to get started? Join thousands of others today.</Title>

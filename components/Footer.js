@@ -17,7 +17,7 @@ export default function Footer() {
   return (
     <FooterComponent>
       <Logo>
-        <Image src={LogoImage} alt="" />
+        <img src={LogoImage} alt="" className="footer-logo-image" />
       </Logo>
       <ListGroup>
         <FundraiseList>

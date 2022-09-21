@@ -19,12 +19,7 @@ export default function Hero() {
         </Link>
       </HeroDetails>
       <HeroImageWrapper>
-        <Image
-          src={HeroImage}
-          alt="hero-image"
-          className="hero-image"
-          layout="fill"
-        />
+        <img src={HeroImage} alt="hero-image" className="hero-image" />
         <style jsx global>{`
           .hero-image {
             /* border-radius: 2rem; */

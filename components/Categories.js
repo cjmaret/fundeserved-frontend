@@ -25,11 +25,10 @@ export default function Categories() {
             <CardTitle>{card.title}</CardTitle>
             <FilmCover />
             <CardImageWrapper>
-              <Image
+              <img
                 src={card.image}
                 alt=""
-                layout="fill"
-                objectFit="cover"
+                className='card-image'
               />
             </CardImageWrapper>
           </Card>

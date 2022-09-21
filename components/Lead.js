@@ -30,12 +30,12 @@ export default function Lead() {
             </StepParagraph>
           </StepDetails>
           <StepImage>
-            <Image src={SmokingImage} alt="" />
+            <img src={SmokingImage} alt="" className="step-image" />
           </StepImage>
         </Step>
         <Step>
           <StepImage>
-            <Image src={SelfieImage} alt="" />
+            <img src={SelfieImage} alt="" className="step-image" />
           </StepImage>
           <StepDetails>
             <StepTitle>
@@ -51,10 +51,12 @@ export default function Lead() {
             <StepTitle>
               <StepSpan>3. </StepSpan>Profit!
             </StepTitle>
-            <StepParagraph>Continue enjoying your unhealthy lifestyle!</StepParagraph>
+            <StepParagraph>
+              Continue enjoying your unhealthy lifestyle!
+            </StepParagraph>
           </StepDetails>
           <StepImage>
-            <Image src={HospitalImage} alt="" />
+            <img src={HospitalImage} alt="" className="step-image" />
           </StepImage>
         </Step>
       </Steps>

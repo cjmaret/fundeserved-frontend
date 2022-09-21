@@ -10,6 +10,8 @@ import {
   CardParagraph,
   CardGroup,
   ReadMore,
+  MainCardDetails,
+  MainCardImage,
 } from './styles/styledFeatured';
 
 import Image from 'next/image';
@@ -32,32 +34,28 @@ export default function Featured() {
         <CardGroup>
           {featuredCards.map((card) => (
             <MainCard key={card.id} bgImage={card.mainImage}>
-              <CardDetails>
+              <MainCardDetails>
                 <CardTitle>{card.title}</CardTitle>
                 <CardParagraph>{card.paragraph}</CardParagraph>
                 <ReadMore>Read more</ReadMore>
-              </CardDetails>
+              </MainCardDetails>
             </MainCard>
           ))}
         </CardGroup>
       ) : (
         <CardGroup>
-          <MainCard bgImage={'/gambling'}>
-            <CardDetails>
+          <MainCard>
+            <MainCardDetails>
               <CardTitle>{mainCard.title}</CardTitle>
               <CardParagraph>{mainCard.paragraph}</CardParagraph>
               <ReadMore>Read more</ReadMore>
-            </CardDetails>
+            </MainCardDetails>
+            <MainCardImage src={mainCard.image} alt="" />
           </MainCard>
           {featuredCards.slice(1).map((card) => (
             <Card key={card.id}>
               <CardImageWrapper>
-                <Image
-                  src={card.image}
-                  alt=""
-                  layout="fill"
-                  objectFit="cover"
-                />
+                <img src={card.image} alt="" className="card-image" />
               </CardImageWrapper>
               <CardDetails>
                 <CardTitle>{card.title}</CardTitle>

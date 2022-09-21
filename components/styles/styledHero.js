@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import HeroImage from '../../images/hero.jpg';
 
 export const HeroComponent = styled.section`
   position: relative;
@@ -41,4 +42,8 @@ export const HeroImageWrapper = styled.div`
   /* height: 100%;
   max-height: 700px; */
   height: 70vh;
+  .hero-image {
+    width: 100%;
+    height: 100%;
+  }
 `;

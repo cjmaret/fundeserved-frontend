@@ -3,27 +3,28 @@ import styled from 'styled-components';
 const FundraiserCard = styled.div`
   display: grid;
   grid-auto-flow: row;
-  grid-auto-rows: minmax(20px, auto);
-  border: 1px solid blue;
   background-color: white;
+  border-radius: 5px;
   padding: 5px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 `;
 
 const FundraiserImageWrapper = styled.div`
-  position: relative;
   width: 100%;
-  border: 1px solid red;
-  /* height: 80px; */
-  overflow: hidden;
-  border-radius: 5px;
+  /* height: 25vw; */
+  /* border: 1px solid red; */
+  /* overflow: hidden; */
+  .fundraiser-image {
+    width: 100%;
+  }
 `;
 
 const FundraiserTitle = styled.h1`
   font-size: 1.2rem;
   margin: 0.5rem 0;
   color: black;
-  border: 1px solid red;
-  height: 40px;
+  /* border: 1px solid red; */
+  /* height: 40px; */
   line-height: 1.5;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -46,6 +47,7 @@ const FundraiserParagraph = styled.p`
 const FundraiserAmount = styled.p`
   margin: 0.5rem 0;
   font-size: 1.5rem;
+  line-height: 1.5;
   font-weight: 700;
 `;
 

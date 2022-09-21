@@ -26,7 +26,6 @@ export const Title = styled.h2`
 export const Steps = styled.div`
   display: flex;
   flex-direction: column;
-
 `;
 
 export const Step = styled.div`
@@ -48,6 +47,11 @@ export const Step = styled.div`
 
 export const StepImage = styled.div`
   width: 50%;
+  position: relative;
+  .step-image {
+    width: 100%;
+
+  }
 `;
 
 export const StepDetails = styled.div`

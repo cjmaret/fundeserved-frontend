@@ -47,6 +47,9 @@ export const CardImageWrapper = styled.div`
   width: 100%;
   position: relative;
   height: 200px;
+  .card-image {
+    width: 100%;
+  }
 `;
 
 export const CardDetails = styled.div`
@@ -93,9 +96,9 @@ export const ReadMore = styled.button`
 `;
 
 export const MainCard = styled.div`
-  background-image: ${(props) => `url('${props.bgImage}.jpg')`};
   background-size: cover;
   background-position-x: center;
+  position: relative;
   display: flex;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
@@ -112,6 +115,23 @@ export const MainCard = styled.div`
   ${ReadMore} {
     max-width: 35%;
   }
+`;
+
+export const MainCardDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  /* padding: 0 2rem 2rem 2rem; */
+  padding: 0 1vw 1vw 1vw;
+  background-color: white;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, 0);
+`;
+
+export const MainCardImage = styled.img`
+  width: 100%;
 `;
 
 // import styled from 'styled-components';

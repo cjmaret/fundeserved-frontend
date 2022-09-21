@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import {
   FundraiserCard,
   FundraiserParagraph,
@@ -6,17 +7,22 @@ import {
   FundraiserTitle,
   FundraiserAmount,
 } from './styles/styledFundraiser';
-import { formatMoney } from '../lib/formatMoney';
+import { formatCentsToDollars } from '../lib/formatMoney';
 
-export default function Fundraiser(card) {
+export default function Fundraiser({ fundraiser }) {
+  const fundraiserImage = fundraiser?.photo.image.publicUrlTransformed;
   return (
     <FundraiserCard>
       <FundraiserImageWrapper>
-        <Image src={card.image} alt="" layout="fill"/>
+        <img src={fundraiserImage} alt="" className="fundraiser-image" />
       </FundraiserImageWrapper>
-      <FundraiserTitle>{card.title}</FundraiserTitle>
-      <FundraiserParagraph>{card.paragraph}</FundraiserParagraph>
-      <FundraiserAmount>${formatMoney(card.amount)} raised</FundraiserAmount>
+      <FundraiserTitle>
+        <Link href={`/fundraiser/${fundraiser.id}`}>{fundraiser?.name}</Link>
+      </FundraiserTitle>
+      <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
+      <FundraiserAmount>
+        {formatCentsToDollars(fundraiser?.price)} raised
+      </FundraiserAmount>
     </FundraiserCard>
   );
 }

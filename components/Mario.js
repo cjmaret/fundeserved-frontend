@@ -1,3 +1,3 @@
 export default function Mario() {
-  return <div>Its me Mario</div>;
+  return <div>Its a me Mario</div>;
 }

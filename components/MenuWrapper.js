@@ -22,7 +22,11 @@ export default function MenuWrapper({
       <>
         <MobileMenuWrapper>
           <IconWrapper onClick={() => toggleMenuOpen()}>
-            <Image src={isMenuOpen ? CloseIcon : HamburgerIcon} alt="" />
+            <img
+              src={isMenuOpen ? CloseIcon : HamburgerIcon}
+              alt=""
+              layout="fill"
+            />
           </IconWrapper>
         </MobileMenuWrapper>
         <MobileMenu isMenuOpen={isMenuOpen}>{children}</MobileMenu>

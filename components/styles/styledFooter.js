@@ -13,6 +13,9 @@ export const FooterComponent = styled.footer`
 export const Logo = styled.div`
   width: 60%;
   max-width: 200px;
+  .footer-logo-image {
+    width: 100%;
+  }
 `;
 
 export const ListGroup = styled.div`

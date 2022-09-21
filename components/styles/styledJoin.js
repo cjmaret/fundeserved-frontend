@@ -21,6 +21,9 @@ export const ImageWrapper = styled.div`
   padding: 2rem 0;
   width: 70%;
   max-width: 250px;
+  .join-image {
+    width: 100%;
+  }
 `;
 
 export const Details = styled.div`

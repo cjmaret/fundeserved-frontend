@@ -27,6 +27,11 @@ export const Logo = styled.div`
   flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
   .logo__anchor {
     width: 100%;
+    position: relative;
+  }
+  .logo {
+    width: 100%;
+    height: 100%;
   }
 `;
 

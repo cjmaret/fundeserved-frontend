@@ -7,15 +7,15 @@ export const featuredCards = [
     paragraph: `Marie Sandler faces mounting legal fees after being caught burning down her car rental agency for the insurance payout. She says,`,
     amount: 18,
     image: GamblingImage,
-    mainImage: '/woman-arms',
+    mainImage: GamblingImage,
   },
   {
     id: 1,
     title: 'hi',
-    paragraph: `Greyson spent all $8,000 of his father's money on Instagram advertising `,
+    paragraph: `Greyson spent all $8,000 of his father's money on Instagram advertising  aosdifmo aksmdflkmasldkfm alskdm flkams dlkmfalskd`,
     amount: 24595,
     image: GamblingImage,
-    mainImage: '/gambling',
+    mainImage: GamblingImage,
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export const featuredCards = [
     paragraph: `Maureen Corcoran needs to up the ante in the property dispute with her neighbors Grace. Since she feels Grace's mailbox sits 2 centimeters too far over on her lawn`,
     amount: 65993,
     image: GamblingImage,
-    mainImage: '/gambling',
+    mainImage: GamblingImage,
   },
   {
     id: 3,
@@ -33,6 +33,6 @@ export const featuredCards = [
       'words words words words words words words words words words words words words words words words words words words words words words words words words words words words',
     amount: 110,
     image: GamblingImage,
-    mainImage: '/gambling',
+    mainImage: GamblingImage,
   },
 ];
