@@ -30,7 +30,9 @@ export const Image = styled.img`
   border-radius: 15px;
 `;
 
-export const Description = styled.p``;
+export const Description = styled.p`
+  white-space: pre-wrap;
+`;
 
 export const Sidebar = styled.div`
   border-radius: 10px;

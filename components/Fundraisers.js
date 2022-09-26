@@ -1,7 +1,15 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
+import Link from 'next/link';
 import { featuredCards } from '../array-data/featured-data';
 import Fundraiser from './Fundraiser';
+import {
+  CreateFundraiserButton,
+  FundraisersGrid,
+  FundraisersLead,
+  FundraisersSubtitle,
+  FundraisersTitle,
+} from './styles/styledFundraisers';
 
 export const ALL_FUNDRAISERS_QUERY = gql`
   query ALL_FUNDRAISERS_QUERY {
@@ -10,6 +18,9 @@ export const ALL_FUNDRAISERS_QUERY = gql`
       name
       amount
       description
+      amount
+      goal
+      dateCreated
       photo {
         image {
           publicUrlTransformed
@@ -26,13 +37,20 @@ export default function Fundraisers() {
   if (error) return <p>Error: {error.message}</p>;
   return (
     <>
-      {data.allFundraisers.map((fundraiser) => (
-        <Fundraiser key={fundraiser.id} fundraiser={fundraiser} />
-      ))}
+      <FundraisersLead>
+        <FundraisersTitle>Browse fundraisers</FundraisersTitle>
+        <FundraisersSubtitle>
+          There's always something stupid to give your money to.
+        </FundraisersSubtitle>
+        <Link href="/create-fundraiser">
+          <CreateFundraiserButton>Start a Fundeserved</CreateFundraiserButton>
+        </Link>
+      </FundraisersLead>
+      <FundraisersGrid>
+        {data.allFundraisers.map((fundraiser) => (
+          <Fundraiser key={fundraiser.id} fundraiser={fundraiser} />
+        ))}
+      </FundraisersGrid>
     </>
   );
 }
-
-/* {featuredCards.map((card) => (
-  <Fundraiser key={card.id} {...card} />
-))} */

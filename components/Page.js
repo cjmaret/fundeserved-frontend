@@ -64,9 +64,9 @@ const InnerStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 640px) {
+  /* @media (min-width: 640px) {
     padding: 1rem;
-  }
+  } */
 `;
 
 export default function Page({ children }) {

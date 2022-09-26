@@ -38,6 +38,9 @@ const Form = styled.form`
       border-color: var(--red);
     }
   }
+  textarea {
+    white-space: pre-wrap;
+  }
   button,
   input[type='submit'] {
     width: 45%;
