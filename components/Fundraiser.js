@@ -12,6 +12,7 @@ import {
   PercentageBar,
   FundraiserDetails,
   AmountSpan,
+  CreatedOn,
 } from './styles/styledFundraiser';
 import { formatCentsToDollars } from '../lib/formatMoney';
 
@@ -39,7 +40,7 @@ export default function Fundraiser({ fundraiser }) {
       <FundraiserDetails>
         <FundraiserTitle>{fundraiser?.name}</FundraiserTitle>
         <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
-        <p>Created on {convertDate()}</p>
+        <CreatedOn>Created on {convertDate()}</CreatedOn>
         <PercentageBarGroup>
           <PercentageBarFilled
             filled={(fundraiser.amount / fundraiser.goal) * 100}

@@ -64,6 +64,11 @@ export const FundraiserParagraph = styled.p`
   line-height: 1.5;
 `;
 
+export const CreatedOn = styled.div`
+  font-size: 15px;
+  font-weight: 400;
+`;
+
 export const PercentageBarGroup = styled.div`
   position: relative;
   width: 100%;
