@@ -1,5 +1,5 @@
-import Fundraisers from '../../components/Fundraisers';
+import AllFundraisers from '../../components/AllFundraisers';
 
 export default function FundraisersPage() {
-  return <Fundraisers />;
+  return <AllFundraisers />;
 }

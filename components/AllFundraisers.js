@@ -18,7 +18,6 @@ export const ALL_FUNDRAISERS_QUERY = gql`
       name
       amount
       description
-      amount
       goal
       dateCreated
       photo {
@@ -30,7 +29,7 @@ export const ALL_FUNDRAISERS_QUERY = gql`
   }
 `;
 
-export default function Fundraisers() {
+export default function AllFundraisers() {
   const { data, error, loading } = useQuery(ALL_FUNDRAISERS_QUERY);
 
   if (loading) return <p>Loading...</p>;

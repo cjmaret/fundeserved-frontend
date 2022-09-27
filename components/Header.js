@@ -52,12 +52,12 @@ export default function Header() {
           <Image src={CloseIcon} alt="" />
         </CloseIconWrapper> */}
         <Link href="/fundraisers">
-          <NavLink onClick={() => setIsMenuOpen(false)}>Fundraisers</NavLink>
-        </Link>
-        <Link href="/create-fundraiser">
           <NavLink onClick={() => setIsMenuOpen(false)}>
-            Start a Fundeserved
+            All Fundraisers
           </NavLink>
+        </Link>
+        <Link href="/my-fundraisers">
+          <NavLink onClick={() => setIsMenuOpen(false)}>My Fundraisers</NavLink>
         </Link>
         {!mobileMenu && (
           <Logo>
@@ -75,7 +75,7 @@ export default function Header() {
         <Link href="/mario">
           <NavLink onClick={() => setIsMenuOpen(false)}>Sign In</NavLink>
         </Link>
-        <Link href="/mario">
+        <Link href="/create-fundraiser">
           <NavButton onClick={() => setIsMenuOpen(false)}>
             Start Fundeserving
           </NavButton>

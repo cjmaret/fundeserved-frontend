@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Form from './styledForm';
 
 export const FundraiserSection = styled.section`
   display: flex;
@@ -8,9 +9,32 @@ export const FundraiserSection = styled.section`
   max-width: 1080px;
 `;
 
+export const TitleGroup = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+`;
+
 export const Title = styled.h1`
   font-size: 45px;
   margin: 0;
+`;
+
+export const UpdateButton = styled.button`
+  font-size: 15px;
+  border: 1px solid red;
+  padding: 10px 15px;
+  height: 50%;
+  border: none;
+  border-radius: 10px;
+  transition: opacity 0.4s ease;
+  background-color: var(--lightGrey);
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 `;
 
 export const FundraiserInfo = styled.div`
@@ -150,4 +174,41 @@ export const DonorCardAmount = styled.p`
 
 export const DonorListSeeAllButton = styled(Button)`
   width: 40%;
+`;
+
+export const UpdateFormComponent = styled.div`
+  visibility: ${(props) => (props.isUpdateFormOpen ? 'visible' : 'hidden')};
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const UpdateForm = styled(Form)`
+  position: relative;
+`;
+
+export const CloseIcon = styled.img`
+  position: absolute;
+  width: 25px;
+  top: -5px;
+  left: -5px;
+  z-index: 1;
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const UpdateFormFade = styled.div`
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
