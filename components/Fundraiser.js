@@ -17,7 +17,7 @@ import {
 import { formatCentsToDollars } from '../lib/formatMoney';
 
 export default function Fundraiser({ fundraiser }) {
-  const fundraiserImage = fundraiser?.photo.image.publicUrlTransformed;
+  const fundraiserImage = fundraiser?.photo?.image?.publicUrlTransformed;
 
   function convertDate() {
     if (fundraiser.dateCreated) {

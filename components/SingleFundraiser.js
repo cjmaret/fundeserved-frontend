@@ -27,16 +27,21 @@ import {
   PercentageBarGroup,
   PercentageBar,
   PercentageBarFilled,
-  UpdateFormComponent,
   UpdateForm,
   CloseIcon,
-  UpdateFormFade,
+  UpdateButtonGroup,
+  UpdateFormContainer,
+  DeleteFormContainer,
+  DeleteFormTitle,
+  DeleteFormButton,
+  DeleteFormGroup,
 } from './styles/styledSingleFundraiser';
 import { donors } from '../array-data/donors';
 import { formatCentsToDollars } from '../lib/formatMoney';
 import useForm from '../lib/useForm';
 import CloseIconImage from '../images/close-icon.png';
 import { useEffect, useState } from 'react';
+import Router from 'next/router';
 
 const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -97,6 +102,14 @@ const UPDATE_FUNDRAISER_NO_IMAGE_MUTATION = gql`
   }
 `;
 
+const DELETE_FUNDRAISER_MUTATION = gql`
+  mutation DELETE_FUNDRAISER_MUTATION($id: ID!) {
+    deleteFundraiser(id: $id) {
+      id
+    }
+  }
+`;
+
 export default function SingleFundraiser({ id }) {
   const { data, loading, error } = useQuery(SINGLE_FUNDRAISER_QUERY, {
     variables: { id },
@@ -120,7 +133,15 @@ export default function SingleFundraiser({ id }) {
     },
   ] = useMutation(UPDATE_FUNDRAISER_NO_IMAGE_MUTATION);
 
-  const [isUpdateFormOpen, setIsUpdateFormOpen] = useState(false);
+  const [deleteFundraiser, { loading: deleteLoading, error: deleteError }] =
+    useMutation(DELETE_FUNDRAISER_MUTATION, {
+      variables: {
+        id,
+      },
+    });
+
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   if (loading) return <p>Loading...</p>;
   if (error || updateErrorWithImage || updateErrorNoImage) {
@@ -140,9 +161,9 @@ export default function SingleFundraiser({ id }) {
 
   function checkIfClickedOutside(e) {
     const innerDiv = document.getElementById('form');
-    if (isUpdateFormOpen) {
+    if (isUpdateModalOpen) {
       if (!innerDiv.contains(e.target)) {
-        setIsUpdateFormOpen(false);
+        setIsUpdateModalOpen(false);
       }
     }
   }
@@ -159,7 +180,7 @@ export default function SingleFundraiser({ id }) {
         .then((res) => {
           clearForm();
           console.log(res);
-          setIsUpdateFormOpen(false);
+          setIsUpdateModalOpen(false);
         })
         .catch((err) => console.error(err));
     } else {
@@ -174,10 +195,22 @@ export default function SingleFundraiser({ id }) {
         .then((res) => {
           clearForm();
           console.log(res);
-          setIsUpdateFormOpen(false);
+          setIsUpdateModalOpen(false);
         })
         .catch((err) => console.error(err));
     }
+  }
+
+  function handleDeleteFundraiser() {
+    deleteFundraiser()
+      .then((res) => {
+        console.log(res);
+        Router.push({
+          pathname: `/fundraisers`,
+        });
+        alert('Fundraiser deleted');
+      })
+      .catch((err) => console.error(err));
   }
 
   return (
@@ -185,9 +218,14 @@ export default function SingleFundraiser({ id }) {
       <FundraiserSection>
         <TitleGroup>
           <Title>{Fundraiser.name}</Title>
-          <UpdateButton onClick={() => setIsUpdateFormOpen(true)}>
-            Edit Fundraiser
-          </UpdateButton>
+          <UpdateButtonGroup>
+            <UpdateButton onClick={() => setIsUpdateModalOpen(true)}>
+              Edit Fundraiser
+            </UpdateButton>
+            <UpdateButton onClick={() => setIsDeleteModalOpen(true)}>
+              Delete Fundraiser
+            </UpdateButton>
+          </UpdateButtonGroup>
         </TitleGroup>
         <FundraiserInfo>
           <Details>
@@ -226,8 +264,8 @@ export default function SingleFundraiser({ id }) {
           </Sidebar>
         </FundraiserInfo>
       </FundraiserSection>
-      <UpdateFormComponent
-        isUpdateFormOpen={isUpdateFormOpen}
+      <UpdateFormContainer
+        isUpdateModalOpen={isUpdateModalOpen}
         onClick={checkIfClickedOutside}>
         <UpdateForm
           id="form"
@@ -238,7 +276,7 @@ export default function SingleFundraiser({ id }) {
           <CloseIcon
             src={CloseIconImage}
             alt="close icon"
-            onClick={() => setIsUpdateFormOpen(false)}
+            onClick={() => setIsUpdateModalOpen(false)}
           />
           <DisplayError error={error} />
           <fieldset disabled={loading} aria-busy={loading}>
@@ -281,7 +319,15 @@ export default function SingleFundraiser({ id }) {
             </div>
           </fieldset>
         </UpdateForm>
-      </UpdateFormComponent>
+      </UpdateFormContainer>
+      <DeleteFormContainer isDeleteModalOpen={isDeleteModalOpen}>
+        <DeleteFormGroup>
+          <DeleteFormTitle>Delete Fundraiser?</DeleteFormTitle>
+          <DeleteFormButton onClick={handleDeleteFundraiser}>
+            Delete
+          </DeleteFormButton>
+        </DeleteFormGroup>
+      </DeleteFormContainer>
     </>
   );
 }

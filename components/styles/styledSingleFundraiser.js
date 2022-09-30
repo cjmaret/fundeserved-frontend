@@ -7,24 +7,32 @@ export const FundraiserSection = styled.section`
   flex-direction: column;
   width: 90%;
   max-width: 1080px;
+  margin-top: 75px;
 `;
 
 export const TitleGroup = styled.div`
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   max-width: 960px;
 `;
 
 export const Title = styled.h1`
   font-size: 45px;
-  margin: 0;
+  margin: 0 0 15px 0;
+  width: 55%;
+  line-height: 1.2;
+`;
+
+export const UpdateButtonGroup = styled.div`
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
 `;
 
 export const UpdateButton = styled.button`
   font-size: 15px;
-  border: 1px solid red;
   padding: 10px 15px;
   height: 50%;
   border: none;
@@ -176,8 +184,7 @@ export const DonorListSeeAllButton = styled(Button)`
   width: 40%;
 `;
 
-export const UpdateFormComponent = styled.div`
-  visibility: ${(props) => (props.isUpdateFormOpen ? 'visible' : 'hidden')};
+export const ModalContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -188,6 +195,14 @@ export const UpdateFormComponent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const UpdateFormContainer = styled(ModalContainer)`
+  visibility: ${(props) => (props.isUpdateModalOpen ? 'visible' : 'hidden')};
+`;
+
+export const DeleteFormContainer = styled(ModalContainer)`
+  visibility: ${(props) => (props.isDeleteModalOpen ? 'visible' : 'hidden')};
 `;
 
 export const UpdateForm = styled(Form)`
@@ -205,10 +220,28 @@ export const CloseIcon = styled.img`
   }
 `;
 
-export const UpdateFormFade = styled.div`
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background-color: rgba(0, 0, 0, 0.5);
+export const DeleteFormGroup = styled.div`
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  border-radius: 5px;
+`;
+
+export const DeleteFormTitle = styled.h2``;
+
+export const DeleteFormButton = styled.button`
+  font-size: 35px;
+  background-color: var(--red);
+  color: white;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 10px;
+  transition: opacity 0.4s ease;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+  }
 `;
