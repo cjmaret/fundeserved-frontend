@@ -1,21 +1,12 @@
 import styled from 'styled-components';
 
-export const FundraisersGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  width: 100%;
-  background-color: rgba(235, 235, 235, 0.3);
-  padding: 25px;
-  max-width: 1080px;
-`;
-
 export const FundraisersLead = styled.div`
   width: 90%;
   margin: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1080px;
 `;
 
 export const FundraisersTitle = styled.h1`
@@ -44,4 +35,14 @@ export const CreateFundraiserButton = styled.button`
     opacity: 0.7;
     cursor: pointer;
   }
+`;
+
+export const FundraisersGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  background-color: rgba(235, 235, 235, 0.3);
+  padding: 25px;
+  max-width: 1080px;
 `;

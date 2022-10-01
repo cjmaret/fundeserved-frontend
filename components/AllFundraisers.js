@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Link from 'next/link';
 import { featuredCards } from '../array-data/featured-data';
-import Fundraiser from './Fundraiser';
+import FundraiserCard from './FundraiserCard';
 import {
   CreateFundraiserButton,
   FundraisersGrid,
@@ -47,7 +47,7 @@ export default function AllFundraisers() {
       </FundraisersLead>
       <FundraisersGrid>
         {data.allFundraisers.map((fundraiser) => (
-          <Fundraiser key={fundraiser.id} fundraiser={fundraiser} />
+          <FundraiserCard key={fundraiser.id} fundraiser={fundraiser} />
         ))}
       </FundraisersGrid>
     </>

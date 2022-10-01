@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useContext } from 'react';
+import { MobileContext } from '../contexts/mobileContext';
 import {
-  FundraiserCard,
+  FundraiserCardComponent,
   FundraiserParagraph,
   FundraiserImageWrapper,
   FundraiserTitle,
@@ -13,10 +15,11 @@ import {
   FundraiserDetails,
   AmountSpan,
   CreatedOn,
-} from './styles/styledFundraiser';
+} from './styles/styledFundraiserCard';
 import { formatCentsToDollars } from '../lib/formatMoney';
 
 export default function Fundraiser({ fundraiser }) {
+  const mobileMenu = useContext(MobileContext);
   const fundraiserImage = fundraiser?.photo?.image?.publicUrlTransformed;
 
   function convertDate() {
@@ -32,14 +35,14 @@ export default function Fundraiser({ fundraiser }) {
   }
 
   return (
-    <FundraiserCard>
+    <FundraiserCardComponent>
       <FundraiserLink href={`/fundraiser/${fundraiser.id}`} />
       <FundraiserImageWrapper>
         <img src={fundraiserImage} alt="" className="fundraiser-image" />
       </FundraiserImageWrapper>
       <FundraiserDetails>
         <FundraiserTitle>{fundraiser?.name}</FundraiserTitle>
-        <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
+        {!mobileMenu && <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>}
         <CreatedOn>Created on {convertDate()}</CreatedOn>
         <PercentageBarGroup>
           <PercentageBarFilled
@@ -54,6 +57,6 @@ export default function Fundraiser({ fundraiser }) {
           of {formatCentsToDollars(fundraiser.goal)}
         </FundraiserAmount>
       </FundraiserDetails>
-    </FundraiserCard>
+    </FundraiserCardComponent>
   );
 }

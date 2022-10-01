@@ -25,7 +25,7 @@ export default function MenuWrapper({
             <img
               src={isMenuOpen ? CloseIcon : HamburgerIcon}
               alt=""
-              layout="fill"
+              className="icon-image"
             />
           </IconWrapper>
         </MobileMenuWrapper>

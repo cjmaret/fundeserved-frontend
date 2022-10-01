@@ -6,11 +6,11 @@ export const HeaderComponent = styled.header`
   justify-content: ${(props) =>
     props.mobileMenu ? 'center' : 'space-between'};
   align-items: center;
-  font-size: 1rem;
+  font-size: 2rem;
   padding: ${(props) => (props.mobileMenu ? 'none' : '1rem 1rem')};
   margin: auto;
   @media (min-width: 1080px) {
-    width: 1080px;
+    max-width: 1080px;
   }
 `;
 
@@ -20,8 +20,8 @@ export const Logo = styled.div`
   justify-content: center;
   align-items: center;
   width: ${(props) => (props.mobileMenu ? '5%' : '15%')};
-  max-width: 100px;
-  min-width: 100px;
+  max-width: 150px;
+  min-width: 150px;
   text-align: center;
   font-size: 1.5rem;
   flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
@@ -29,7 +29,7 @@ export const Logo = styled.div`
     width: 100%;
     position: relative;
   }
-  .logo {
+  .logo-image {
     width: 100%;
     height: 100%;
   }
@@ -66,10 +66,13 @@ export const MobileMenuWrapper = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  width: 20px;
+  width: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  .icon-image {
+    width: 100%;
+  }
   &:hover {
     cursor: pointer;
   }

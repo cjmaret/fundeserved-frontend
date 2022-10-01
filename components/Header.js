@@ -34,10 +34,10 @@ export default function Header() {
             <Link href="/">
               <NavLink className="logo__anchor">
                 <img
+                  className="logo-image"
                   src={LogoImage}
                   onClick={() => setIsMenuOpen(false)}
                   alt=""
-                  layout="fill"
                 />
               </NavLink>
             </Link>
@@ -63,7 +63,7 @@ export default function Header() {
           <Logo>
             <Link href="/">
               <NavLink className="logo__anchor">
-                <img className="logo" src={LogoImage} alt="" />
+                <img className="logo=image" src={LogoImage} alt="" />
                 {/* <Image src={LogoImage} alt="" objectFit="cover" layout="fill" /> */}
               </NavLink>
             </Link>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FundraiserCard = styled.div`
+export const FundraiserCardComponent = styled.div`
   display: grid;
   grid-auto-flow: row;
   background-color: white;

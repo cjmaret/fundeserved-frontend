@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Link from 'next/link';
-import Fundraiser from './Fundraiser';
+import FundraiserCard from './FundraiserCard';
 import { CreateFundraiserButton, FundraisersGrid, FundraisersLead, FundraisersSubtitle, FundraisersTitle } from './styles/styledFundraisers';
 
 // change to only user-created fundraisers later
@@ -42,7 +42,7 @@ export default function MyFundraisers() {
       </FundraisersLead>
       <FundraisersGrid>
         {data.allFundraisers.map((fundraiser) => (
-          <Fundraiser key={fundraiser.id} fundraiser={fundraiser} />
+          <FundraiserCard key={fundraiser.id} fundraiser={fundraiser} />
         ))}
       </FundraisersGrid>
     </>
