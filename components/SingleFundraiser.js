@@ -110,6 +110,11 @@ const DELETE_FUNDRAISER_MUTATION = gql`
   }
 `;
 
+function update(cache, payload) {
+  console.log(payload);
+  cache.evict(cache.identify(payload.data.deleteFundraiser));
+}
+
 export default function SingleFundraiser({ id }) {
   const { data, loading, error } = useQuery(SINGLE_FUNDRAISER_QUERY, {
     variables: { id },
@@ -138,24 +143,17 @@ export default function SingleFundraiser({ id }) {
       variables: {
         id,
       },
+      update,
     });
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  if (loading) return <p>Loading...</p>;
-  if (error || updateErrorWithImage || updateErrorNoImage) {
-    return (
-      <DisplayError
-        error={error || updateErrorWithImage || updateErrorNoImage}
-      />
-    );
-  }
-  const { Fundraiser } = data;
+  const Fundraiser = data?.Fundraiser;
   const FundraiserImageSource = Fundraiser?.photo?.image?.publicUrlTransformed;
   const { inputs, handleChange, clearForm, resetForm } = useForm({
-    name: Fundraiser.name,
-    description: Fundraiser.description,
+    name: Fundraiser?.name || '',
+    description: Fundraiser?.description || '',
     image: FundraiserImageSource,
   });
 
@@ -211,6 +209,15 @@ export default function SingleFundraiser({ id }) {
         alert('Fundraiser deleted');
       })
       .catch((err) => console.error(err));
+  }
+
+  if (loading) return <p>Loading...</p>;
+  if (error || updateErrorWithImage || updateErrorNoImage) {
+    return (
+      <DisplayError
+        error={error || updateErrorWithImage || updateErrorNoImage}
+      />
+    );
   }
 
   return (
