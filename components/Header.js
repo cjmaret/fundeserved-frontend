@@ -12,10 +12,13 @@ import LogoImage from '../images/logo.jpg';
 import MenuWrapper from './MenuWrapper';
 import { MobileContext } from '../contexts/mobileContext';
 import IndividualsHeaderList from './IndividualsHeaderList';
+import { useUser } from './User';
+import SignOut from './SignOut';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mobileMenu = useContext(MobileContext);
+  const user = useUser();
 
   return (
     <HeaderComponent mobileMenu={mobileMenu}>
@@ -56,8 +59,8 @@ export default function Header() {
             All Fundraisers
           </NavLink>
         </Link>
-        <Link href="/my-fundraisers">
-          <NavLink onClick={() => setIsMenuOpen(false)}>My Fundraisers</NavLink>
+        <Link href="/mario">
+          <NavLink onClick={() => setIsMenuOpen(false)}>How it works</NavLink>
         </Link>
         {!mobileMenu && (
           <Logo>
@@ -69,12 +72,21 @@ export default function Header() {
             </Link>
           </Logo>
         )}
-        <Link href="/mario">
-          <NavLink onClick={() => setIsMenuOpen(false)}>How it works</NavLink>
-        </Link>
-        <Link href="/mario">
-          <NavLink onClick={() => setIsMenuOpen(false)}>Sign In</NavLink>
-        </Link>
+        {user && (
+          <>
+            <Link href="/my-fundraisers">
+              <NavLink onClick={() => setIsMenuOpen(false)}>
+                My Fundraisers
+              </NavLink>
+            </Link>
+            <SignOut />
+          </>
+        )}
+        {!user && (
+          <Link href="/signin">
+            <NavLink onClick={() => setIsMenuOpen(false)}>Sign In</NavLink>
+          </Link>
+        )}
         <Link href="/create-fundraiser">
           <NavButton onClick={() => setIsMenuOpen(false)}>
             Start Fundeserving
