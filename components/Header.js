@@ -5,7 +5,7 @@ import {
   NavLink,
   NavButton,
 } from './styles/styledHeader';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import LogoImage from '../images/logo.jpg';
 import MenuWrapper from './MenuWrapper';
@@ -34,16 +34,15 @@ export default function Header() {
 
   return (
     <HeaderComponent mobileMenu={mobileMenu}>
-      {process.env.NEXT_PUBLIC_STRIPE_KEY}
-      <Search
+      {/* <Search
         mobileMenu={mobileMenu}
         isMenuOpen={isMenuOpen}
         onClick={() => console.log('heehoo')}>
-        Search
+        Search */}
         <ClientOnly>
           <Search />
         </ClientOnly>
-      </Search>
+      {/* </Search> */}
       {mobileMenu && (
         <>
           <Logo mobileMenu={mobileMenu}>

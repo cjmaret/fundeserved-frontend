@@ -118,7 +118,7 @@ export const ButtonGroup = styled.div`
   width: 100%;
 `;
 
-export const Button = styled.button`
+export const Button = styled.a`
   color: white;
   font-size: 15px;
   width: 100%;
@@ -128,12 +128,16 @@ export const Button = styled.button`
   border-radius: 5px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 5px;
+  text-align: center;
   &:last-child {
     margin-bottom: 0;
   }
   &:hover {
     cursor: pointer;
     transform: translate(1px, 1px);
+  }
+  &:hover {
+    text-decoration: none;
   }
 `;
 

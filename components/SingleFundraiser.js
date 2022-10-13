@@ -254,7 +254,7 @@ export default function SingleFundraiser({ id }) {
             </PercentageBarGroup>
             <ButtonGroup>
               <ShareButton>Share</ShareButton>
-              <DonateButton>Donate now</DonateButton>
+              <DonateButton href={`/donate/${Fundraiser.id}`}>Donate now</DonateButton>
             </ButtonGroup>
             <DonorList>
               {donors.map((donor, i) => (
