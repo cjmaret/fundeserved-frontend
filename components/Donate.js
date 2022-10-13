@@ -71,8 +71,6 @@ export default function Donate({ id }) {
     }
   }, [amountValue]);
 
-  console.log(typeof amountValue);
-
   function addCommasToNumber(num) {
     return num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
@@ -80,7 +78,9 @@ export default function Donate({ id }) {
   return (
     <DonateSection>
       <MainGroup>
-        <ReturnButton>Return to fundraiser</ReturnButton>
+        <ReturnButton href={`/fundraiser/${id}`}>
+          Return to fundraiser
+        </ReturnButton>
         <InfoGroup>
           <InfoImage
             src={Fundraiser?.photo?.image.publicUrlTransformed}

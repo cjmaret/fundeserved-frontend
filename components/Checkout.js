@@ -6,9 +6,11 @@ import {
   useStripe,
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
+import { useRouter } from 'next/dist/client/router';
 import nProgress from 'nprogress';
 import { useState } from 'react';
 import styled from 'styled-components';
+import { formatDollarsToCents } from '../lib/formatMoney';
 import { CURRENT_USER_QUERY } from './User';
 
 const CheckoutFormComponent = styled.form`
@@ -22,17 +24,11 @@ const CheckoutFormComponent = styled.form`
 const CREATE_ORDER_MUTATION = gql`
   mutation CREATE_ORDER_MUTATION(
     $token: String!
-    $amount: String!
+    $amount: Int!
     $fundraiserId: String!
   ) {
     checkout(token: $token, amount: $amount, fundraiserId: $fundraiserId) {
       id
-      # charge
-      # total
-      # items {
-      #   id
-      #   name
-      # }
     }
   }
 `;
@@ -44,6 +40,7 @@ function CheckoutForm({ amount, fundraiserId }) {
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
+  const router = useRouter();
 
   const [checkout, { error: graphQLError }] = useMutation(
     CREATE_ORDER_MUTATION,
@@ -56,7 +53,6 @@ function CheckoutForm({ amount, fundraiserId }) {
     // stop form from submitting and turn loader on
     e.preventDefault();
     setLoading(true);
-    console.log('bingo');
     // 2. start the page transition
     nProgress.start();
     // 3. create the payment method via stripe (token comes back here if successful)
@@ -64,7 +60,6 @@ function CheckoutForm({ amount, fundraiserId }) {
       type: 'card',
       card: elements.getElement(CardElement),
     });
-    console.log(paymentMethod);
     // 4. handle any errors from stripe
     if (error) {
       setError(error);
@@ -72,15 +67,19 @@ function CheckoutForm({ amount, fundraiserId }) {
       return; // stops the checkout from happening
     }
     // 5. send the token from step 3 to our keystone server, via a custom mutation
-    const order = await checkout({
+    await checkout({
       variables: {
         token: paymentMethod.id,
-        amount,
+        amount: formatDollarsToCents(amount),
         fundraiserId,
       },
-    });
-    console.log(`Finished with the order!!`);
-    console.log(order);
+    })
+      .then((res) => {
+        router.push({
+          pathname: `/my-fundraisers`,
+        });
+      })
+      .catch((err) => console.error(err));
     // 6. change the page to view the order
     // 8. turn off loader
     setLoading(false);
