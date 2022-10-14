@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const DonateSection = styled.section`
   width: 100%;
-  border: 1px solid red;
   display: grid;
   grid-template-areas: '. main main sidebar .';
   grid-gap: 1.5rem 2rem;
@@ -72,11 +71,11 @@ export const DonateInputGroup = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
   font-weight: 700;
-  border: 1px solid grey;
+  border: 1px solid ${(props) => (props.inputError ? 'var(--red)' : 'grey')};
   border-radius: 5px;
   width: 100%;
+  font-size: 40px;
 `;
 
 export const Dollar = styled.p`
@@ -85,7 +84,8 @@ export const Dollar = styled.p`
 
 export const DonateInput = styled.input`
   border: none;
-  font-size: 50px;
+  font-family: inherit;
+  font-size: 40px;
   font-weight: 700;
   width: 70%;
   text-align: right;
@@ -98,12 +98,38 @@ export const Cents = styled.p`
 `;
 
 export const DonateInputError = styled.p`
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 500;
   color: var(--red);
   text-align: center;
   line-height: 1;
   margin: 1rem 0 0 0;
+`;
+
+export const GuaranteeGroup = styled.div`
+  margin: 2rem 0 0 0;
+  display: flex;
+  align-items: center;
+`;
+
+export const GuaranteeImage = styled.img`
+  width: 60px;
+  height: 60px;
+  margin-right: 15px;
+`;
+
+export const GuaranteeDetailsGroup = styled.div``;
+
+export const GuaranteeTitle = styled.h3`
+  font-size: 15px;
+  margin: 0;
+`;
+
+export const GuaranteeSubtitle = styled.p`
+  font-size: 12px;
+  color: var(--grey);
+  margin: 0;
+  line-height: 1.5;
 `;
 
 export const Sidebar = styled.div`

@@ -14,6 +14,11 @@ import {
   DonateInputGroup,
   DonateSection,
   DonateTitle,
+  GuaranteeDetailsGroup,
+  GuaranteeGroup,
+  GuaranteeImage,
+  GuaranteeSubtitle,
+  GuaranteeTitle,
   InfoDetailsGroup,
   InfoGroup,
   InfoImage,
@@ -25,6 +30,7 @@ import {
   SidebarTitle,
 } from '../components/styles/styledDonate';
 import DisplayError from './ErrorMessage';
+import GuaranteeImageIcon from '../images/guarantee.png'
 
 const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -95,7 +101,7 @@ export default function Donate({ id }) {
         </InfoGroup>
         <DonateGroup>
           <DonateTitle>Enter your donation</DonateTitle>
-          <DonateInputGroup>
+          <DonateInputGroup inputError={inputError}>
             <Dollar>$</Dollar>
             <DonateInput
               type="text"
@@ -110,6 +116,19 @@ export default function Donate({ id }) {
           )}
         </DonateGroup>
         <Checkout amount={amountValue} fundraiserId={Fundraiser?.id} />
+        <GuaranteeGroup>
+          <GuaranteeImage src={GuaranteeImageIcon} alt="guarantee icon"/>
+          <GuaranteeDetailsGroup>
+            <GuaranteeTitle>Fundeserved donation protection</GuaranteeTitle>
+            <GuaranteeSubtitle>
+              Fundeserved guarantees 100% of your donation will go to whatever
+              legal/ethical misuse this fundraiser claims to be perpetrating.
+              However, if any of our staff members are skimming or otherwise
+              embezzling donations to satisfy their own personal greed, then of
+              course your donation is not protected by this guarantee.
+            </GuaranteeSubtitle>
+          </GuaranteeDetailsGroup>
+        </GuaranteeGroup>
       </MainGroup>
       <Sidebar>
         <SidebarTitle>Your donation</SidebarTitle>

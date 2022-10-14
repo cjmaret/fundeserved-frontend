@@ -14,11 +14,30 @@ import { formatDollarsToCents } from '../lib/formatMoney';
 import { CURRENT_USER_QUERY } from './User';
 
 const CheckoutFormComponent = styled.form`
-  box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  padding: 1rem;
   display: grid;
   grid-gap: 1rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  & > button {
+    background-color: ${(props) => (props.loading ? 'grey' : 'var(--red)')};
+    color: white;
+    font-size: 16px;
+    width: 125px;
+    margin: 20px auto 0 auto;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    transition: opacity 0.4s ease;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+  .card {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px 10px;
+  }
 `;
 
 const CREATE_ORDER_MUTATION = gql`
@@ -88,8 +107,10 @@ function CheckoutForm({ amount, fundraiserId }) {
   return (
     <CheckoutFormComponent onSubmit={handleSubmit}>
       {graphQLError && <p>{graphQLError.message}</p>}
-      <CardElement />
-      <button>Donate now</button>
+      <CardElement className="card" />
+      <button disabled={loading} loading={loading}>
+        {loading ? 'One moment' : 'Donate now'}
+      </button>
     </CheckoutFormComponent>
   );
 }
