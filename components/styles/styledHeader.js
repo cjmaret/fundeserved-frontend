@@ -6,7 +6,7 @@ export const HeaderComponent = styled.header`
   justify-content: ${(props) =>
     props.mobileMenu ? 'center' : 'space-between'};
   align-items: center;
-  font-size: 2rem;
+  font-size: 1.7rem;
   padding: ${(props) => (props.mobileMenu ? 'none' : '1rem 1rem')};
   margin: auto;
   @media (min-width: 1080px) {
@@ -57,7 +57,7 @@ export const NavButton = styled.a`
   transition: all 0.4s ease;
 `;
 
-export const MobileMenuWrapper = styled.div`
+export const MobileWrapper = styled.div`
   position: relative;
   flex: 1;
   display: flex;
@@ -78,17 +78,14 @@ export const IconWrapper = styled.div`
   }
 `;
 
-export const HamburgerIconWrapper = styled(IconWrapper)``;
-
-export const MobileMenu = styled.div`
-  display: ${(props) => (props.isMenuOpen ? 'flex' : 'none')};
+export const MobileDropdown = styled.div`
   flex-direction: column;
   background: white;
   width: 100%;
   margin: auto;
   padding: 1rem 0.5rem;
   position: absolute;
-  top: 64px;
+  top: 92px;
   height: 100vh;
   overflow: hidden;
   z-index: 2;
@@ -99,11 +96,29 @@ export const MobileMenu = styled.div`
   }
 `;
 
+export const MobileMenuWrapper = styled(MobileWrapper)``;
+
+export const HamburgerIconWrapper = styled(IconWrapper)``;
+
+export const MobileMenu = styled(MobileDropdown)`
+  display: ${(props) => (props.isMenuOpen ? 'flex' : 'none')};
+`;
+
 export const CloseIconWrapper = styled(IconWrapper)``;
 
 export const Search = styled.div`
   visibility: ${(props) => (props.isMenuOpen ? 'hidden' : 'visible')};
   flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
+`;
+
+export const MobileSearchWrapper = styled(MobileWrapper)`
+  display: flex;
+  justify-content: flex-start;
+  flex: 1;
+`;
+
+export const MobileSearch = styled(MobileDropdown)`
+  display: ${(props) => (props.isSearchMenuOpen ? 'flex' : 'none')};
 `;
 
 // export const IndividualsNavItem = styled.div``;

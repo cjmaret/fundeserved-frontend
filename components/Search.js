@@ -28,7 +28,7 @@ const SEARCH_FUNDRAISERS_QUERY = gql`
   }
 `;
 
-export default function Search() {
+export default function Search({ isSearchMenuOpen, closeAllMenus }) {
   const router = useRouter();
   const [findItems, { loading, data, error }] = useLazyQuery(
     SEARCH_FUNDRAISERS_QUERY,
@@ -39,7 +39,7 @@ export default function Search() {
   );
   const items = data?.searchTerms || [];
   const findItemsButChill = debounce(findItems, 350);
- 
+
   resetIdCounter();
   const {
     isOpen,
@@ -77,14 +77,15 @@ export default function Search() {
           })}
         />
       </div>
-      <DropDown {...getMenuProps()}>
+      <DropDown {...getMenuProps()} isOpen={isOpen}>
         {isOpen &&
           items.map((item, index) => (
             <DropDownItem
               key={item.id}
               {...getItemProps({ item, index })}
               highlighted={index === highlightedIndex}
-              href={`/fundraiser/${item.id}`}>
+              href={`/fundraiser/${item.id}`}
+              onClick={() => closeAllMenus(false)}>
               {item.photo && (
                 <img
                   src={item.photo?.image.publicUrlTransformed}
@@ -96,7 +97,9 @@ export default function Search() {
             </DropDownItem>
           ))}
         {isOpen && !items.length && !loading && (
-          <DropDownItem>Sorry, no items found for {inputValue}</DropDownItem>
+          <DropDownItem className="no-items-found">
+            Sorry, no items found for {inputValue}
+          </DropDownItem>
         )}
       </DropDown>
     </SearchStyles>

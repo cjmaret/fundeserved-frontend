@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import {
   MobileMenuWrapper,
   MobileMenu,
@@ -26,6 +25,7 @@ export default function MenuWrapper({
               src={isMenuOpen ? CloseIcon : HamburgerIcon}
               alt=""
               className="icon-image"
+              name="mobile-menu"
             />
           </IconWrapper>
         </MobileMenuWrapper>

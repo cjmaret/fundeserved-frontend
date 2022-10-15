@@ -6,14 +6,13 @@ import {
   NavButton,
 } from './styles/styledHeader';
 import { useContext, useEffect, useState } from 'react';
-import Image from 'next/image';
 import LogoImage from '../images/logo.jpg';
 import MenuWrapper from './MenuWrapper';
 import { MobileContext } from '../contexts/mobileContext';
-import IndividualsHeaderList from './IndividualsHeaderList';
 import { useUser } from './User';
 import SignOut from './SignOut';
 import Search from './Search';
+import SearchWrapper from './SearchWrapper';
 
 // Only mount `Search` component on the client to stop infinite re-renders
 function ClientOnly({ children, ...delegated }) {
@@ -29,35 +28,55 @@ function ClientOnly({ children, ...delegated }) {
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
   const mobileMenu = useContext(MobileContext);
   const user = useUser();
 
+  function closeAllMenus() {
+    setIsMenuOpen(false);
+    setIsSearchMenuOpen(false);
+  }
+
+  // one menu at a time
+  useEffect(() => {
+    function toggleMenus(e) {
+      if (e.target.name === 'mobile-menu') {
+        setIsSearchMenuOpen(false);
+      } else if (e.target.name === 'mobile-search') {
+        setIsMenuOpen(false);
+      }
+    }
+    window.addEventListener('click', toggleMenus);
+    return () => window.removeEventListener('click', toggleMenus);
+  }, [isMenuOpen, isSearchMenuOpen]);
+
   return (
     <HeaderComponent mobileMenu={mobileMenu}>
-      {/* <Search
-        mobileMenu={mobileMenu}
-        isMenuOpen={isMenuOpen}
-        onClick={() => console.log('heehoo')}>
-        Search */}
+      <SearchWrapper
+        isSearchMenuOpen={isSearchMenuOpen}
+        setIsSearchMenuOpen={setIsSearchMenuOpen}
+        mobileMenu={mobileMenu}>
         <ClientOnly>
-          <Search />
+          <Search
+            isSearchMenuOpen={isSearchMenuOpen}
+            setIsSearchMenuOpen={setIsSearchMenuOpen}
+            closeAllMenus={closeAllMenus}
+          />
         </ClientOnly>
-      {/* </Search> */}
+      </SearchWrapper>
       {mobileMenu && (
-        <>
-          <Logo mobileMenu={mobileMenu}>
-            <Link href="/">
-              <NavLink className="logo__anchor">
-                <img
-                  className="logo-image"
-                  src={LogoImage}
-                  onClick={() => setIsMenuOpen(false)}
-                  alt=""
-                />
-              </NavLink>
-            </Link>
-          </Logo>
-        </>
+        <Logo mobileMenu={mobileMenu}>
+          <Link href="/">
+            <NavLink className="logo__anchor">
+              <img
+                className="logo-image"
+                src={LogoImage}
+                onClick={() => setIsMenuOpen(false)}
+                alt=""
+              />
+            </NavLink>
+          </Link>
+        </Logo>
       )}
       <MenuWrapper
         isMenuOpen={isMenuOpen}
@@ -67,12 +86,12 @@ export default function Header() {
           <Image src={CloseIcon} alt="" />
         </CloseIconWrapper> */}
         <Link href="/fundraisers">
-          <NavLink onClick={() => setIsMenuOpen(false)}>
+          <NavLink onClick={() => closeAllMenus(false)}>
             All Fundraisers
           </NavLink>
         </Link>
         <Link href="/mario">
-          <NavLink onClick={() => setIsMenuOpen(false)}>How it works</NavLink>
+          <NavLink onClick={() => closeAllMenus()}>How it works</NavLink>
         </Link>
         {!mobileMenu && (
           <Logo>
@@ -87,7 +106,7 @@ export default function Header() {
         {user && (
           <>
             <Link href="/my-fundraisers">
-              <NavLink onClick={() => setIsMenuOpen(false)}>
+              <NavLink onClick={() => closeAllMenus(false)}>
                 My Fundraisers
               </NavLink>
             </Link>
@@ -96,11 +115,11 @@ export default function Header() {
         )}
         {!user && (
           <Link href="/signin">
-            <NavLink onClick={() => setIsMenuOpen(false)}>Sign In</NavLink>
+            <NavLink onClick={() => closeAllMenus(false)}>Sign In</NavLink>
           </Link>
         )}
         <Link href="/create-fundraiser">
-          <NavButton onClick={() => setIsMenuOpen(false)}>
+          <NavButton onClick={() => closeAllMenus(false)}>
             Start Fundeserving
           </NavButton>
         </Link>
