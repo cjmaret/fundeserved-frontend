@@ -10,17 +10,11 @@ export const LeadComponent = styled.section`
   width: 90%;
 `;
 
-// export const Paragraph = styled.p`
-//   margin: 0 0 1rem 0;
-//   font-weight: 700;
-//   color: var(--grey);
-// `;
-
 export const Title = styled.h2`
   margin: 0 0 5rem 0;
   line-height: 1.2;
   width: 100%;
-  font-size: 4rem;
+  font-size: 3rem;
 `;
 
 export const Steps = styled.div`
@@ -58,7 +52,7 @@ export const StepDetails = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 45%;
 `;
 
 export const StepTitle = styled.h3`

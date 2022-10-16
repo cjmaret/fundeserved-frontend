@@ -10,7 +10,7 @@ export const StatsComponent = styled.section`
 `;
 
 export const Title = styled.h2`
-  font-size: 4rem;
+  font-size: 3.5rem;
   text-align: center;
   margin: 0 0 5vw 0;
   line-height: 1.5;

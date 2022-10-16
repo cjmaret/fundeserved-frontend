@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import HeroImage from '../../images/hero.jpg';
 
 export const HeroComponent = styled.section`
   position: relative;
@@ -33,6 +32,11 @@ export const HeroButton = styled.button`
   background-color: var(--red);
   font-size: 1.5rem;
   font-weight: 600;
+  transition: transform 0.4s ease;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
 `;
 
 export const HeroImageWrapper = styled.div`

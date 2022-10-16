@@ -42,7 +42,7 @@ export default function Lead() {
               <StepSpan>2. </StepSpan>Craft your story
             </StepTitle>
             <StepParagraph>
-              Pretend you&apos;re not the cause of all your misfortunes
+              Pretend you're not the cause of all your misfortunes
             </StepParagraph>
           </StepDetails>
         </Step>

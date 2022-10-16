@@ -7,7 +7,7 @@ export const JoinComponent = styled.section`
   width: 90%;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 2rem;
-  padding: 2rem 0;
+  padding: 2rem;
   margin: 5rem auto 5rem auto;
   max-width: 1080px;
   background-color: var(--lightGrey);
@@ -19,7 +19,7 @@ export const JoinComponent = styled.section`
 
 export const ImageWrapper = styled.div`
   padding: 2rem 0;
-  width: 70%;
+  width: 90%;
   max-width: 250px;
   .join-image {
     width: 100%;
@@ -30,8 +30,7 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
-  padding: 1rem 1rem;
+  width: 100%;
   @media (min-width: 950px) {
     margin-bottom: 0;
     margin-right: 3rem;
@@ -40,9 +39,9 @@ export const Details = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 600;
-  width: 95%;
+  width: 100%;
   text-align: center;
   line-height: 1.2;
   margin: 0 0 3rem 0;
@@ -86,4 +85,5 @@ export const DonateButton = styled(Button)`
   border: 1px solid var(--grey);
   color: black;
   background-color: transparent;
+  padding: 1rem 2rem;
 `;

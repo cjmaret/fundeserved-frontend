@@ -3,12 +3,12 @@ import HospitalImage from '../images/hospital.png';
 export const categoriesCards = [
   {
     id: 1,
-    title: 'Card 1',
+    title: 'White-collar',
     image: HospitalImage,
   },
   {
     id: 2,
-    title: 'Card 2',
+    title: "Cashier's Check Fraud",
     image: HospitalImage,
   },
   {

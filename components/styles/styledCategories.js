@@ -29,6 +29,7 @@ export const GridGroup = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+  width: 60%;
   @media (min-width: 500px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -40,10 +41,10 @@ export const Card = styled.div`
   position: relative;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   overflow: hidden;
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  height: 100%;
   margin: 0 1rem 2rem 1rem;
   &:hover {
     cursor: pointer;
