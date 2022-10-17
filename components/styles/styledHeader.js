@@ -7,7 +7,7 @@ export const HeaderComponent = styled.header`
     props.mobileMenu ? 'center' : 'space-between'};
   align-items: center;
   font-size: 1.7rem;
-  padding: ${(props) => (props.mobileMenu ? 'none' : '1rem 1rem')};
+  padding: ${(props) => (props.mobileMenu ? '0 1rem' : '1rem 2rem')};
   margin: auto;
   @media (min-width: 1080px) {
     max-width: 1080px;
@@ -21,7 +21,7 @@ export const Logo = styled.div`
   align-items: center;
   width: ${(props) => (props.mobileMenu ? '5%' : '15%')};
   max-width: 150px;
-  min-width: 150px;
+
   text-align: center;
   font-size: 1.5rem;
   flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
@@ -32,6 +32,7 @@ export const Logo = styled.div`
   .logo-image {
     width: 100%;
     height: 100%;
+    display: block;
   }
 `;
 
@@ -66,7 +67,7 @@ export const MobileWrapper = styled.div`
 `;
 
 export const IconWrapper = styled.div`
-  width: 30px;
+  width: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,7 +86,7 @@ export const MobileDropdown = styled.div`
   margin: auto;
   padding: 1rem 0.5rem;
   position: absolute;
-  top: 92px;
+  top: 52px;
   height: 100vh;
   overflow: hidden;
   z-index: 2;

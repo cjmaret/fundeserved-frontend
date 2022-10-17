@@ -32,6 +32,7 @@ export default function Header() {
   const mobileMenu = useContext(MobileContext);
   const user = useUser();
 
+
   function closeAllMenus() {
     setIsMenuOpen(false);
     setIsSearchMenuOpen(false);
