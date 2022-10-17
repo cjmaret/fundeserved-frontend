@@ -1,5 +1,4 @@
 import HeroImage from '../images/hero.jpg';
-import Image from 'next/image';
 import {
   HeroComponent,
   HeroDetails,
@@ -14,18 +13,13 @@ export default function Hero() {
     <HeroComponent>
       <HeroDetails>
         <HeroTitle>The undeserving need your help</HeroTitle>
-        <Link href="/mario">
+        <Link href="/fundraisers">
           <HeroButton>Fund a shitty cause</HeroButton>
         </Link>
       </HeroDetails>
       <HeroImageWrapper>
         <img src={HeroImage} alt="hero-image" className="hero-image" />
-        <style jsx global>{`
-          .hero-image {
-            /* border-radius: 2rem; */
-            object-fit: cover;
-          }
-        `}</style>
+    
       </HeroImageWrapper>
     </HeroComponent>
   );

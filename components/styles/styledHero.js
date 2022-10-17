@@ -4,6 +4,7 @@ export const HeroComponent = styled.section`
   position: relative;
   width: 100%;
   /* max-height: 700px; */
+  /* height: 100vh; */
 `;
 
 export const HeroDetails = styled.div`
@@ -45,9 +46,10 @@ export const HeroImageWrapper = styled.div`
   overflow: hidden;
   /* height: 100%;
   max-height: 700px; */
-  height: 70vh;
+  height: 100vh;
   .hero-image {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 `;
