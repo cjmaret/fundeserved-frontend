@@ -12,26 +12,12 @@ import { MobileContext } from '../contexts/mobileContext';
 import { useUser } from './User';
 import SignOut from './SignOut';
 import Search from './Search';
-import SearchWrapper from './SearchWrapper';
-
-// Only mount `Search` component on the client to stop infinite re-renders
-function ClientOnly({ children, ...delegated }) {
-  const [hasMounted, setHasMounted] = useState(false);
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-  if (!hasMounted) {
-    return null;
-  }
-  return <div {...delegated}>{children}</div>;
-}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
   const mobileMenu = useContext(MobileContext);
   const user = useUser();
-
 
   function closeAllMenus() {
     setIsMenuOpen(false);
@@ -53,18 +39,12 @@ export default function Header() {
 
   return (
     <HeaderComponent mobileMenu={mobileMenu}>
-      <SearchWrapper
+      <Search
         isSearchMenuOpen={isSearchMenuOpen}
         setIsSearchMenuOpen={setIsSearchMenuOpen}
-        mobileMenu={mobileMenu}>
-        <ClientOnly>
-          <Search
-            isSearchMenuOpen={isSearchMenuOpen}
-            setIsSearchMenuOpen={setIsSearchMenuOpen}
-            closeAllMenus={closeAllMenus}
-          />
-        </ClientOnly>
-      </SearchWrapper>
+        closeAllMenus={closeAllMenus}
+        mobileMenu={mobileMenu}
+      />
       {mobileMenu && (
         <Logo mobileMenu={mobileMenu}>
           <Link href="/">

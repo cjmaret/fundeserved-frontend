@@ -76,7 +76,7 @@ export default function Page({ children }) {
     function getWindowWidth() {
       const windowWidth = window.innerWidth;
 
-      if (windowWidth < 640) {
+      if (windowWidth < 850) {
         setMobileMenu(true);
       } else {
         setMobileMenu(false);

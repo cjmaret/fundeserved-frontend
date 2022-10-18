@@ -5,9 +5,12 @@ import styled from 'styled-components';
 
 const SignOutButton = styled.button`
   border: none;
-  font-size: 20px;
+  font-size: 1.2rem;
   background-color: transparent;
   color: var(--black);
+  padding: 0;
+  margin: 0;
+  line-height: 1;
   &:hover {
     cursor: pointer;
   }

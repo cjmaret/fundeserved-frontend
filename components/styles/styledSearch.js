@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { MobileDropdown, IconWrapper } from './styledHeader';
 
 const glow = keyframes`
   from {
@@ -9,7 +10,20 @@ const glow = keyframes`
   }
 `;
 
-export const SearchStyles = styled.div`
+export const SearchHeaderGroup = styled.div`
+  display: flex;
+  justify-content: ${(props) => (props.mobileMenu ? 'flex-start' : 'center')};
+`;
+
+export const SearchIconWrapper = styled(IconWrapper)``;
+
+export const SearchMenu = styled(MobileDropdown)`
+  display: ${(props) => (props.isSearchMenuOpen ? 'flex' : 'none')};
+  left: 0;
+  width: 100vw;
+`;
+
+export const SearchComponent = styled.div`
   position: relative;
   border: 1px solid var(--grey);
   border-radius: 5px;

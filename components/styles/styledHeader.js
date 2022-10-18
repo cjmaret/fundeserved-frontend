@@ -4,13 +4,17 @@ export const HeaderComponent = styled.header`
   width: 95%;
   display: flex;
   justify-content: ${(props) =>
-    props.mobileMenu ? 'center' : 'space-between'};
+    props.mobileMenu ? 'center' : 'center'};
   align-items: center;
-  font-size: 1.7rem;
-  padding: ${(props) => (props.mobileMenu ? '0 1rem' : '1rem 2rem')};
+  font-size: 1.2rem;
+  padding: ${(props) => (props.mobileMenu ? '0 2rem' : '0 2rem')};
   margin: auto;
   @media (min-width: 1080px) {
     max-width: 1080px;
+  }
+  & > * {
+    flex: 1;
+    text-align: center;
   }
 `;
 
@@ -19,12 +23,9 @@ export const Logo = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: ${(props) => (props.mobileMenu ? '5%' : '15%')};
-  max-width: 150px;
-
+  max-width: 100px;
   text-align: center;
   font-size: 1.5rem;
-  flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
   .logo__anchor {
     width: 100%;
     position: relative;
@@ -37,6 +38,7 @@ export const Logo = styled.div`
 `;
 
 export const NavLink = styled.a`
+line-height: 1;
   &:hover {
     text-decoration: none;
     cursor: pointer;
@@ -46,9 +48,10 @@ export const NavLink = styled.a`
 export const NavButton = styled.a`
   color: var(--red);
   font-weight: 700;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem;
   border-radius: 2rem;
   border: 1px solid var(--red);
+  white-space: nowrap;
   &:hover {
     text-decoration: none;
     cursor: pointer;
@@ -76,6 +79,9 @@ export const IconWrapper = styled.div`
   }
   &:hover {
     cursor: pointer;
+  }
+  @media (min-width: 600px) {
+    width: 2.2rem;
   }
 `;
 
@@ -106,33 +112,3 @@ export const MobileMenu = styled(MobileDropdown)`
 `;
 
 export const CloseIconWrapper = styled(IconWrapper)``;
-
-export const Search = styled.div`
-  visibility: ${(props) => (props.isMenuOpen ? 'hidden' : 'visible')};
-  flex: ${(props) => (props.mobileMenu ? '1' : 'none')};
-`;
-
-export const MobileSearchWrapper = styled(MobileWrapper)`
-  display: flex;
-  justify-content: flex-start;
-  flex: 1;
-`;
-
-export const MobileSearch = styled(MobileDropdown)`
-  display: ${(props) => (props.isSearchMenuOpen ? 'flex' : 'none')};
-`;
-
-// export const IndividualsNavItem = styled.div``;
-
-// export const IndividualsList = styled.ul`
-//   position: ${(props) => (props.isMenuOpen ? 'relative' : 'absolute')};
-//   z-index: 1;
-//   background-color: white;
-//   box-shadow: 1px 1px 10px #000000;
-//   list-style: none;
-//   padding: 0;
-//   margin: 0;
-//   display: ${(props) => (props.individualsActive ? 'block' : 'none')};
-// `;
-
-// export const IndividualsListItem = styled.li``;
