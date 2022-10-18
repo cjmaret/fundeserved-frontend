@@ -5,7 +5,7 @@ import { formatDollarsToCents } from '../lib/formatMoney';
 import useForm from '../lib/useForm';
 import DisplayError from './ErrorMessage';
 import Form from './styles/styledForm';
-import { ALL_FUNDRAISERS_QUERY } from './Fundraisers';
+import { ALL_FUNDRAISERS_QUERY } from './AllFundraisers';
 
 export const CREATE_FUNDRAISER_MUTATION = gql`
   mutation CREATE_FUNDRAISER_MUTATION(
