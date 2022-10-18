@@ -41,9 +41,9 @@ export default function Featured() {
 
   return (
     <FeaturedComponent>
-      <FeaturedTitle>Deadbeat Spotlight</FeaturedTitle>
+      <FeaturedTitle>Fundeserved Spotlight</FeaturedTitle>
       <FeaturedParagraph>
-        Meet some of our least deserving people
+        Featuring some of our least deserving fundraisers
       </FeaturedParagraph>
       <CardGroup ref={sliderRef} className="keen-slider">
         {featuredCards.map((card, i) => (

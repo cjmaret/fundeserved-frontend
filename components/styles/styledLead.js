@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const LeadComponent = styled.section`
-  margin: 7rem 0;
+  margin: 5rem 0;
   font-size: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -11,10 +11,10 @@ export const LeadComponent = styled.section`
 `;
 
 export const Title = styled.h2`
-  margin: 0 0 5rem 0;
+  margin: 0 0 3rem 0;
   line-height: 1.2;
-  width: 100%;
-  font-size: 3rem;
+  width: 95%;
+  font-size: 2.8rem;
 `;
 
 export const Steps = styled.div`

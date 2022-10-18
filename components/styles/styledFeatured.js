@@ -5,9 +5,10 @@ export const FeaturedComponent = styled.section`
   flex-direction: column;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 2rem;
   max-width: 1080px;
-  width: 90%;
+  width: 100%;
+  background-color: var(--offWhite);
 `;
 
 export const FeaturedTitle = styled.h2`
@@ -19,7 +20,7 @@ export const FeaturedTitle = styled.h2`
 export const FeaturedParagraph = styled.p`
   margin: 0 0 3rem 0;
   font-size: 2rem;
-  line-height: 1;
+  line-height: 1.2;
 `;
 
 export const CardGroup = styled.div``;

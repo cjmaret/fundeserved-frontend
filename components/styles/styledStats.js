@@ -4,7 +4,7 @@ export const StatsComponent = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10vw 0;
+  margin: 2rem 0;
   max-width: 1080px;
   width: 100%;
 `;

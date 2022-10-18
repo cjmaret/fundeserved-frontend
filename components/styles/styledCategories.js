@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CategoriesComponent = styled.section`
   margin: 5rem 0;
-  padding: 2rem 0;
+  padding: 2rem;
   max-width: 1080px;
   background-color: var(--offWhite);
   width: 100%;
@@ -12,15 +12,17 @@ export const CategoriesComponent = styled.section`
 `;
 
 export const CategoriesTitle = styled.h2`
-  margin: 0 auto;
+  margin: 0 0 1rem 0;
   font-size: 3rem;
-  line-height: 1.5;
+  line-height: 1.2;
   width: 90%;
 `;
 
 export const CategoriesParagraph = styled.p`
   width: 90%;
-  margin: 1rem auto 2rem auto;
+  margin: 0 0 1rem 0;
+  font-size: 2rem;
+  line-height: 1.2;
 `;
 
 export const GridGroup = styled.div`
