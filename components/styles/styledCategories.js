@@ -35,6 +35,7 @@ export const GridGroup = styled.div`
   @media (min-width: 500px) {
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
   }
 `;
 
@@ -47,7 +48,9 @@ export const Card = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  max-width: 200px;
   margin: 0 1rem 2rem 1rem;
+  text-align: center;
   &:hover {
     cursor: pointer;
   }
