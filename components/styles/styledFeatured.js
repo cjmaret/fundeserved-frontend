@@ -4,8 +4,8 @@ export const FeaturedComponent = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
-  padding: 2rem;
+  margin: 5rem 0;
+  padding: 5rem 2rem;
   max-width: 1080px;
   width: 100%;
   background-color: var(--offWhite);
@@ -31,8 +31,9 @@ export const Card = styled.div`
   align-items: flex-start;
   border-radius: 1rem;
   margin: 0;
-
   position: relative;
+  max-width: 200px;
+  box-sizing: border-box;
 `;
 
 export const CardLink = styled.a`
@@ -45,17 +46,26 @@ export const CardLink = styled.a`
 export const Category = styled.p`
   position: absolute;
   padding: 0 0.25rem;
-  top: 5%;
+  top: 3%;
   right: 5%;
   background-color: white;
   border-radius: 10px;
   text-align: center;
   font-size: 0.75rem;
+  @media (min-width: 450px) {
+    padding: 0 0.5rem;
+    font-size: 1rem;
+  }
+  @media (min-width: 850px) {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+  }
 `;
 
 export const CardImageWrapper = styled.div`
   width: 100%;
-  height: 100px;
+  height: 30vw;
+  max-height: 200px;
   border-radius: 1rem;
   overflow: hidden;
   .card-image {
@@ -65,26 +75,43 @@ export const CardImageWrapper = styled.div`
   }
 `;
 
+export const CardDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+`;
+
 export const CardTitle = styled.h3`
   margin: 0.5rem 0;
   width: 95%;
   font-size: 1rem;
   line-height: 1.2;
   color: var(--grey);
+  @media (min-width: 450px) {
+    font-size: 1.2rem;
+  }
+  @media (min-width: 450px) {
+    font-size: 1.7rem;
+  }
+  @media (min-width: 850px) {
+    font-size: 1.9rem;
+  }
 `;
 
-// export const CardDetails = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   padding: 1rem;
-// `;
 
-// export const AmountRaised = styled.p`
-//   margin: 0 0 0.5rem 0;
-//   font-size: 0.9rem;
-//   font-weight: 700;
-//   line-height: 1.2;
-// `;
+export const CardParagraph = styled.p`
+  margin: 0 0 0.5rem 0;
+  line-height: 1.5;
+  font-size: 1.4rem;
+  color: var(--grey);
+`;
+
+export const AmountRaised = styled.p`
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+`;
 
 ///////
 

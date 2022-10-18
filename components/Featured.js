@@ -33,9 +33,10 @@ export default function Featured() {
   const [sliderRef] = useKeenSlider({
     loop: false,
     mode: 'free',
+    size: 1,
     slides: {
-      perView: 2,
-      spacing: 10,
+      perView: 2.5,
+      spacing: 25,
     },
   });
 
@@ -53,11 +54,23 @@ export default function Featured() {
             <CardImageWrapper>
               <img src={card.image} className="card-image" />
             </CardImageWrapper>
-            <CardTitle>
-              {card.title.length > 50
-                ? `${card.title.substring(0, 50)}...`
-                : card.title}
-            </CardTitle>
+            <CardDetails>
+              <CardTitle>
+                {card.title.length > 50
+                  ? `${card.title.substring(0, 50)}...`
+                  : card.title}
+              </CardTitle>
+              {!mobileMenu && (
+                <>
+                  <CardParagraph>
+                    {card.paragraph.substring(0, 100)}...
+                  </CardParagraph>
+                  <AmountRaised>
+                    {formatCentsToDollars(card.amount)} raised
+                  </AmountRaised>
+                </>
+              )}
+            </CardDetails>
           </Card>
         ))}
       </CardGroup>
