@@ -49,7 +49,7 @@ export const FundraiserDetails = styled.div`
 export const FundraiserTitle = styled.h1`
   font-size: 1rem;
   margin: 0 0 0.5rem 0;
-  color: black;
+  color: var(--black);
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -1,8 +1,9 @@
-import Form from './styles/styledForm';
+import { AuthForm, ChangeFormButton } from './styles/styledForm';
 import useForm from '../lib/useForm';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import DisplayError from './ErrorMessage';
+import { useRouter } from 'next/router';
 
 const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
@@ -19,6 +20,7 @@ const SIGNUP_MUTATION = gql`
 `;
 
 export default function SignUp() {
+  const router = useRouter();
   const { inputs, handleChange, resetForm } = useForm({
     name: '',
     email: '',
@@ -35,12 +37,16 @@ export default function SignUp() {
       .then((res) => {
         console.log(res);
         resetForm();
+        router.push({
+          pathname: '/sign-in',
+        });
       })
       .catch((err) => console.error(err));
   }
 
   return (
-    <Form method="POST" onSubmit={handleSubmit}>
+    <AuthForm method="POST" onSubmit={handleSubmit}>
+      <ChangeFormButton href="/sign-in">Sign In</ChangeFormButton>
       <h2>Sign up for an account</h2>
       <DisplayError error={signupError}></DisplayError>
       <fieldset>
@@ -84,6 +90,6 @@ export default function SignUp() {
         </label>
         <button type="submit">Sign Up</button>
       </fieldset>
-    </Form>
+    </AuthForm>
   );
 }

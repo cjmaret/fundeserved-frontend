@@ -63,9 +63,6 @@ export default function Header() {
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
         mobileMenu={mobileMenu}>
-        {/* <CloseIconWrapper onClick={() => setIsMenuOpen(false)}>
-          <Image src={CloseIcon} alt="" />
-        </CloseIconWrapper> */}
         <Link href="/fundraisers">
           <NavLink onClick={() => closeAllMenus(false)}>
             All Fundraisers
@@ -79,7 +76,6 @@ export default function Header() {
             <Link href="/">
               <NavLink className="logo__anchor">
                 <img className="logo-image" src={LogoImage} alt="" />
-                {/* <Image src={LogoImage} alt="" objectFit="cover" layout="fill" /> */}
               </NavLink>
             </Link>
           </Logo>
@@ -95,9 +91,14 @@ export default function Header() {
           </>
         )}
         {!user && (
-          <Link href="/signin">
-            <NavLink onClick={() => closeAllMenus(false)}>Sign In</NavLink>
-          </Link>
+          <>
+            <Link href="/sign-in">
+              <NavLink onClick={() => closeAllMenus(false)}>Sign In</NavLink>
+            </Link>
+            <Link href="/sign-up">
+              <NavLink onClick={() => closeAllMenus(false)}>Sign Up</NavLink>
+            </Link>
+          </>
         )}
         <Link href="/create-fundraiser">
           <NavButton onClick={() => closeAllMenus(false)}>

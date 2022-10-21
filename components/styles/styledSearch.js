@@ -28,6 +28,8 @@ export const SearchComponent = styled.div`
   border: 1px solid var(--grey);
   border-radius: 5px;
   padding: 1px;
+  width: 90%;
+  max-width: 700px;
   input {
     width: 100%;
     padding: 10px;

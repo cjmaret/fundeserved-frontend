@@ -37,6 +37,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
+    color: var(--black);
     @media (min-width: 1080px) {
       /* max-width: 1080px; */
       margin: auto;

@@ -52,7 +52,7 @@ export const StatTitle = styled.h3`
   font-size: 2rem;
   text-align: center;
   z-index: 1;
-  color: black;
+  color: var(--black);
   margin: 0;
   line-height: 1.2;
 `;

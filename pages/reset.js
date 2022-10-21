@@ -6,10 +6,12 @@ export default function ResetPage({ query }) {
 
   if (!token) {
     return (
-      <div>
-        <p>Sorry, you must supply a token</p>
+      <>
+        <p style={{ 'font-size': '2.5rem' }}>
+          Sorry, you need to request a password reset first
+        </p>
         <RequestReset />
-      </div>
+      </>
     );
   }
 

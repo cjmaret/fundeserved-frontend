@@ -10,22 +10,22 @@ const loading = keyframes`
   }
 `;
 
-const Form = styled.form`
-  width: 50%;
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
-  background: white;
-  border: 5px solid white;
+export const Form = styled.form`
+  width: 100%;
+  border-radius: 10px;
   padding: 20px;
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 600;
   max-width: 450px;
+  position: relative;
+  margin: 0;
   @media (min-width: 500px) {
     font-size: 1.5rem;
   }
   label {
     display: block;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
   }
   input,
   textarea,
@@ -33,7 +33,8 @@ const Form = styled.form`
     width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
     &:focus {
       outline: 0;
       border-color: var(--red);
@@ -48,15 +49,21 @@ const Form = styled.form`
     background: var(--red);
     color: white;
     border: 0;
+    border-radius: 5px;
     font-size: 1.2rem;
     font-weight: 600;
     padding: 0.5rem 1.2rem;
+    transition: opacity 0.4s ease;
     @media (min-width: 500px) {
       font-size: 1.3rem;
     }
     &[disabled] {
       opacity: 0.6;
       background: gray;
+    }
+    &:hover {
+      cursor: pointer;
+      opacity: 0.7;
     }
   }
   fieldset {
@@ -73,7 +80,7 @@ const Form = styled.form`
       background-image: linear-gradient(
         to right,
         var(--red) 0%,
-        var(--offWhite) 50%,
+        white 50%,
         var(--red) 100%
       );
     }
@@ -83,9 +90,30 @@ const Form = styled.form`
     }
   }
   .button-group {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
   }
 `;
 
-export default Form;
+export const AuthForm = styled(Form)`
+  margin: 50px 0 0 0;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+`;
+
+export const ChangeFormButton = styled.a`
+  color: var(--red);
+  transition: opacity 0.4s ease;
+  border: none;
+  background: none;
+  text-align: right;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  font-size: 1.2rem;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    text-decoration: none;
+  }
+`;

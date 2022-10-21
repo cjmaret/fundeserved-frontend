@@ -41,7 +41,7 @@ import { formatCentsToDollars } from '../lib/formatMoney';
 import useForm from '../lib/useForm';
 import CloseIconImage from '../images/close-icon.png';
 import { useEffect, useState } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 export const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -116,6 +116,7 @@ function update(cache, payload) {
 }
 
 export default function SingleFundraiser({ id }) {
+  const router = useRouter();
   const { data, loading, error } = useQuery(SINGLE_FUNDRAISER_QUERY, {
     variables: { id },
   });
@@ -203,7 +204,7 @@ export default function SingleFundraiser({ id }) {
     deleteFundraiser()
       .then((res) => {
         console.log(res);
-        Router.push({
+        router.push({
           pathname: `/fundraisers`,
         });
         alert('Fundraiser deleted');
@@ -254,7 +255,9 @@ export default function SingleFundraiser({ id }) {
             </PercentageBarGroup>
             <ButtonGroup>
               <ShareButton>Share</ShareButton>
-              <DonateButton href={`/donate/${Fundraiser.id}`}>Donate now</DonateButton>
+              <DonateButton href={`/donate/${Fundraiser.id}`}>
+                Donate now
+              </DonateButton>
             </ButtonGroup>
             <DonorList>
               {donors.map((donor, i) => (

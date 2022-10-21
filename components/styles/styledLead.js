@@ -8,7 +8,6 @@ export const LeadComponent = styled.section`
   align-items: center;
   max-width: 1080px;
   width: 90%;
-  border: 1px solid red;
 `;
 
 export const Title = styled.h2`

@@ -2,14 +2,16 @@ import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import { CURRENT_USER_QUERY } from './User';
 import styled from 'styled-components';
+import { useContext } from 'react';
+import { MobileContext } from '../contexts/mobileContext';
 
 const SignOutButton = styled.button`
   border: none;
-  font-size: 1.2rem;
+  font-size: ${props => props.mobileMenu ? '2rem' : '1.2rem'};
   background-color: transparent;
   color: var(--black);
   padding: 0;
-  margin: 0;
+  margin: 1rem 0;
   line-height: 1;
   &:hover {
     cursor: pointer;
@@ -22,11 +24,12 @@ const SIGNOUT_MUTATION = gql`
   }
 `;
 export default function SignOut() {
+  const mobileMenu = useContext(MobileContext);
   const [signout] = useMutation(SIGNOUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
   return (
-    <SignOutButton type="button" onClick={signout}>
+    <SignOutButton type="button" onClick={signout} mobileMenu={mobileMenu}>
       Sign Out
     </SignOutButton>
   );

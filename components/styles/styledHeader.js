@@ -52,13 +52,15 @@ export const NavButton = styled.a`
   border-radius: 2rem;
   border: 1px solid var(--red);
   white-space: nowrap;
+  transition: all 0.4s ease;
+  max-width: 370px;
+  width: 80%;
   &:hover {
     text-decoration: none;
     cursor: pointer;
     background-color: var(--red);
     color: white;
   }
-  transition: all 0.4s ease;
 `;
 
 export const MobileWrapper = styled.div`
@@ -87,19 +89,20 @@ export const IconWrapper = styled.div`
 
 export const MobileDropdown = styled.div`
   flex-direction: column;
+  align-items: center;
   background: white;
   width: 100%;
   margin: auto;
   padding: 1rem 0.5rem;
   position: absolute;
-  top: 52px;
+  top: 50px;
   height: 100vh;
   overflow: hidden;
   z-index: 2;
   font-size: 2rem;
   text-align: center;
   & > * {
-    margin: 0.5rem 0;
+    margin: 1rem 0;
   }
 `;
 

@@ -1,4 +1,4 @@
-import Form from './styles/styledForm';
+import { AuthForm } from './styles/styledForm';
 import useForm from '../lib/useForm';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
@@ -33,7 +33,7 @@ export default function RequestReset() {
   }
 
   return (
-    <Form method="POST" onSubmit={handleSubmit}>
+    <AuthForm method="POST" onSubmit={handleSubmit}>
       <h2>Request a password reset</h2>
       <DisplayError error={resetError}></DisplayError>
       <fieldset>
@@ -53,6 +53,6 @@ export default function RequestReset() {
         </label>
         <button type="submit">Sign In</button>
       </fieldset>
-    </Form>
+    </AuthForm>
   );
 }
