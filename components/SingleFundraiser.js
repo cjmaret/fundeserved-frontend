@@ -43,7 +43,7 @@ import CloseIconImage from '../images/close-icon.png';
 import { useEffect, useState } from 'react';
 import Router from 'next/router';
 
-const SINGLE_FUNDRAISER_QUERY = gql`
+export const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
     Fundraiser(where: { id: $id }) {
       id

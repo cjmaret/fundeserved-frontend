@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link';
 import { useContext } from 'react';
 import { MobileContext } from '../contexts/mobileContext';
 import {
@@ -8,13 +6,13 @@ import {
   FundraiserImageWrapper,
   FundraiserTitle,
   FundraiserAmount,
-  FundraiserLink,
   PercentageBarGroup,
   PercentageBarFilled,
   PercentageBar,
   FundraiserDetails,
   AmountSpan,
   CreatedOn,
+  FundraiserLink,
 } from './styles/styledFundraiserCard';
 import { formatCentsToDollars } from '../lib/formatMoney';
 
@@ -41,8 +39,15 @@ export default function Fundraiser({ fundraiser }) {
         <img src={fundraiserImage} alt="" className="fundraiser-image" />
       </FundraiserImageWrapper>
       <FundraiserDetails>
-        <FundraiserTitle>{fundraiser?.name}</FundraiserTitle>
-        {!mobileMenu && <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>}
+        <FundraiserTitle>
+          {/* {fundraiser?.name.length > 20
+            ? `${fundraiser.name.substring(0, 20)}...`
+            : fundraiser.name} */}
+            {fundraiser.name}
+        </FundraiserTitle>
+        {!mobileMenu && (
+          <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
+        )}
         <CreatedOn>Created on {convertDate()}</CreatedOn>
         <PercentageBarGroup>
           <PercentageBarFilled

@@ -52,7 +52,7 @@ export default function Lead() {
               <StepSpan>3. </StepSpan>Profit!
             </StepTitle>
             <StepParagraph>
-              Continue enjoying your unhealthy lifestyle!
+              Live and learn nothing!
             </StepParagraph>
           </StepDetails>
           <StepImage>

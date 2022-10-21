@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
-const PaginationStyles = styled.div`
+export const PaginationComponent = styled.div`
   text-align: center;
-  display: inline-grid;
-  grid-template-columns: repeat(4, auto);
-  align-items: stretch;
-  justify-content: center;
-  align-content: center;
-  margin: 2rem 0;
-  border: 1px solid var(--lightGrey);
-  border-radius: 10px;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+  max-width: 650px;
   & > * {
+    flex: 1;
+    justify-content: center;
+    display: flex;
     margin: 0;
-    padding: 15px 30px;
-    border-right: 1px solid var(--lightGrey);
+    padding: 0;
     &:last-child {
       border-right: 0;
     }
@@ -23,5 +23,3 @@ const PaginationStyles = styled.div`
     pointer-events: none;
   }
 `;
-
-export default PaginationStyles;

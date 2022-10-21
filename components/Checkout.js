@@ -21,7 +21,7 @@ const CheckoutFormComponent = styled.form`
   & > button {
     background-color: ${(props) => (props.loading ? 'grey' : 'var(--red)')};
     color: white;
-    font-size: 16px;
+    font-size: 1.6rem;
     width: 125px;
     margin: 20px auto 0 auto;
     border: none;

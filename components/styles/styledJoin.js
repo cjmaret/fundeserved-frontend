@@ -19,7 +19,7 @@ export const JoinComponent = styled.section`
 
 export const ImageWrapper = styled.div`
   padding: 2rem 0;
-  width: 90%;
+  width: 100%;
   max-width: 250px;
   .join-image {
     width: 100%;
@@ -33,7 +33,6 @@ export const Details = styled.div`
   width: 100%;
   @media (min-width: 950px) {
     margin-bottom: 0;
-    margin-right: 3rem;
     width: 60%;
   }
 `;
@@ -45,6 +44,9 @@ export const Title = styled.h2`
   text-align: center;
   line-height: 1.2;
   margin: 0 0 3rem 0;
+  @media (min-width: 1110px) {
+    font-size: 3.5rem;
+  }
 `;
 
 export const ButtonGroup = styled.div`

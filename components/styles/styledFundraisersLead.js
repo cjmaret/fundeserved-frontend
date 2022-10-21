@@ -1,48 +1,47 @@
 import styled from 'styled-components';
 
-export const FundraisersLead = styled.div`
-  width: 90%;
-  margin: 50px 0;
+export const FundraisersLeadComponent = styled.div`
+  width: 100%;
+  margin: 25px 0 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 1080px;
+  padding: 3.2rem 1.6rem;
+  @media (min-width: 900px) {
+    align-items: flex-start;
+  }
 `;
 
 export const FundraisersTitle = styled.h1`
-  font-size: 40px;
+  font-size: 3.5rem;
   margin: 0 0 20px 0;
   width: 100%;
   line-height: 1;
 `;
 
 export const FundraisersSubtitle = styled.div`
-  font-size: 25px;
+  font-size: 2rem;
   width: 100%;
-  margin: 0 0 40px 0;
-  line-height: 1;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
 `;
 
 export const CreateFundraiserButton = styled.button`
-  padding: 15px 60px;
+  width: 100%;
+  max-width: 360px;
   background-color: var(--red);
   color: white;
-  font-size: 25px;
+  font-size: 1.8rem;
   border: none;
-  border-radius: 5px;
+  padding: 1.6rem;
+  border-radius: 1rem;
   transition: opacity 0.4s ease;
   &:hover {
     opacity: 0.7;
     cursor: pointer;
   }
-`;
-
-export const FundraisersGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  width: 100%;
-  background-color: rgba(235, 235, 235, 0.3);
-  padding: 25px;
-  max-width: 1080px;
+  @media (min-width: 900px) {
+    max-width: 250px;
+  }
 `;

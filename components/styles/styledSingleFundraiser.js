@@ -19,7 +19,7 @@ export const TitleGroup = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 45px;
+  font-size: 4.5rem;
   margin: 0 0 15px 0;
   width: 55%;
   line-height: 1.2;
@@ -32,7 +32,7 @@ export const UpdateButtonGroup = styled.div`
 `;
 
 export const UpdateButton = styled.button`
-  font-size: 15px;
+  font-size: 1.5rem;
   padding: 10px 15px;
   height: 50%;
   border: none;
@@ -79,7 +79,7 @@ export const Sidebar = styled.div`
 `;
 
 export const AmountGroup = styled.p`
-  font-size: 15px;
+  font-size: 1.5rem;
   margin: 0;
 `;
 
@@ -87,7 +87,7 @@ export const AmountValue = styled.p``;
 
 export const AmountRaised = styled.span`
   font-weight: 700;
-  font-size: 25px;
+  font-size: 2.5rem;
 `;
 
 export const PercentageBarGroup = styled.div`
@@ -120,7 +120,7 @@ export const ButtonGroup = styled.div`
 
 export const Button = styled.a`
   color: white;
-  font-size: 15px;
+  font-size: 1.5rem;
   width: 100%;
   background-color: var(--red);
   padding: 10px 0;
@@ -237,7 +237,7 @@ export const DeleteFormGroup = styled.div`
 export const DeleteFormTitle = styled.h2``;
 
 export const DeleteFormButton = styled.button`
-  font-size: 35px;
+  font-size: 3.5rem;
   background-color: var(--red);
   color: white;
   padding: 5px 20px;

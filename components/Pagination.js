@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 import Head from 'next/Head';
 import Link from 'next/link';
 import DisplayError from './ErrorMessage';
-import PaginationStyles from './styles/styledPagination';
+import { PaginationComponent } from './styles/styledPagination';
 import { perPage } from '../config';
 
 export const PAGINATION_COUNT_QUERY = gql`
@@ -23,19 +23,22 @@ export default function Pagination({ page }) {
   const pageCount = Math.ceil(count / perPage);
 
   return (
-    <PaginationStyles>
+    <PaginationComponent>
       <Head>
-        <title>Fundeserved - Page {page} of ___</title>
+        <title>
+          Fundeserved - Page {page} of {pageCount}
+        </title>
       </Head>
-
       <Link href={`/fundraisers/${page - 1}`}>
         <a aria-disabled={page <= 1}>← Prev</a>
       </Link>
-      <p>Page __ of {pageCount}</p>
-      <p>{count} Items Total</p>
+      <p>
+        Page {page} of {pageCount}
+      </p>
+      {/* <p>{count} Items Total</p> */}
       <Link href={`/fundraisers/${page + 1}`}>
         <a aria-disabled={page >= pageCount}>Next →</a>
       </Link>
-    </PaginationStyles>
+    </PaginationComponent>
   );
 }

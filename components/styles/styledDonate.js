@@ -22,7 +22,7 @@ export const MainGroup = styled.div`
 `;
 
 export const ReturnButton = styled.a`
-  font-size: 20px;
+  font-size: 2rem;
   padding: 0.5rem 0.5rem;
   border: 1px solid grey;
   border-radius: 5px;
@@ -49,7 +49,7 @@ export const InfoImage = styled.img`
 export const InfoDetailsGroup = styled.div``;
 
 export const DetailsTitle = styled.h3`
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
   & > span {
     font-weight: 700;
@@ -63,7 +63,7 @@ export const DonateGroup = styled.div`
 `;
 
 export const DonateTitle = styled.h3`
-  font-size: 20px;
+  font-size: 2rem;
   margin-bottom: 1rem;
 `;
 
@@ -75,7 +75,7 @@ export const DonateInputGroup = styled.div`
   border: 1px solid ${(props) => (props.inputError ? 'var(--red)' : 'grey')};
   border-radius: 5px;
   width: 100%;
-  font-size: 40px;
+  font-size: 4rem;
 `;
 
 export const Dollar = styled.p`
@@ -85,7 +85,7 @@ export const Dollar = styled.p`
 export const DonateInput = styled.input`
   border: none;
   font-family: inherit;
-  font-size: 40px;
+  font-size: 4rem;
   font-weight: 700;
   width: 70%;
   text-align: right;
@@ -98,7 +98,7 @@ export const Cents = styled.p`
 `;
 
 export const DonateInputError = styled.p`
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: 500;
   color: var(--red);
   text-align: center;
@@ -121,12 +121,12 @@ export const GuaranteeImage = styled.img`
 export const GuaranteeDetailsGroup = styled.div``;
 
 export const GuaranteeTitle = styled.h3`
-  font-size: 15px;
+  font-size: 1.5rem;
   margin: 0;
 `;
 
 export const GuaranteeSubtitle = styled.p`
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--grey);
   margin: 0;
   line-height: 1.5;
@@ -142,7 +142,7 @@ export const Sidebar = styled.div`
   align-self: flex-start;
   display: flex;
   flex-direction: column;
-  font-size: 20px;
+  font-size: 2rem;
 `;
 
 export const SidebarTitle = styled.h3`
