@@ -159,15 +159,21 @@ export default function SingleFundraiser({ id }) {
   });
 
   function checkIfClickedOutside(e) {
-    const innerDiv = document.getElementById('form');
+    const innerUpdateFormDiv = document.getElementById('update-form');
+    const innerDeleteFormDiv = document.getElementById('delete-form');
     if (isUpdateModalOpen) {
-      if (!innerDiv.contains(e.target)) {
+      if (!innerUpdateFormDiv.contains(e.target)) {
         setIsUpdateModalOpen(false);
+      }
+    }
+    if (isDeleteModalOpen) {
+      if (!innerDeleteFormDiv.contains(e.target)) {
+        setIsDeleteModalOpen(false);
       }
     }
   }
 
-  function runImageQueryOrNoImageQuery() {
+  function runImageMutationOrNoImageMutation() {
     if (inputs.image === FundraiserImageSource) {
       updateFundraiserNoImage({
         variables: {
@@ -225,7 +231,6 @@ export default function SingleFundraiser({ id }) {
     <>
       <FundraiserSection>
         <TitleGroup>
-          <Title>{Fundraiser.name}</Title>
           <UpdateButtonGroup>
             <UpdateButton onClick={() => setIsUpdateModalOpen(true)}>
               Edit Fundraiser
@@ -234,6 +239,7 @@ export default function SingleFundraiser({ id }) {
               Delete Fundraiser
             </UpdateButton>
           </UpdateButtonGroup>
+          <Title>{Fundraiser.name}</Title>
         </TitleGroup>
         <FundraiserInfo>
           <Details>
@@ -278,10 +284,10 @@ export default function SingleFundraiser({ id }) {
         isUpdateModalOpen={isUpdateModalOpen}
         onClick={checkIfClickedOutside}>
         <UpdateForm
-          id="form"
+          id="update-form"
           onSubmit={async (e) => {
             e.preventDefault();
-            await runImageQueryOrNoImageQuery();
+            await runImageMutationOrNoImageMutation();
           }}>
           <CloseIcon
             src={CloseIconImage}
@@ -330,8 +336,10 @@ export default function SingleFundraiser({ id }) {
           </fieldset>
         </UpdateForm>
       </UpdateFormContainer>
-      <DeleteFormContainer isDeleteModalOpen={isDeleteModalOpen}>
-        <DeleteFormGroup>
+      <DeleteFormContainer
+        isDeleteModalOpen={isDeleteModalOpen}
+        onClick={checkIfClickedOutside}>
+        <DeleteFormGroup id="delete-form">
           <DeleteFormTitle>Delete Fundraiser?</DeleteFormTitle>
           <DeleteFormButton onClick={handleDeleteFundraiser}>
             Delete

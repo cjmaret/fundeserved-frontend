@@ -37,6 +37,23 @@ export default function Header() {
     return () => window.removeEventListener('click', toggleMenus);
   }, [isMenuOpen, isSearchMenuOpen]);
 
+  function renderLogo() {
+    return (
+      <Logo mobileMenu={mobileMenu}>
+        <Link href="/">
+          <NavLink className="logo__anchor">
+            <img
+              className="logo-image"
+              src={LogoImage}
+              onClick={closeAllMenus}
+              alt=""
+            />
+          </NavLink>
+        </Link>
+      </Logo>
+    );
+  }
+
   return (
     <HeaderComponent mobileMenu={mobileMenu}>
       <Search
@@ -45,47 +62,22 @@ export default function Header() {
         closeAllMenus={closeAllMenus}
         mobileMenu={mobileMenu}
       />
-      {mobileMenu && (
-        <Logo mobileMenu={mobileMenu}>
-          <Link href="/">
-            <NavLink className="logo__anchor">
-              <img
-                className="logo-image"
-                src={LogoImage}
-                onClick={() => setIsMenuOpen(false)}
-                alt=""
-              />
-            </NavLink>
-          </Link>
-        </Logo>
-      )}
+      {mobileMenu && renderLogo()}
       <MenuWrapper
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
         mobileMenu={mobileMenu}>
         <Link href="/fundraisers">
-          <NavLink onClick={() => closeAllMenus(false)}>
-            All Fundraisers
-          </NavLink>
+          <NavLink onClick={closeAllMenus}>All Fundraisers</NavLink>
         </Link>
         <Link href="/mario">
-          <NavLink onClick={() => closeAllMenus()}>How it works</NavLink>
+          <NavLink onClick={closeAllMenus}>How it works</NavLink>
         </Link>
-        {!mobileMenu && (
-          <Logo>
-            <Link href="/">
-              <NavLink className="logo__anchor">
-                <img className="logo-image" src={LogoImage} alt="" />
-              </NavLink>
-            </Link>
-          </Logo>
-        )}
+        {!mobileMenu && renderLogo()}
         {user && (
           <>
             <Link href="/my-fundraisers">
-              <NavLink onClick={() => closeAllMenus(false)}>
-                My Fundraisers
-              </NavLink>
+              <NavLink onClick={closeAllMenus}>My Fundraisers</NavLink>
             </Link>
             <SignOut />
           </>
@@ -93,17 +85,15 @@ export default function Header() {
         {!user && (
           <>
             <Link href="/sign-in">
-              <NavLink onClick={() => closeAllMenus(false)}>Sign In</NavLink>
+              <NavLink onClick={closeAllMenus}>Sign In</NavLink>
             </Link>
             <Link href="/sign-up">
-              <NavLink onClick={() => closeAllMenus(false)}>Sign Up</NavLink>
+              <NavLink onClick={closeAllMenus}>Sign Up</NavLink>
             </Link>
           </>
         )}
         <Link href="/create-fundraiser">
-          <NavButton onClick={() => closeAllMenus(false)}>
-            Start Fundeserving
-          </NavButton>
+          <NavButton onClick={closeAllMenus}>Start Fundeserving</NavButton>
         </Link>
       </MenuWrapper>
     </HeaderComponent>
