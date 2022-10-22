@@ -2,48 +2,62 @@ import styled from 'styled-components';
 
 export const DonateSection = styled.section`
   width: 100%;
-  display: grid;
-  grid-template-areas: '. main main sidebar .';
-  grid-gap: 1.5rem 2rem;
-  grid-template-columns: 1fr 4fr 4fr 4fr 1fr;
-  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
   max-width: 1120px;
 `;
 
 export const MainGroup = styled.div`
-  grid-area: main;
-  padding: 2rem 3rem 3rem;
-  width: 600px;
+  padding: 2rem;
+  width: ${(props) => (props.mobileWidth ? '100%' : '60%')};
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  align-items: center;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
+  @media (min-width: 700px) {
+    margin-right: 2rem;
+    max-width: 600px;
+  }
 `;
 
 export const ReturnButton = styled.a`
-  font-size: 2rem;
-  padding: 0.5rem 0.5rem;
+  font-size: 1.5rem;
+  width: 175px;
+  padding: 0.5rem 0;
   border: 1px solid grey;
   border-radius: 5px;
-  margin-bottom: 4rem;
-  width: 225px;
+  margin: 0 0 2rem 0;
   text-align: center;
+  align-self: flex-start;
+  transition: opacity 0.4s ease;
   &:hover {
     text-decoration: none;
     cursor: pointer;
-    transform: translate(1px, 1px);
+    opacity: 0.7;
+  }
+  @media (min-width: 700px) {
+    width: 225px;
+    font-size: 2rem;
+    margin: 0 0 4rem 0;
   }
 `;
 
 export const InfoGroup = styled.div`
   width: 100%;
   display: flex;
+  flex-direction: column;
+  @media (min-width: 700px) {
+    flex-direction: row;
+  }
 `;
 
 export const InfoImage = styled.img`
   width: 150px;
   margin-right: 20px;
+  object-fit: cover;
 `;
 
 export const InfoDetailsGroup = styled.div``;
@@ -51,20 +65,28 @@ export const InfoDetailsGroup = styled.div``;
 export const DetailsTitle = styled.h3`
   font-size: 2rem;
   font-weight: 400;
+  margin: 1rem 0 0 0;
+  line-height: 1.3;
   & > span {
     font-weight: 700;
+  }
+  @media (min-width: 700px) {
+    line-height: 1.5;
   }
 `;
 
 export const DetailsSubtitle = styled.p``;
 
 export const DonateGroup = styled.div`
-  margin: 2rem 0;
+  margin: 1rem 0;
+  @media (min-width: 700px) {
+    margin: 2rem 0;
+  }
 `;
 
 export const DonateTitle = styled.h3`
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 0.5rem 0;
 `;
 
 export const DonateInputGroup = styled.div`
@@ -75,7 +97,10 @@ export const DonateInputGroup = styled.div`
   border: 1px solid ${(props) => (props.inputError ? 'var(--red)' : 'grey')};
   border-radius: 5px;
   width: 100%;
-  font-size: 4rem;
+  font-size: 2.5rem;
+  @media (min-width: 500px) {
+    font-size: 4rem;
+  }
 `;
 
 export const Dollar = styled.p`
@@ -83,17 +108,22 @@ export const Dollar = styled.p`
 `;
 
 export const DonateInput = styled.input`
+  line-height: 1;
   border: none;
   font-family: inherit;
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 700;
   width: 70%;
   text-align: right;
   outline: none;
   height: 95%;
+  @media (min-width: 500px) {
+    font-size: 4rem;
+  }
 `;
 
 export const Cents = styled.p`
+  line-height: 1;
   margin: 0;
 `;
 
@@ -106,35 +136,9 @@ export const DonateInputError = styled.p`
   margin: 1rem 0 0 0;
 `;
 
-export const GuaranteeGroup = styled.div`
-  margin: 2rem 0 0 0;
-  display: flex;
-  align-items: center;
-`;
-
-export const GuaranteeImage = styled.img`
-  width: 60px;
-  height: 60px;
-  margin-right: 15px;
-`;
-
-export const GuaranteeDetailsGroup = styled.div``;
-
-export const GuaranteeTitle = styled.h3`
-  font-size: 1.5rem;
-  margin: 0;
-`;
-
-export const GuaranteeSubtitle = styled.p`
-  font-size: 1.2rem;
-  color: var(--grey);
-  margin: 0;
-  line-height: 1.5;
-`;
-
-export const Sidebar = styled.div`
-  grid-area: sidebar;
-  width: 300px;
+export const TallySidebarGroup = styled.div`
+  width: 40%;
+  max-width: 275px;
   padding: 2rem;
   box-sizing: border-box;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
@@ -145,21 +149,65 @@ export const Sidebar = styled.div`
   font-size: 2rem;
 `;
 
-export const SidebarTitle = styled.h3`
+export const TallyMobileGroup = styled.div`
+  width: 100%;
+  margin-bottom: 3rem;
+`;
+
+export const TallyTitle = styled.h3`
   margin: 0.5rem 0;
 `;
 
-export const SidebarAmount = styled.p`
+export const TallyAmount = styled.p`
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
   color: grey;
   border-bottom: 1px solid grey;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 `;
 
-export const SidebarDue = styled.p`
+export const TallyDue = styled.p`
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
+`;
+
+export const GuaranteeGroup = styled.div`
+  margin: 2rem 0 0 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: 500px) {
+    flex-direction: row;
+  }
+`;
+
+export const GuaranteeImage = styled.img`
+  width: 60px;
+  height: 60px;
+  margin: 0;
+  @media (min-width: 500px) {
+    margin-right: 15px;
+  }
+`;
+
+export const GuaranteeDetailsGroup = styled.div`
+  margin: 1rem 0 0 0;
+`;
+
+export const GuaranteeTitle = styled.h3`
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  line-height: 1.5;
+`;
+
+export const GuaranteeSubtitle = styled.p`
+  font-size: 1rem;
+  color: var(--grey);
+  margin: 0;
+  line-height: 1.5;
+  @media (min-width: 500px) {
+    font-size: 1.2rem;
+  }
 `;

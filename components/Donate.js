@@ -1,6 +1,8 @@
 import gql from 'graphql-tag';
 import { useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { MobileContext } from '../contexts/mobileContext';
 
 import Checkout from '../components/Checkout';
 import {
@@ -24,13 +26,14 @@ import {
   InfoImage,
   MainGroup,
   ReturnButton,
-  Sidebar,
-  SidebarAmount,
-  SidebarDue,
-  SidebarTitle,
+  TallySidebarGroup,
+  TallyAmount,
+  TallyDue,
+  TallyTitle,
+  TallyMobileGroup,
 } from '../components/styles/styledDonate';
 import DisplayError from './ErrorMessage';
-import GuaranteeImageIcon from '../images/guarantee.png'
+import GuaranteeImageIcon from '../images/guarantee.png';
 
 const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -53,6 +56,7 @@ const SINGLE_FUNDRAISER_QUERY = gql`
 `;
 
 export default function Donate({ id }) {
+  const mobileWidth = useContext(MobileContext);
   const { data, loading, error } = useQuery(SINGLE_FUNDRAISER_QUERY, {
     variables: {
       id,
@@ -83,7 +87,7 @@ export default function Donate({ id }) {
 
   return (
     <DonateSection>
-      <MainGroup>
+      <MainGroup mobileWidth={mobileWidth}>
         <ReturnButton href={`/fundraiser/${id}`}>
           Return to fundraiser
         </ReturnButton>
@@ -92,12 +96,9 @@ export default function Donate({ id }) {
             src={Fundraiser?.photo?.image.publicUrlTransformed}
             alt={Fundraiser?.name}
           />
-          <InfoDetailsGroup>
-            <DetailsTitle>
-              You're supporting <span>{Fundraiser?.name}</span>
-            </DetailsTitle>
-            <DetailsSubtitle></DetailsSubtitle>
-          </InfoDetailsGroup>
+          <DetailsTitle>
+            You're supporting <span>{Fundraiser?.name}</span>
+          </DetailsTitle>
         </InfoGroup>
         <DonateGroup>
           <DonateTitle>Enter your donation</DonateTitle>
@@ -115,9 +116,22 @@ export default function Donate({ id }) {
             <DonateInputError>Donation limit is $50,000.00</DonateInputError>
           )}
         </DonateGroup>
+        {mobileWidth && (
+          <TallyMobileGroup>
+            <TallyTitle>Your donation</TallyTitle>
+            <TallyAmount>
+              <span>Your donation</span>
+              <span>${addCommasToNumber(amountValue)}.00</span>
+            </TallyAmount>
+            <TallyDue>
+              <span>Total due today</span>
+              <span>${addCommasToNumber(amountValue)}.00</span>
+            </TallyDue>
+          </TallyMobileGroup>
+        )}
         <Checkout amount={amountValue} fundraiserId={Fundraiser?.id} />
         <GuaranteeGroup>
-          <GuaranteeImage src={GuaranteeImageIcon} alt="guarantee icon"/>
+          <GuaranteeImage src={GuaranteeImageIcon} alt="guarantee icon" />
           <GuaranteeDetailsGroup>
             <GuaranteeTitle>Fundeserved donation protection</GuaranteeTitle>
             <GuaranteeSubtitle>
@@ -130,17 +144,19 @@ export default function Donate({ id }) {
           </GuaranteeDetailsGroup>
         </GuaranteeGroup>
       </MainGroup>
-      <Sidebar>
-        <SidebarTitle>Your donation</SidebarTitle>
-        <SidebarAmount>
-          <span>Your donation</span>
-          <span>${addCommasToNumber(amountValue)}.00</span>
-        </SidebarAmount>
-        <SidebarDue>
-          <span>Total due today</span>
-          <span>${addCommasToNumber(amountValue)}.00</span>
-        </SidebarDue>
-      </Sidebar>
+      {!mobileWidth && (
+        <TallySidebarGroup>
+          <TallyTitle>Your donation</TallyTitle>
+          <TallyAmount>
+            <span>Your donation</span>
+            <span>${addCommasToNumber(amountValue)}.00</span>
+          </TallyAmount>
+          <TallyDue>
+            <span>Total due today</span>
+            <span>${addCommasToNumber(amountValue)}.00</span>
+          </TallyDue>
+        </TallySidebarGroup>
+      )}
     </DonateSection>
   );
 }

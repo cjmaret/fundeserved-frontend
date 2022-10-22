@@ -18,15 +18,16 @@ const CheckoutFormComponent = styled.form`
   grid-gap: 1rem;
   padding-bottom: 3rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
   & > button {
     background-color: ${(props) => (props.loading ? 'grey' : 'var(--red)')};
     color: white;
-    font-size: 1.6rem;
-    width: 125px;
+    font-size: 2rem;
+    width: 175px;
     margin: 20px auto 0 auto;
     border: none;
     border-radius: 5px;
-    padding: 6px 10px;
+    padding: 1rem 0;
     transition: opacity 0.4s ease;
     &:hover {
       cursor: pointer;

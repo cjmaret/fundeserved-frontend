@@ -27,7 +27,7 @@ import 'keen-slider/keen-slider.min.css';
 import { formatCentsToDollars } from '../lib/formatMoney';
 
 export default function Featured() {
-  const mobileMenu = useContext(MobileContext);
+  const mobileWidth = useContext(MobileContext);
   const mainCard = featuredCards[0];
 
   const [sliderRef] = useKeenSlider({
@@ -60,7 +60,7 @@ export default function Featured() {
                   ? `${card.title.substring(0, 50)}...`
                   : card.title}
               </CardTitle>
-              {!mobileMenu && (
+              {!mobileWidth && (
                 <>
                   <CardParagraph>
                     {card.paragraph.substring(0, 100)}...

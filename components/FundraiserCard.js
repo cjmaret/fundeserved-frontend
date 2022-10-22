@@ -17,7 +17,7 @@ import {
 import { formatCentsToDollars } from '../lib/formatMoney';
 
 export default function Fundraiser({ fundraiser }) {
-  const mobileMenu = useContext(MobileContext);
+  const mobileWidth = useContext(MobileContext);
   const fundraiserImage = fundraiser?.photo?.image?.publicUrlTransformed;
 
   function convertDate() {
@@ -45,7 +45,7 @@ export default function Fundraiser({ fundraiser }) {
             : fundraiser.name} */}
             {fundraiser.name}
         </FundraiserTitle>
-        {!mobileMenu && (
+        {!mobileWidth && (
           <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
         )}
         <CreatedOn>Created on {convertDate()}</CreatedOn>

@@ -7,7 +7,7 @@ import { MobileContext } from '../contexts/mobileContext';
 
 const SignOutButton = styled.button`
   border: none;
-  font-size: ${props => props.mobileMenu ? '2rem' : '1.2rem'};
+  font-size: ${props => props.mobileWidth ? '2rem' : '1.2rem'};
   background-color: transparent;
   color: var(--black);
   padding: 0;
@@ -24,12 +24,12 @@ const SIGNOUT_MUTATION = gql`
   }
 `;
 export default function SignOut() {
-  const mobileMenu = useContext(MobileContext);
+  const mobileWidth = useContext(MobileContext);
   const [signout] = useMutation(SIGNOUT_MUTATION, {
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
   });
   return (
-    <SignOutButton type="button" onClick={signout} mobileMenu={mobileMenu}>
+    <SignOutButton type="button" onClick={signout} mobileWidth={mobileWidth}>
       Sign Out
     </SignOutButton>
   );
