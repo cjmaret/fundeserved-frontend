@@ -7,9 +7,9 @@ import { MobileContext } from '../contexts/mobileContext';
 
 const SignOutButton = styled.button`
   border: none;
-  font-size: ${props => props.mobileWidth ? '2rem' : '1.2rem'};
+  font-size: ${props => props.mobileWidth ? '2rem' : '1.5rem'};
   background-color: transparent;
-  color: var(--black);
+  color: var(--grey);
   padding: 0;
   margin: 1rem 0;
   line-height: 1;

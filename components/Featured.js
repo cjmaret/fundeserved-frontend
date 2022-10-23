@@ -15,6 +15,8 @@ import {
   AmountRaised,
   Category,
   CardLink,
+  FeaturedTitleGroup,
+  FeaturedContentGroup,
 } from './styles/styledFeatured';
 
 import Image from 'next/image';
@@ -33,47 +35,50 @@ export default function Featured() {
   const [sliderRef] = useKeenSlider({
     loop: false,
     mode: 'free',
-    size: 1,
     slides: {
       perView: 2.5,
-      spacing: 25,
+      spacing: mobileWidth ? 15 : 35,
     },
   });
 
   return (
     <FeaturedComponent>
-      <FeaturedTitle>Fundeserved Spotlight</FeaturedTitle>
-      <FeaturedParagraph>
-        Featuring some of our least deserving fundraisers
-      </FeaturedParagraph>
-      <CardGroup ref={sliderRef} className="keen-slider">
-        {featuredCards.map((card, i) => (
-          <Card className={`keen-slider__slide number-slide${i}`}>
-            <CardLink href={`/fundraiser/${card.id}`} />
-            <Category>Murder</Category>
-            <CardImageWrapper>
-              <img src={card.image} className="card-image" />
-            </CardImageWrapper>
-            <CardDetails>
-              <CardTitle>
-                {card.title.length > 50
-                  ? `${card.title.substring(0, 50)}...`
-                  : card.title}
-              </CardTitle>
-              {!mobileWidth && (
-                <>
-                  <CardParagraph>
-                    {card.paragraph.substring(0, 100)}...
-                  </CardParagraph>
-                  <AmountRaised>
-                    {formatCentsToDollars(card.amount)} raised
-                  </AmountRaised>
-                </>
-              )}
-            </CardDetails>
-          </Card>
-        ))}
-      </CardGroup>
+      <FeaturedContentGroup>
+        <FeaturedTitleGroup>
+          <FeaturedTitle>GoFundYourself Spotlight</FeaturedTitle>
+          <FeaturedParagraph>
+            Featuring some of our least deserving fundraisers
+          </FeaturedParagraph>
+        </FeaturedTitleGroup>
+        <CardGroup ref={sliderRef} className="keen-slider">
+          {featuredCards.map((card, i) => (
+            <Card className={`keen-slider__slide number-slide${i}`}>
+              {/* <CardLink href={`/fundraiser/${card.id}`} /> */}
+              <Category>Murder</Category>
+              <CardImageWrapper>
+                <img src={card.image} className="card-image" />
+              </CardImageWrapper>
+              <CardDetails>
+                <CardTitle>
+                  {card.title.length > 50
+                    ? `${card.title.substring(0, 50)}...`
+                    : card.title}
+                </CardTitle>
+                {!mobileWidth && (
+                  <>
+                    <CardParagraph>
+                      {card.paragraph.substring(0, 100)}...
+                    </CardParagraph>
+                  </>
+                )}
+                <AmountRaised>
+                  {formatCentsToDollars(card.amount)} raised
+                </AmountRaised>
+              </CardDetails>
+            </Card>
+          ))}
+        </CardGroup>
+      </FeaturedContentGroup>
     </FeaturedComponent>
   );
 }

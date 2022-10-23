@@ -2,27 +2,44 @@ import styled from 'styled-components';
 
 export const CategoriesComponent = styled.section`
   margin: 5rem 0;
-  padding: 2rem;
-  max-width: 1080px;
-  background-color: var(--offWhite);
+  padding: 5rem 0;
+  background-color: var(--white);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: var(--white);
+`;
+
+export const CategoriesContentGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  max-width: 890px;
+`;
+
+export const CategoriesTitleGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 0 0 0 1rem;
+  color: var(--black)
 `;
 
 export const CategoriesTitle = styled.h2`
   margin: 0 0 1rem 0;
   font-size: 3rem;
   line-height: 1.2;
-  width: 90%;
+  width: 100%;
 `;
 
 export const CategoriesParagraph = styled.p`
-  width: 90%;
   margin: 0 0 1rem 0;
   font-size: 2rem;
   line-height: 1.2;
+  width: 100%;
 `;
 
 export const GridGroup = styled.div`
@@ -31,7 +48,6 @@ export const GridGroup = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  width: 60%;
   @media (min-width: 500px) {
     flex-direction: row;
     flex-wrap: wrap;

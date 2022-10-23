@@ -10,14 +10,21 @@ import {
   Logo,
   ResourcesList,
   RightsReserved,
+  NavLink,
 } from './styles/styledFooter';
 import LogoImage from '../images/logo.jpg';
+import FooterLogo from '../images/header-logo-2.png';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
     <FooterComponent>
       <Logo>
-        <img src={LogoImage} alt="" className="footer-logo-image" />
+        <Link href="/">
+          <NavLink className="logo__anchor">
+            <img src={FooterLogo} alt="" className="footer-logo-image" />
+          </NavLink>
+        </Link>
       </Logo>
       <ListGroup>
         <FundraiseList>

@@ -65,7 +65,7 @@ export const UpdateButton = styled.button`
   border: none;
   border-radius: 10px;
   transition: opacity 0.4s ease;
-  background-color: var(--lightGrey);
+  background-color: var(--green);
   width: 40%;
   font-size: 1.2rem;
   &:hover {
@@ -157,7 +157,7 @@ export const PercentageBarGroup = styled.div`
 export const PercentageBar = styled.div`
   width: 100%;
   height: 10px;
-  background-color: var(--offWhite);
+  background-color: var(--green);
   border-radius: 10px;
 `;
 
@@ -165,7 +165,7 @@ export const PercentageBarFilled = styled.div`
   position: absolute;
   width: ${(props) => (props.filled <= 100 ? props.filled : 100)}%;
   height: 10px;
-  background-color: var(--red);
+  background-color: var(--salmon);
   border-radius: 10px;
 `;
 
@@ -181,7 +181,7 @@ export const Button = styled.a`
   font-size: 1.5rem;
   width: 100%;
   max-width: 400px;
-  background-color: var(--red);
+  background-color: var(--salmon);
   padding: 10px 0;
   border: none;
   border-radius: 5px;
@@ -312,7 +312,7 @@ export const DeleteFormTitle = styled.h2``;
 
 export const DeleteFormButton = styled.button`
   font-size: 2rem;
-  background-color: var(--red);
+  background-color: var(--salmon);
   color: white;
   padding: 5px 20px;
   border: none;

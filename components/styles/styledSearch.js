@@ -3,10 +3,10 @@ import { MobileDropdown, IconWrapper } from './styledHeader';
 
 const glow = keyframes`
   from {
-    box-shadow: 0 0 0px var(--red);
+    box-shadow: 0 0 0px var(--salmon);
   }
   to {
-    box-shadow: 0 0 10px 1px var(--red);
+    box-shadow: 0 0 10px 1px var(--salmon);
   }
 `;
 
@@ -25,7 +25,7 @@ export const SearchMenu = styled(MobileDropdown)`
 
 export const SearchComponent = styled.div`
   position: relative;
-  border: 1px solid var(--grey);
+  border: 1px solid var(--salmon);
   border-radius: 5px;
   padding: 1px;
   width: 90%;
@@ -46,7 +46,7 @@ export const DropDown = styled.div`
   position: absolute;
   width: 100%;
   z-index: 2;
-  border: 1px solid var(--lightGrey);
+  border: 1px solid var(--green);
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
   .no-items-found {
     &:hover {
@@ -56,7 +56,7 @@ export const DropDown = styled.div`
 `;
 
 export const DropDownItem = styled.a`
-  border-bottom: 1px solid var(--lightGrey);
+  border-bottom: 1px solid var(--green);
   background: ${(props) => (props.highlighted ? '#f7f7f7' : 'white')};
   padding: 1rem;
   transition: all 0.2s;

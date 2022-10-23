@@ -10,6 +10,14 @@ export const FooterComponent = styled.footer`
   width: 90%;
 `;
 
+export const NavLink = styled.a`
+  line-height: 1;
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+`;
+
 export const Logo = styled.div`
   width: 60%;
   max-width: 200px;

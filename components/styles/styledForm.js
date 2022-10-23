@@ -20,12 +20,10 @@ export const Form = styled.form`
   max-width: 450px;
   position: relative;
   margin: 0;
-  @media (min-width: 500px) {
-    font-size: 1.5rem;
-  }
   label {
     display: block;
-    margin: 2rem 0;
+    margin: 1rem 0;
+    width: 100%;
   }
   input,
   textarea,
@@ -37,7 +35,7 @@ export const Form = styled.form`
     border-radius: 5px;
     &:focus {
       outline: 0;
-      border-color: var(--red);
+      border-color: var(--salmon);
     }
   }
   textarea {
@@ -46,7 +44,7 @@ export const Form = styled.form`
   button,
   input[type='submit'] {
     width: 45%;
-    background: var(--red);
+    background: var(--salmon);
     color: white;
     border: 0;
     border-radius: 5px;
@@ -54,6 +52,7 @@ export const Form = styled.form`
     font-weight: 600;
     padding: 0.5rem 1.2rem;
     transition: opacity 0.4s ease;
+    margin-top: 2rem;
     @media (min-width: 500px) {
       font-size: 1.3rem;
     }
@@ -67,9 +66,11 @@ export const Form = styled.form`
     }
   }
   fieldset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 0;
     padding: 0;
-
     &[disabled] {
       opacity: 0.5;
     }
@@ -79,9 +80,9 @@ export const Form = styled.form`
       display: block;
       background-image: linear-gradient(
         to right,
-        var(--red) 0%,
+        var(--salmon) 0%,
         white 50%,
-        var(--red) 100%
+        var(--salmon) 100%
       );
     }
     &[aria-busy='true']::before {
@@ -94,6 +95,9 @@ export const Form = styled.form`
     display: flex;
     justify-content: space-between;
   }
+  @media (min-width: 500px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const AuthForm = styled(Form)`
@@ -102,18 +106,26 @@ export const AuthForm = styled(Form)`
 `;
 
 export const ChangeFormButton = styled.a`
-  color: var(--red);
+  color: var(--salmon);
   transition: opacity 0.4s ease;
   border: none;
   background: none;
   text-align: right;
+  font-size: 1.2rem;
   top: 10px;
   right: 10px;
   position: absolute;
-  font-size: 1.2rem;
   &:hover {
     cursor: pointer;
     opacity: 0.7;
     text-decoration: none;
   }
+`;
+
+export const RequestResetButton = styled(ChangeFormButton)`
+  position: static;
+  margin-top: .5rem;
+  line-height: 1;
+  width: 100%;
+  text-align: center;
 `;

@@ -13,20 +13,22 @@ export const LeadComponent = styled.section`
 export const Title = styled.h2`
   margin: 0 0 3rem 0;
   line-height: 1.2;
-  width: 95%;
-  font-size: 2.8rem;
+  width: 100%;
+  font-size: 3.5rem;
   @media (min-width: 750px) {
-    font-size: 4rem;
+    font-size: 5rem;
     margin: 0 0 5rem 0;
-    width: 60%;
     align-self: flex-start;
-    margin-left: 5rem;
+  }
+  @media (min-width: 1000px) {
+    font-size: 6rem;
   }
 `;
 
 export const Steps = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const Step = styled.div`
@@ -47,7 +49,7 @@ export const Step = styled.div`
 `;
 
 export const StepImage = styled.div`
-  width: 50%;
+  width: 40%;
   max-width: 350px;
   position: relative;
   .step-image {
@@ -60,6 +62,9 @@ export const StepDetails = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 45%;
+  @media (min-width: 750px) {
+    width: 55%;
+  }
 `;
 
 export const StepTitle = styled.h3`
@@ -67,7 +72,7 @@ export const StepTitle = styled.h3`
   font-size: 2.5rem;
   line-height: 1;
   @media (min-width: 750px) {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   @media (min-width: 1110px) {
     font-size: 3rem;
@@ -75,13 +80,16 @@ export const StepTitle = styled.h3`
 `;
 
 export const StepSpan = styled.span`
-  font-size: 3.5rem;
+  font-size: 3rem;
+  @media (min-width: 750px) {
+    font-size: 3.5rem;
+  }
 `;
 
 export const StepParagraph = styled.p`
   margin: 0;
   font-size: 1.5rem;
   @media (min-width: 750px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 `;

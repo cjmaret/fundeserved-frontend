@@ -1,4 +1,9 @@
-import { AuthForm, ChangeFormButton } from './styles/styledForm';
+import {
+  AuthForm,
+  ChangeFormButton,
+  ChangeFormButtonGroup,
+  RequestResetButton,
+} from './styles/styledForm';
 import useForm from '../lib/useForm';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
@@ -40,9 +45,12 @@ export default function SignIn() {
     e.preventDefault();
     await signin()
       .then((res) => {
-        router.push({
-          pathname: `/`,
-        });
+        console.log(res.data);
+        if (res.data.authenticateUserWithPassword.item) {
+          router.push({
+            pathname: `/`,
+          });
+        }
         resetForm();
       })
       .catch((err) => console.error(err));
@@ -82,6 +90,7 @@ export default function SignIn() {
           />
         </label>
         <button type="submit">Sign In</button>
+        <RequestResetButton href="/request-reset">Forgot your password?</RequestResetButton>
       </fieldset>
     </AuthForm>
   );

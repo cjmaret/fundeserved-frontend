@@ -94,7 +94,7 @@ export const DonateInputGroup = styled.div`
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  border: 1px solid ${(props) => (props.inputError ? 'var(--red)' : 'grey')};
+  border: 1px solid ${(props) => (props.inputError ? 'var(--salmon)' : 'grey')};
   border-radius: 5px;
   width: 100%;
   font-size: 2.5rem;
@@ -130,7 +130,7 @@ export const Cents = styled.p`
 export const DonateInputError = styled.p`
   font-size: 1.5rem;
   font-weight: 500;
-  color: var(--red);
+  color: var(--salmon);
   text-align: center;
   line-height: 1;
   margin: 1rem 0 0 0;
@@ -204,7 +204,7 @@ export const GuaranteeTitle = styled.h3`
 
 export const GuaranteeSubtitle = styled.p`
   font-size: 1rem;
-  color: var(--grey);
+  color: var(--green);
   margin: 0;
   line-height: 1.5;
   @media (min-width: 500px) {

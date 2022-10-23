@@ -6,6 +6,7 @@ import withData from '../lib/withData';
 import '../styles/globals.css';
 import 'nprogress/nprogress';
 import '../components/styles/nprogress.css';
+import '../styles/globals.css';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());

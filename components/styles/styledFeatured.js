@@ -5,20 +5,43 @@ export const FeaturedComponent = styled.section`
   flex-direction: column;
   align-items: center;
   margin: 5rem 0;
-  padding: 5rem 2rem;
+  width: 100%;
+  background-color: var(--green);
+  color: white;
+  padding: 0;
+`;
+
+export const FeaturedContentGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 1080px;
   width: 100%;
-  background-color: var(--offWhite);
+  padding: 8rem 0 8rem 2rem;
+  @media (min-width: 500px) {
+    padding: 15rem 0 15rem 2rem;
+  }
+`;
+
+export const FeaturedTitleGroup = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 0 4rem 0;
 `;
 
 export const FeaturedTitle = styled.h2`
   margin: 0 0 1rem 0;
   font-size: 4rem;
   line-height: 1.2;
+  @media (min-width: 500px) {
+    font-size: 6rem;
+  }
 `;
 
 export const FeaturedParagraph = styled.p`
-  margin: 0 0 3rem 0;
+  margin: 0;
   font-size: 2rem;
   line-height: 1.2;
 `;
@@ -34,6 +57,7 @@ export const Card = styled.div`
   position: relative;
   max-width: 200px;
   box-sizing: border-box;
+  /* background-color: rgba(255, 255, 255, 1); */
 `;
 
 export const CardLink = styled.a`
@@ -51,6 +75,7 @@ export const Category = styled.p`
   background-color: white;
   border-radius: 10px;
   text-align: center;
+  color: var(--grey);
   font-size: 0.75rem;
   @media (min-width: 450px) {
     padding: 0 0.5rem;
@@ -78,39 +103,46 @@ export const CardImageWrapper = styled.div`
 export const CardDetails = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 0 0.5rem;
+  @media (min-width: 500px) {
+    padding: 1rem;
+  }
 `;
 
 export const CardTitle = styled.h3`
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
   width: 95%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.2;
-  color: var(--grey);
-  @media (min-width: 450px) {
-    font-size: 1.2rem;
-  }
+  color: var(--white);
   @media (min-width: 450px) {
     font-size: 1.7rem;
+    margin: 0.5rem 0;
   }
   @media (min-width: 850px) {
     font-size: 1.9rem;
   }
 `;
 
-
 export const CardParagraph = styled.p`
   margin: 0 0 0.5rem 0;
   line-height: 1.5;
   font-size: 1.4rem;
-  color: var(--grey);
+  color: var(--white);
 `;
 
 export const AmountRaised = styled.p`
   margin: 0 0 0.5rem 0;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
+  color: var(--white);
+  @media (min-width: 450px) {
+    font-size: 1.5rem;
+  }
+  @media (min-width: 850px) {
+    font-size: 1.7rem;
+  }
 `;
 
 ///////
@@ -197,7 +229,7 @@ export const CardParagraph = styled.p`
   margin: 0 0 0.5rem 0;
   line-height: 1.5;
   font-size: 0.75rem;
-  color: var(--grey);
+  color: var(--green);
 `;
 
 export const AmountRaised = styled.p`
@@ -209,7 +241,7 @@ export const AmountRaised = styled.p`
 
 export const ReadMore = styled.button`
   width: 40%;
-  background-color: var(--red);
+  background-color: var(--salmon);
   padding: 0.5rem;
   border: none;
   color: white;

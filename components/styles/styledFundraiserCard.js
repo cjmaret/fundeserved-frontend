@@ -49,7 +49,7 @@ export const FundraiserDetails = styled.div`
 export const FundraiserTitle = styled.h1`
   font-size: 1rem;
   margin: 0 0 0.5rem 0;
-  color: var(--black);
+  color: var(--grey);
   line-height: 1.2;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -94,7 +94,7 @@ export const PercentageBarGroup = styled.div`
 
 export const PercentageBar = styled.div`
   width: 100%;
-  background-color: var(--red);
+  background-color: var(--salmon);
   opacity: 0.2;
   border-radius: 10px;
   height: 5px;
@@ -104,7 +104,7 @@ export const PercentageBarFilled = styled.div`
   position: absolute;
   width: ${(props) => (props.filled <= 100 ? props.filled : 100)}%;
   height: 5px;
-  background-color: var(--red);
+  background-color: var(--salmon);
   border-radius: 10px;
 `;
 

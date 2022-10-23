@@ -6,8 +6,9 @@ export const PaginationComponent = styled.div`
   width: 90%;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
-  max-width: 650px;
+  margin: 1rem 0 2rem 0;
+  max-width: 400px;
+  font-size: 1.5rem;
   & > * {
     flex: 1;
     justify-content: center;
@@ -21,5 +22,8 @@ export const PaginationComponent = styled.div`
   a[aria-disabled='true'] {
     color: grey;
     pointer-events: none;
+  }
+  @media (min-width: 500px) {
+    font-size: 2rem;
   }
 `;

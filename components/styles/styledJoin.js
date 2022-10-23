@@ -8,9 +8,10 @@ export const JoinComponent = styled.section`
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 2rem;
   padding: 2rem;
-  margin: 5rem auto 5rem auto;
+  margin: 10rem;
   max-width: 1080px;
-  background-color: var(--lightGrey);
+  background-color: var(--green);
+  color: var(--white);
   @media (min-width: 950px) {
     flex-direction: row-reverse;
     justify-content: space-around;
@@ -20,7 +21,7 @@ export const JoinComponent = styled.section`
 export const ImageWrapper = styled.div`
   padding: 2rem 0;
   width: 100%;
-  max-width: 250px;
+  max-width: 200px;
   .join-image {
     width: 100%;
   }
@@ -58,34 +59,34 @@ export const ButtonGroup = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  background-color: var(--red);
+export const Button = styled.a`
+  background-color: var(--salmon);
   color: white;
   border-radius: 3rem;
-  padding: 1.5rem 2rem;
+  padding: .5rem 2rem;
   font-size: 2rem;
   font-weight: 700;
   transition: all 0.4s ease;
   border: none;
   &:hover {
+    text-decoration: none;
     cursor: pointer;
     transform: scale(1.1);
   }
 `;
 
 export const StartButton = styled(Button)`
-  background-color: var(--red);
+  background-color: var(--salmon);
   color: white;
   margin-bottom: 2rem;
   @media (min-width: 950px) {
     margin-bottom: 0;
-    margin-right: 4rem;
+    margin-right: 2rem;
   }
 `;
 
 export const DonateButton = styled(Button)`
-  border: 1px solid var(--grey);
-  color: black;
+  border: 1px solid var(--white);
+  color: var(--white);
   background-color: transparent;
-  padding: 1rem 2rem;
 `;

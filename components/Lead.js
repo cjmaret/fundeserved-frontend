@@ -18,7 +18,7 @@ import HospitalImage from '../images/hospital.png';
 export default function Lead() {
   return (
     <LeadComponent>
-      <Title>Fundraising on Fundeserved only takes a few minutes!</Title>
+      <Title>Starting a GoFundYourself only takes a few minutes!</Title>
       <Steps>
         <Step>
           <StepDetails>

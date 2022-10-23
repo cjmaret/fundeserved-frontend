@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FundraisersLeadComponent = styled.div`
-  width: 100%;
+  width: 95%;
   margin: 25px 0 10px 0;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@ export const FundraisersSubtitle = styled.div`
 export const CreateFundraiserButton = styled.button`
   width: 100%;
   max-width: 360px;
-  background-color: var(--red);
+  background-color: var(--salmon);
   color: white;
   font-size: 1.8rem;
   border: none;

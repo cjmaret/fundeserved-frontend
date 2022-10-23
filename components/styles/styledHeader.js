@@ -1,12 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const HeaderComponent = styled.header`
   width: 95%;
   display: flex;
-  justify-content: ${(props) =>
-    props.mobileMenu ? 'center' : 'center'};
+  justify-content: ${(props) => (props.mobileMenu ? 'center' : 'center')};
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   padding: ${(props) => (props.mobileMenu ? '0 2rem' : '0 2rem')};
   margin: auto;
   @media (min-width: 1080px) {
@@ -26,6 +25,8 @@ export const Logo = styled.div`
   max-width: 100px;
   text-align: center;
   font-size: 1.5rem;
+  margin: 0 3rem;
+  min-width: 85px;
   .logo__anchor {
     width: 100%;
     position: relative;
@@ -38,7 +39,7 @@ export const Logo = styled.div`
 `;
 
 export const NavLink = styled.a`
-line-height: 1;
+  line-height: 1;
   &:hover {
     text-decoration: none;
     cursor: pointer;
@@ -46,19 +47,23 @@ line-height: 1;
 `;
 
 export const NavButton = styled.a`
-  color: var(--red);
+  color: var(--salmon);
   font-weight: 700;
-  padding: 0.2rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 2rem;
-  border: 1px solid var(--red);
+  border: 1px solid var(--salmon);
   white-space: nowrap;
   transition: all 0.4s ease;
-  max-width: 370px;
-  width: 80%;
+  ${(props) =>
+    props.mobileMenu &&
+    css`
+      width: 40%;
+      min-width: 260px;
+    `}
   &:hover {
     text-decoration: none;
     cursor: pointer;
-    background-color: var(--red);
+    background-color: var(--salmon);
     color: white;
   }
 `;
@@ -95,7 +100,7 @@ export const MobileDropdown = styled.div`
   margin: auto;
   padding: 1rem 0.5rem;
   position: absolute;
-  top: 50px;
+  top: 38px;
   height: 100vh;
   overflow: hidden;
   z-index: 2;

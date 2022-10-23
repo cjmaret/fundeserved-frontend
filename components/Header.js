@@ -6,7 +6,7 @@ import {
   NavButton,
 } from './styles/styledHeader';
 import { useContext, useEffect, useState } from 'react';
-import LogoImage from '../images/logo.jpg';
+import HeaderLogoImage from '../images/header-logo-2.png';
 import MenuWrapper from './MenuWrapper';
 import { MobileContext } from '../contexts/mobileContext';
 import { useUser } from './User';
@@ -44,7 +44,7 @@ export default function Header() {
           <NavLink className="logo__anchor">
             <img
               className="logo-image"
-              src={LogoImage}
+              src={HeaderLogoImage}
               onClick={closeAllMenus}
               alt=""
             />
@@ -93,7 +93,9 @@ export default function Header() {
           </>
         )}
         <Link href="/create-fundraiser">
-          <NavButton onClick={closeAllMenus}>Start Fundeserving</NavButton>
+          <NavButton onClick={closeAllMenus} mobileMenu={mobileMenu}>
+            Start a Fundraiser
+          </NavButton>
         </Link>
       </MenuWrapper>
     </HeaderComponent>

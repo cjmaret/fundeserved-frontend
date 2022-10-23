@@ -4,7 +4,7 @@ export const StatsComponent = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2rem 0;
+  margin: 10rem 0;
   max-width: 1080px;
   width: 100%;
 `;
@@ -12,7 +12,7 @@ export const StatsComponent = styled.section`
 export const Title = styled.h2`
   font-size: 3.5rem;
   text-align: center;
-  margin: 0 0 5vw 0;
+  margin: 0 0 1rem 0;
   line-height: 1.5;
   width: 90%;
   @media (min-width: 950px) {
@@ -52,15 +52,19 @@ export const StatTitle = styled.h3`
   font-size: 2rem;
   text-align: center;
   z-index: 1;
-  color: var(--black);
+  color: var(--grey);
   margin: 0;
   line-height: 1.2;
+  @media (min-width: 800px) {
+    font-size: 3rem;
+  }
 `;
 
 export const StatParagraph = styled.p`
   margin: 0;
   color: var(--grey);
   text-align: center;
+  z-index: 1;
   font-size: 2rem;
   font-weight: 700;
 `;
@@ -70,7 +74,7 @@ export const StatCircle = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: var(--red);
+  background-color: var(--salmon);
   opacity: 0.3;
   width: 125px;
   height: 125px;

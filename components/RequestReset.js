@@ -51,7 +51,7 @@ export default function RequestReset() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Sign In</button>
+        <button type="submit">Request a reset</button>
       </fieldset>
     </AuthForm>
   );
