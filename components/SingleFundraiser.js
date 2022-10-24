@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import DisplayError from './ErrorMessage';
+import Footer from '../components/Footer';
 import {
   FundraiserSection,
   TitleGroup,
@@ -81,6 +82,13 @@ const UPDATE_FUNDRAISER_WITH_IMAGE_MUTATION = gql`
       id
       name
       description
+      photo {
+        id
+        altText
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;
@@ -98,6 +106,13 @@ const UPDATE_FUNDRAISER_NO_IMAGE_MUTATION = gql`
       id
       name
       description
+      photo {
+        id
+        altText
+        image {
+          publicUrlTransformed
+        }
+      }
     }
   }
 `;
@@ -105,6 +120,14 @@ const UPDATE_FUNDRAISER_NO_IMAGE_MUTATION = gql`
 const DELETE_FUNDRAISER_MUTATION = gql`
   mutation DELETE_FUNDRAISER_MUTATION($id: ID!) {
     deleteFundraiser(id: $id) {
+      id
+    }
+  }
+`;
+
+const DELETE_FUNDRAISER_IMAGE_MUTATION = gql`
+  mutation DELETE_FUNDRAISER_IMAGE_MUTATION($fundraiserImageId: ID!) {
+    deleteFundraiserImage(id: $fundraiserImageId) {
       id
     }
   }
@@ -128,7 +151,13 @@ export default function SingleFundraiser({ id }) {
       loading: updateLoadingWithImage,
       error: updateErrorWithImage,
     },
-  ] = useMutation(UPDATE_FUNDRAISER_WITH_IMAGE_MUTATION);
+  ] = useMutation(UPDATE_FUNDRAISER_WITH_IMAGE_MUTATION, {
+    refetchQueries: [
+      {
+        SINGLE_FUNDRAISER_QUERY,
+      },
+    ],
+  });
 
   const [
     updateFundraiserNoImage,
@@ -137,15 +166,31 @@ export default function SingleFundraiser({ id }) {
       loading: updateLoadingNoImage,
       error: updateErrorNoImage,
     },
-  ] = useMutation(UPDATE_FUNDRAISER_NO_IMAGE_MUTATION);
-
-  const [deleteFundraiser, { loading: deleteLoading, error: deleteError }] =
-    useMutation(DELETE_FUNDRAISER_MUTATION, {
-      variables: {
-        id,
+  ] = useMutation(UPDATE_FUNDRAISER_NO_IMAGE_MUTATION, {
+    refetchQueries: [
+      {
+        SINGLE_FUNDRAISER_QUERY,
       },
-      update,
-    });
+    ],
+  });
+
+  const [
+    deleteFundraiser,
+    { loading: deleteFundraiserLoading, error: deleteFundraiserError },
+  ] = useMutation(DELETE_FUNDRAISER_MUTATION, {
+    variables: {
+      id,
+    },
+    update,
+  });
+
+  const [
+    deleteFundraiserImage,
+    {
+      loading: deleteFundraiserImageLoading,
+      error: deleteFundraiserImageError,
+    },
+  ] = useMutation(DELETE_FUNDRAISER_IMAGE_MUTATION);
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -157,6 +202,12 @@ export default function SingleFundraiser({ id }) {
     description: Fundraiser?.description || '',
     image: FundraiserImageSource,
   });
+
+  // useEffect(() => {
+  //   if(isDeleteModalOpen) {
+  //     oldImageId =
+  //   }
+  // }, [isDeleteModalOpen]);
 
   function checkIfClickedOutside(e) {
     const innerUpdateFormDiv = document.getElementById('update-form');
@@ -183,7 +234,6 @@ export default function SingleFundraiser({ id }) {
         },
       })
         .then((res) => {
-          clearForm();
           console.log(res);
           setIsUpdateModalOpen(false);
         })
@@ -198,8 +248,12 @@ export default function SingleFundraiser({ id }) {
         },
       })
         .then((res) => {
-          clearForm();
           console.log(res);
+          deleteFundraiserImage({
+            variables: {
+              fundraiserImageId: Fundraiser.photo.id,
+            },
+          });
           setIsUpdateModalOpen(false);
         })
         .catch((err) => console.error(err));
@@ -210,6 +264,11 @@ export default function SingleFundraiser({ id }) {
     deleteFundraiser()
       .then((res) => {
         console.log(res);
+        deleteFundraiserImage({
+          variables: {
+            fundraiserImageId: Fundraiser.photo.id,
+          },
+        });
         router.push({
           pathname: `/fundraisers`,
         });
@@ -219,10 +278,22 @@ export default function SingleFundraiser({ id }) {
   }
 
   if (loading) return <p>Loading...</p>;
-  if (error || updateErrorWithImage || updateErrorNoImage) {
+  if (
+    error ||
+    updateErrorWithImage ||
+    updateErrorNoImage ||
+    deleteFundraiserError ||
+    deleteFundraiserImageError
+  ) {
     return (
       <DisplayError
-        error={error || updateErrorWithImage || updateErrorNoImage}
+        error={
+          error ||
+          updateErrorWithImage ||
+          updateErrorNoImage ||
+          deleteFundraiserError ||
+          deleteFundraiserImageError
+        }
       />
     );
   }
@@ -294,8 +365,10 @@ export default function SingleFundraiser({ id }) {
             alt="close icon"
             onClick={() => setIsUpdateModalOpen(false)}
           />
-          <DisplayError error={error} />
-          <fieldset disabled={loading} aria-busy={loading}>
+          <DisplayError error={updateErrorNoImage || updateErrorWithImage} />
+          <fieldset
+            disabled={loading || updateLoadingNoImage || updateLoadingNoImage}
+            aria-busy={loading || updateLoadingNoImage || updateLoadingNoImage}>
             <label htmlFor="name">
               Name
               <input
@@ -325,10 +398,11 @@ export default function SingleFundraiser({ id }) {
                 placeholder="description"
                 value={inputs.description}
                 onChange={handleChange}
+                rows="11"
               />
             </label>
             <div className="button-group">
-              <button type="submit">Create Fundraiser</button>
+              <button type="submit">Update Fundraiser</button>
               <button type="button" onClick={clearForm}>
                 Clear Form
               </button>
@@ -341,11 +415,15 @@ export default function SingleFundraiser({ id }) {
         onClick={checkIfClickedOutside}>
         <DeleteFormGroup id="delete-form">
           <DeleteFormTitle>Delete Fundraiser?</DeleteFormTitle>
-          <DeleteFormButton onClick={handleDeleteFundraiser}>
+          <DeleteFormButton
+            onClick={handleDeleteFundraiser}
+            aria-busy={deleteFundraiserLoading}
+            disabled={deleteFundraiserLoading}>
             Delete
           </DeleteFormButton>
         </DeleteFormGroup>
       </DeleteFormContainer>
+      <Footer />
     </>
   );
 }

@@ -197,14 +197,13 @@ export const GuaranteeDetailsGroup = styled.div`
 `;
 
 export const GuaranteeTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0 0 1rem 0;
   line-height: 1.5;
 `;
 
 export const GuaranteeSubtitle = styled.p`
   font-size: 1rem;
-  color: var(--green);
   margin: 0;
   line-height: 1.5;
   @media (min-width: 500px) {

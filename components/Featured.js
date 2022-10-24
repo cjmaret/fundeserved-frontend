@@ -45,7 +45,9 @@ export default function Featured() {
     <FeaturedComponent>
       <FeaturedContentGroup>
         <FeaturedTitleGroup>
-          <FeaturedTitle>GoFundYourself Spotlight</FeaturedTitle>
+          <FeaturedTitle>
+            GoFundYourself <span>Spotlight</span>
+          </FeaturedTitle>
           <FeaturedParagraph>
             Featuring some of our least deserving fundraisers
           </FeaturedParagraph>

@@ -24,7 +24,7 @@ export const InstructionsSection = styled.div`
   width: 40%;
   background: linear-gradient(
     0deg,
-    rgba(255, 106, 113, 1) 0%,
+    rgba(255, 123, 111, 1) 0%,
     rgba(255, 194, 198, 1) 100%
   );
 

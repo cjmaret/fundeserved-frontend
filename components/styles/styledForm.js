@@ -29,10 +29,14 @@ export const Form = styled.form`
   textarea,
   select {
     width: 100%;
+    max-width: 100%;
     padding: 0.5rem;
     font-size: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    font-family: 'Lato';
+    font-size: 2rem;
+    resize: none;
     &:focus {
       outline: 0;
       border-color: var(--salmon);

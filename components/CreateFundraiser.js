@@ -120,6 +120,7 @@ export default function CreateFundraiser() {
                   placeholder="Description"
                   value={inputs.description}
                   onChange={handleChange}
+                  rows="11"
                 />
               </label>
               <label htmlFor="goal">

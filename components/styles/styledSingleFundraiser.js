@@ -10,7 +10,7 @@ export const FundraiserSection = styled.section`
   width: 95%;
   margin: 50px 0 0 0;
   @media (min-width: 700px) {
-    margin: 75px 0 0 0;
+    margin: 75px 0 150px 0;
   }
 `;
 
@@ -19,11 +19,10 @@ export const TitleGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 960px;
   @media (min-width: 700px) {
     width: 100%;
     flex-direction: row-reverse;
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-bottom: 1rem;
   }
 `;
@@ -31,7 +30,7 @@ export const TitleGroup = styled.div`
 export const Title = styled.h1`
   font-size: 3rem;
   width: 100%;
-  text-align: center;
+  text-align: left;
   margin: 0 0 15px 0;
   line-height: 1.2;
   @media (min-width: 460px) {
@@ -40,7 +39,7 @@ export const Title = styled.h1`
   @media (min-width: 700px) {
     font-size: 4.5rem;
     width: 55%;
-    margin: 0;
+    margin: 0 0 0 25px;
   }
 `;
 
@@ -52,8 +51,8 @@ export const UpdateButtonGroup = styled.div`
   @media (min-width: 700px) {
     width: 40%;
     margin: 0;
-    flex-direction: column;
-    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
     margin: 0 0 2rem 0;
   }
 `;
@@ -68,6 +67,7 @@ export const UpdateButton = styled.button`
   background-color: var(--green);
   width: 40%;
   font-size: 1.2rem;
+  color: var(--white);
   &:hover {
     cursor: pointer;
     opacity: 0.7;
@@ -76,10 +76,7 @@ export const UpdateButton = styled.button`
     font-size: 1.5rem;
     padding: 1rem 1.5rem;
     width: 170px;
-    margin-bottom: 0 0 1rem 0;
-    &:last-child {
-      margin: 1rem 0 0 0;
-    }
+    margin: 0 1rem 1rem 0;
   }
 `;
 
@@ -105,7 +102,6 @@ export const Image = styled.img`
   margin-bottom: 15px;
   border-radius: 15px;
   @media (min-width: 700px) {
-    max-width: 500px;
     margin-bottom: 25px;
   }
 `;
@@ -157,7 +153,7 @@ export const PercentageBarGroup = styled.div`
 export const PercentageBar = styled.div`
   width: 100%;
   height: 10px;
-  background-color: var(--green);
+  background-color: rgba(255, 123, 111, .5);
   border-radius: 10px;
 `;
 
@@ -177,7 +173,6 @@ export const ButtonGroup = styled.div`
 `;
 
 export const Button = styled.a`
-  color: white;
   font-size: 1.5rem;
   width: 100%;
   max-width: 400px;
@@ -185,10 +180,10 @@ export const Button = styled.a`
   padding: 10px 0;
   border: none;
   border-radius: 5px;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 5px;
   text-align: center;
   transition: opacity 0.4s ease;
+  color: var(--white);
   &:last-child {
     margin-bottom: 0;
   }
@@ -202,7 +197,7 @@ export const Button = styled.a`
 `;
 
 export const ShareButton = styled(Button)`
-  background-color: green;
+  background-color: var(--green);
 `;
 
 export const DonateButton = styled(Button)``;

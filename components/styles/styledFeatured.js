@@ -6,7 +6,7 @@ export const FeaturedComponent = styled.section`
   align-items: center;
   margin: 5rem 0;
   width: 100%;
-  background-color: var(--green);
+  background-color: var(--salmon);
   color: white;
   padding: 0;
 `;
@@ -35,6 +35,9 @@ export const FeaturedTitle = styled.h2`
   margin: 0 0 1rem 0;
   font-size: 4rem;
   line-height: 1.2;
+  span {
+    color: var(--green);
+  }
   @media (min-width: 500px) {
     font-size: 6rem;
   }
