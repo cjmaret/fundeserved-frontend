@@ -39,15 +39,8 @@ export default function Fundraiser({ fundraiser }) {
         <img src={fundraiserImage} alt="" className="fundraiser-image" />
       </FundraiserImageWrapper>
       <FundraiserDetails>
-        <FundraiserTitle>
-          {/* {fundraiser?.name.length > 20
-            ? `${fundraiser.name.substring(0, 20)}...`
-            : fundraiser.name} */}
-            {fundraiser.name}
-        </FundraiserTitle>
-        {!mobileWidth && (
-          <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
-        )}
+        <FundraiserTitle>{fundraiser.name}</FundraiserTitle>
+        <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
         <CreatedOn>Created on {convertDate()}</CreatedOn>
         <PercentageBarGroup>
           <PercentageBarFilled

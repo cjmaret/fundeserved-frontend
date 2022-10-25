@@ -91,7 +91,7 @@ export const FundraiserInfo = styled.div`
 export const Details = styled.div`
   width: 100%;
   @media (min-width: 700px) {
-    margin-right: 20px;
+    margin-right: 30px;
     width: 60%;
   }
 `;
@@ -108,7 +108,9 @@ export const Image = styled.img`
 
 export const Description = styled.p`
   white-space: pre-wrap;
+  line-height: 1.5;
   margin: 0;
+  font-size: 2rem;
 `;
 
 export const Sidebar = styled.div`

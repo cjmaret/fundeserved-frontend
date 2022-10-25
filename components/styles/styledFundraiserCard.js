@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const FundraiserCardComponent = styled.div`
-  display: grid;
-  grid-auto-flow: row;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -27,7 +28,6 @@ export const FundraiserLink = styled.a`
 
 export const FundraiserImageWrapper = styled.div`
   width: 100%;
-  /* height: 250px; */
   overflow: hidden;
   height: 30vw;
   max-height: 300px;
@@ -47,7 +47,7 @@ export const FundraiserDetails = styled.div`
 `;
 
 export const FundraiserTitle = styled.h1`
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0 0 0.5rem 0;
   color: var(--grey);
   line-height: 1.2;
@@ -59,18 +59,26 @@ export const FundraiserTitle = styled.h1`
   @media (min-width: 500px) {
     font-size: 1.5rem;
   }
+  @media (min-width: 900px) {
+    font-size: 2rem;
+  }
 `;
 
 export const FundraiserParagraph = styled.p`
-  font-size: 1.4rem;
+  font-size: .9rem;
   margin: 0 0 1rem 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  line-height: 1.5;
-  height: 45px;
+  line-height: 1.5; 
+  @media (min-width: 500px) {
+    font-size: 1.2rem;
+  }
+  @media (min-width: 900px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const CreatedOn = styled.div`

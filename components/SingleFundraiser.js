@@ -203,11 +203,7 @@ export default function SingleFundraiser({ id }) {
     image: FundraiserImageSource,
   });
 
-  // useEffect(() => {
-  //   if(isDeleteModalOpen) {
-  //     oldImageId =
-  //   }
-  // }, [isDeleteModalOpen]);
+  console.log(Fundraiser);
 
   function checkIfClickedOutside(e) {
     const innerUpdateFormDiv = document.getElementById('update-form');

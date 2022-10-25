@@ -9,13 +9,13 @@ import {
 const allFundraisersLeadData = {
   title: 'Browse fundraisers',
   subtitle: `There's always something stupid to give your money to`,
-  button: 'Start a Fundeserved',
+  button: 'Start a GoFundYourself',
 };
 
 const myFundraisersLeadData = {
   title: 'My fundraisers',
   subtitle: `Keep asking for money, you little entrepreneur, you.`,
-  button: 'Start another Fundeserved',
+  button: 'Start a GoFundYourself',
 };
 
 export default function FundraisersLead({ pathname }) {
