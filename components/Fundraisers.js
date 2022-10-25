@@ -7,7 +7,7 @@ import { perPage } from '../config';
 // change to only user-created fundraisers later
 export const ALL_FUNDRAISERS_QUERY = gql`
   query ALL_FUNDRAISERS_QUERY($skip: Int = 0, $first: Int) {
-    allFundraisers(first: $first, skip: $skip) {
+    allFundraisers(first: $first, skip: $skip, sortBy: dateCreated_ASC) {
       id
       name
       amount
@@ -40,7 +40,7 @@ const FundraisersGrid = styled.div`
 
 export default function Fundraisers({ page, pathname }) {
   const { data, error, loading } =
-    pathname === '/my-fundraisers'
+    pathname === '/my-fundraisers' || '/profile'
       ? useQuery(ALL_FUNDRAISERS_QUERY, {
           variables: {
             skip: page * perPage - perPage,
@@ -58,7 +58,7 @@ export default function Fundraisers({ page, pathname }) {
   if (error) return <p>Error: {error.message}</p>;
   return (
     <FundraisersGrid>
-      {data.allFundraisers.map((fundraiser) => (
+      {data?.allFundraisers.map((fundraiser) => (
         <FundraiserCard key={fundraiser.id} fundraiser={fundraiser} />
       ))}
     </FundraisersGrid>

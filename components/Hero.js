@@ -22,7 +22,7 @@ export default function Hero() {
             Fundraise for the absolute worst causes imaginable
           </HeroTitle>
           <Link href="/fundraisers">
-            <HeroButton>Fund an awful cause</HeroButton>
+            <HeroButton>GoFundYourself</HeroButton>
           </Link>
         </HeroDetails>
         {/* <HeroImageWrapper>

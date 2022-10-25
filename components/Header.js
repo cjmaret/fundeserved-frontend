@@ -76,8 +76,8 @@ export default function Header() {
         {!mobileMenu && renderLogo()}
         {user && (
           <>
-            <Link href="/my-fundraisers">
-              <NavLink onClick={closeAllMenus}>My Fundraisers</NavLink>
+            <Link href="/profile">
+              <NavLink onClick={closeAllMenus}>My Profile</NavLink>
             </Link>
             <SignOut />
           </>
@@ -101,3 +101,8 @@ export default function Header() {
     </HeaderComponent>
   );
 }
+
+/*           <Link href="/my-fundraisers">
+              <NavLink onClick={closeAllMenus}>My Fundraisers</NavLink>
+            </Link>
+            */

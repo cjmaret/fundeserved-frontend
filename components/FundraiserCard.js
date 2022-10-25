@@ -16,7 +16,7 @@ import {
 } from './styles/styledFundraiserCard';
 import { formatCentsToDollars } from '../lib/formatMoney';
 
-export default function Fundraiser({ fundraiser }) {
+export default function FundraiserCard({ fundraiser }) {
   const mobileWidth = useContext(MobileContext);
   const fundraiserImage = fundraiser?.photo?.image?.publicUrlTransformed;
 

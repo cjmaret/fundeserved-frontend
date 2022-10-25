@@ -9,6 +9,7 @@ export const FundraiserSection = styled.section`
   max-width: 1080px;
   width: 95%;
   margin: 50px 0 0 0;
+  padding: 0 1rem;
   @media (min-width: 700px) {
     margin: 75px 0 150px 0;
   }
@@ -110,7 +111,10 @@ export const Description = styled.p`
   white-space: pre-wrap;
   line-height: 1.5;
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  @media (min-width: 500px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const Sidebar = styled.div`
@@ -155,7 +159,7 @@ export const PercentageBarGroup = styled.div`
 export const PercentageBar = styled.div`
   width: 100%;
   height: 10px;
-  background-color: rgba(255, 123, 111, .5);
+  background-color: rgba(255, 123, 111, 0.5);
   border-radius: 10px;
 `;
 

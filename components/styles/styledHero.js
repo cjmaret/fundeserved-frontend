@@ -48,7 +48,7 @@ export const HeroTitle = styled.h1`
 `;
 
 export const HeroButton = styled.button`
-  padding: 1rem;
+  padding: .75rem 1.5rem;
   border-radius: 1.5rem;
   border: none;
   /* box-shadow: 1px 1px 5px var(--green); */
@@ -62,7 +62,7 @@ export const HeroButton = styled.button`
     transform: scale(1.05);
   }
   @media (min-width: 500px) {
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 1rem 2rem;
   }
 `;
