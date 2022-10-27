@@ -27,6 +27,7 @@ import BlankProfileImage from '../images/blank-profile.jpg';
 import { ALL_FUNDRAISERS_QUERY } from './Fundraisers';
 import { useQuery } from '@apollo/client';
 import { formatCentsToDollars } from '../lib/formatMoney';
+import convertDate from '../lib/convertDate';
 
 export default function Profile() {
   const user = useUser();
@@ -39,8 +40,6 @@ export default function Profile() {
     },
   });
 
-  console.log(data);
-
   const numOfCardsDisplayed = mobileWidth ? 2 : 3;
 
   return (
@@ -50,12 +49,16 @@ export default function Profile() {
           <ProfileBanner />
           <ProfileContentGroup>
             <ProfileImageWrapper>
-              <ProfileImage src={user?.image || BlankProfileImage} />
+              <ProfileImage
+                src={user?.avatar.publicUrlTransformed || BlankProfileImage}
+              />
             </ProfileImageWrapper>
             <ProfileDetails>
               <ProfileName>{user?.name}</ProfileName>
               <ProfileEmail>{user?.email}</ProfileEmail>
-              <DateCreated>Funding since '[date]'</DateCreated>
+              <DateCreated>
+                Funding since {user && convertDate(user.createdOn)}
+              </DateCreated>
             </ProfileDetails>
           </ProfileContentGroup>
         </ProfileLead>

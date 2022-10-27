@@ -15,22 +15,12 @@ import {
   FundraiserLink,
 } from './styles/styledFundraiserCard';
 import { formatCentsToDollars } from '../lib/formatMoney';
+import convertDate from '../lib/convertDate';
 
 export default function FundraiserCard({ fundraiser }) {
   const mobileWidth = useContext(MobileContext);
   const fundraiserImage = fundraiser?.photo?.image?.publicUrlTransformed;
-
-  function convertDate() {
-    if (fundraiser.dateCreated) {
-      const date = new Date(fundraiser.dateCreated?.toString());
-      let options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      };
-      return new Intl.DateTimeFormat('en-US', options).format(date);
-    }
-  }
+  const fundraiserDate = fundraiser?.dateCreated;
 
   return (
     <FundraiserCardComponent>
@@ -41,7 +31,7 @@ export default function FundraiserCard({ fundraiser }) {
       <FundraiserDetails>
         <FundraiserTitle>{fundraiser.name}</FundraiserTitle>
         <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
-        <CreatedOn>Created on {convertDate()}</CreatedOn>
+        <CreatedOn>Created on {convertDate(fundraiserDate)}</CreatedOn>
         <PercentageBarGroup>
           <PercentageBarFilled
             filled={(fundraiser.amount / fundraiser.goal) * 100}
@@ -50,7 +40,7 @@ export default function FundraiserCard({ fundraiser }) {
         </PercentageBarGroup>
         <FundraiserAmount>
           <AmountSpan>
-            {formatCentsToDollars(fundraiser?.amount)} raised{' '}
+            {formatCentsToDollars(fundraiser?.amount)} raised
           </AmountSpan>
           of {formatCentsToDollars(fundraiser.goal)}
         </FundraiserAmount>

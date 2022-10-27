@@ -317,7 +317,7 @@ export default function SingleFundraiser({ id }) {
             <AmountGroup>
               <AmountRaised>
                 {formatCentsToDollars(Fundraiser.amount)}
-              </AmountRaised>{' '}
+              </AmountRaised>
               raised of {formatCentsToDollars(Fundraiser.goal)} goal
             </AmountGroup>
             <PercentageBarGroup>

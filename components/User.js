@@ -7,6 +7,10 @@ export const CURRENT_USER_QUERY = gql`
         id
         name
         email
+        createdOn
+        avatar {
+          publicUrlTransformed
+        }
         # TODO: query the cart if we need it?
       }
     }
