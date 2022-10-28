@@ -40,7 +40,7 @@ export default function FundraiserCard({ fundraiser }) {
         </PercentageBarGroup>
         <FundraiserAmount>
           <AmountSpan>
-            {formatCentsToDollars(fundraiser?.amount)} raised
+            {formatCentsToDollars(fundraiser?.amount)} raised{' '}
           </AmountSpan>
           of {formatCentsToDollars(fundraiser.goal)}
         </FundraiserAmount>

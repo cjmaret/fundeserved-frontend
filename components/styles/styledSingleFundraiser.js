@@ -8,9 +8,9 @@ export const FundraiserSection = styled.section`
   flex-direction: column;
   max-width: 1080px;
   width: 95%;
-  margin: 50px 0 0 0;
+  margin: 50px 0 100px 0;
   padding: 0 1rem;
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     margin: 75px 0 150px 0;
   }
 `;
@@ -20,7 +20,9 @@ export const TitleGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media (min-width: 700px) {
+  width: 50%;
+  min-width: 300px;
+  @media (min-width: 850px) {
     width: 100%;
     flex-direction: row-reverse;
     justify-content: flex-end;
@@ -31,13 +33,14 @@ export const TitleGroup = styled.div`
 export const Title = styled.h1`
   font-size: 3rem;
   width: 100%;
-  text-align: left;
+  text-align: center;
   margin: 0 0 15px 0;
   line-height: 1.2;
   @media (min-width: 460px) {
     font-size: 3.5rem;
   }
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
+    text-align: left;
     font-size: 4.5rem;
     width: 55%;
     margin: 0 0 0 25px;
@@ -49,7 +52,7 @@ export const UpdateButtonGroup = styled.div`
   display: flex;
   justify-content: space-around;
   margin: 0 0 2rem 0;
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     width: 40%;
     margin: 0;
     justify-content: flex-end;
@@ -60,20 +63,21 @@ export const UpdateButtonGroup = styled.div`
 
 export const UpdateButton = styled.button`
   font-size: 1.5rem;
-  padding: 1rem 0;
+  padding: 1rem .5rem;
   height: 50%;
   border: none;
   border-radius: 10px;
   transition: opacity 0.4s ease;
   background-color: var(--green);
   width: 40%;
+  min-width: 100px;
   font-size: 1.2rem;
   color: var(--white);
   &:hover {
     cursor: pointer;
     opacity: 0.7;
   }
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     font-size: 1.5rem;
     padding: 1rem 1.5rem;
     width: 170px;
@@ -84,14 +88,16 @@ export const UpdateButton = styled.button`
 export const FundraiserInfo = styled.div`
   display: flex;
   flex-direction: column;
-  @media (min-width: 700px) {
+  align-items: center;
+  @media (min-width: 850px) {
     flex-direction: row;
+    align-items: flex-start;
   }
 `;
 
 export const Details = styled.div`
   width: 100%;
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     margin-right: 30px;
     width: 60%;
   }
@@ -102,7 +108,7 @@ export const Image = styled.img`
   width: 100%;
   margin-bottom: 15px;
   border-radius: 15px;
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     margin-bottom: 25px;
   }
 `;
@@ -110,7 +116,7 @@ export const Image = styled.img`
 export const Description = styled.p`
   white-space: pre-wrap;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 0 25px 0;
   font-size: 1.5rem;
   @media (min-width: 500px) {
     font-size: 1.75rem;
@@ -118,13 +124,17 @@ export const Description = styled.p`
 `;
 
 export const Sidebar = styled.div`
-  height: 550px;
+  width: 100%;
+  min-height: 330px;
+  max-height: 550px;
+  min-width: 250px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px;
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
     width: 40%;
@@ -142,7 +152,7 @@ export const AmountGroup = styled.p`
 export const AmountValue = styled.p``;
 
 export const AmountRaised = styled.span`
-  font-weight: 700;
+  font-weight: 850;
   font-size: 2.2rem;
   @media (min-width: 1000px) {
     font-size: 2.5rem;
@@ -251,8 +261,8 @@ export const DonorListSeeAllButton = styled(Button)`
   width: 60%;
 `;
 
-export const ModalContainer = styled.div`
-  position: absolute;
+export const Modal = styled.div`
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -263,23 +273,26 @@ export const ModalContainer = styled.div`
   justify-content: center;
   overflow: hidden;
   align-items: center;
-  @media (min-width: 700px) {
-  }
+  /* overflow-y: hidden; */
 `;
 
-export const UpdateFormContainer = styled(ModalContainer)`
+export const UpdateModal = styled(Modal)`
   visibility: ${(props) => (props.isUpdateModalOpen ? 'visible' : 'hidden')};
 `;
 
-export const DeleteFormContainer = styled(ModalContainer)`
+export const DeleteModal = styled(Modal)`
   visibility: ${(props) => (props.isDeleteModalOpen ? 'visible' : 'hidden')};
+`;
+
+export const DonorsModal = styled(Modal)`
+  visibility: ${(props) => (props.isDonorsModalOpen ? 'visible' : 'hidden')};
 `;
 
 export const UpdateForm = styled(Form)`
   position: relative;
   background-color: white;
   width: 95%;
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     width: 100%;
   }
 `;
@@ -304,7 +317,7 @@ export const DeleteFormGroup = styled.div`
   border-radius: 10px;
   max-width: 400px;
   width: 95%;
-  @media (min-width: 700px) {
+  @media (min-width: 850px) {
     width: 100%;
   }
 `;
@@ -323,4 +336,53 @@ export const DeleteFormButton = styled.button`
     cursor: pointer;
     opacity: 0.7;
   }
+`;
+
+export const DonorsModalContentGroup = styled.div`
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 60%;
+  max-width: 500px;
+  max-height: 550px;
+`;
+
+export const DonorsModalTitle = styled.h3`
+  font-size: 3rem;
+  margin: 0 0 1rem 0;
+`;
+
+export const DonorsModalList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  width: 100%;
+`;
+
+export const DonorsModalCard = styled(DonorCard)`
+  width: 100%;
+  margin: 1rem 0;
+  &:last-child {
+    border-bottom: none;
+  }
+`;
+
+export const DonorsModalPhoto = styled(DonorCardPhoto)`
+  width: 100px;
+  height: 100px;
+`;
+
+export const DonorsModalDetails = styled(DonorCardDetails)``;
+
+export const DonorsModalName = styled(DonorCardName)`
+  font-size: 2rem;
+`;
+
+export const DonorsModalAmount = styled(DonorCardAmount)`
+  font-size: 1.5rem;
 `;

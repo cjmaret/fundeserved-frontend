@@ -28,14 +28,24 @@ import {
   PercentageBarGroup,
   PercentageBar,
   PercentageBarFilled,
+  UpdateModal,
+  DeleteModal,
   UpdateForm,
   CloseIcon,
   UpdateButtonGroup,
-  UpdateFormContainer,
-  DeleteFormContainer,
   DeleteFormTitle,
   DeleteFormButton,
   DeleteFormGroup,
+  DonorsModal,
+  DonateModalList,
+  DonorsModalContentGroup,
+  DonorsModalTitle,
+  DonorsModalList,
+  DonorsModalDetails,
+  DonorsModalName,
+  DonorsModalAmount,
+  DonorsModalPhoto,
+  DonorsModalCard,
 } from './styles/styledSingleFundraiser';
 import { donors } from '../array-data/donors';
 import { formatCentsToDollars } from '../lib/formatMoney';
@@ -58,6 +68,15 @@ export const SINGLE_FUNDRAISER_QUERY = gql`
         altText
         image {
           publicUrlTransformed
+        }
+      }
+      donations {
+        total
+        user {
+          name
+          avatar {
+            publicUrlTransformed
+          }
         }
       }
     }
@@ -194,6 +213,7 @@ export default function SingleFundraiser({ id }) {
 
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDonorsModalOpen, setIsDonorsModalOpen] = useState(false);
 
   const Fundraiser = data?.Fundraiser;
   const FundraiserImageSource = Fundraiser?.photo?.image?.publicUrlTransformed;
@@ -203,11 +223,10 @@ export default function SingleFundraiser({ id }) {
     image: FundraiserImageSource,
   });
 
-  console.log(Fundraiser);
-
   function checkIfClickedOutside(e) {
     const innerUpdateFormDiv = document.getElementById('update-form');
     const innerDeleteFormDiv = document.getElementById('delete-form');
+    const innerDonorsDiv = document.getElementById('donors-div');
     if (isUpdateModalOpen) {
       if (!innerUpdateFormDiv.contains(e.target)) {
         setIsUpdateModalOpen(false);
@@ -216,6 +235,11 @@ export default function SingleFundraiser({ id }) {
     if (isDeleteModalOpen) {
       if (!innerDeleteFormDiv.contains(e.target)) {
         setIsDeleteModalOpen(false);
+      }
+    }
+    if (isDonorsModalOpen) {
+      if (!innerDonorsDiv.contains(e.target)) {
+        setIsDonorsModalOpen(false);
       }
     }
   }
@@ -316,7 +340,7 @@ export default function SingleFundraiser({ id }) {
           <Sidebar>
             <AmountGroup>
               <AmountRaised>
-                {formatCentsToDollars(Fundraiser.amount)}
+                {formatCentsToDollars(Fundraiser.amount)}{' '}
               </AmountRaised>
               raised of {formatCentsToDollars(Fundraiser.goal)} goal
             </AmountGroup>
@@ -333,21 +357,28 @@ export default function SingleFundraiser({ id }) {
               </DonateButton>
             </ButtonGroup>
             <DonorList>
-              {donors.map((donor, i) => (
+              {Fundraiser.donations.slice(0, 3).map((donor, i) => (
                 <DonorCard key={i}>
-                  <DonorCardPhoto src={donor.image} alt="" />
+                  <DonorCardPhoto
+                    src={donor.user.avatar.publicUrlTransformed}
+                    alt=""
+                  />
                   <DonorCardDetails>
-                    <DonorCardName>{donor.name}</DonorCardName>
-                    <DonorCardAmount>Donated ${donor.amount}</DonorCardAmount>
+                    <DonorCardName>{donor.user.name}</DonorCardName>
+                    <DonorCardAmount>
+                      Donated {formatCentsToDollars(donor.total)}
+                    </DonorCardAmount>
                   </DonorCardDetails>
                 </DonorCard>
               ))}
             </DonorList>
-            <DonorListSeeAllButton>See all</DonorListSeeAllButton>
+            <DonorListSeeAllButton onClick={() => setIsDonorsModalOpen(true)}>
+              See all
+            </DonorListSeeAllButton>
           </Sidebar>
         </FundraiserInfo>
       </FundraiserSection>
-      <UpdateFormContainer
+      <UpdateModal
         isUpdateModalOpen={isUpdateModalOpen}
         onClick={checkIfClickedOutside}>
         <UpdateForm
@@ -405,8 +436,8 @@ export default function SingleFundraiser({ id }) {
             </div>
           </fieldset>
         </UpdateForm>
-      </UpdateFormContainer>
-      <DeleteFormContainer
+      </UpdateModal>
+      <DeleteModal
         isDeleteModalOpen={isDeleteModalOpen}
         onClick={checkIfClickedOutside}>
         <DeleteFormGroup id="delete-form">
@@ -418,7 +449,30 @@ export default function SingleFundraiser({ id }) {
             Delete
           </DeleteFormButton>
         </DeleteFormGroup>
-      </DeleteFormContainer>
+      </DeleteModal>
+      <DonorsModal
+        isDonorsModalOpen={isDonorsModalOpen}
+        onClick={checkIfClickedOutside}>
+        <DonorsModalContentGroup>
+          <DonorsModalTitle>All Donors</DonorsModalTitle>
+          <DonorsModalList id="donors-div">
+            {Fundraiser.donations.map((donor, i) => (
+              <DonorsModalCard key={i}>
+                <DonorsModalPhoto
+                  src={donor.user.avatar.publicUrlTransformed}
+                  alt=""
+                />
+                <DonorsModalDetails>
+                  <DonorsModalName>{donor.user.name}</DonorsModalName>
+                  <DonorsModalAmount>
+                    Donated {formatCentsToDollars(donor.total)}
+                  </DonorsModalAmount>
+                </DonorsModalDetails>
+              </DonorsModalCard>
+            ))}
+          </DonorsModalList>
+        </DonorsModalContentGroup>
+      </DonorsModal>
       <Footer />
     </>
   );

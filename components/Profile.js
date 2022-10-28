@@ -67,7 +67,7 @@ export default function Profile() {
           <PanelCardGroup>
             <PanelLink href="/my-fundraisers" />
             {data?.allFundraisers.slice(0, numOfCardsDisplayed).map((card) => (
-              <PanelCard>
+              <PanelCard key={card.id}>
                 <PanelCardImageWrapper>
                   <img
                     src={card?.photo.image.publicUrlTransformed}
@@ -97,7 +97,7 @@ export default function Profile() {
           <PanelCardGroup>
             <PanelLink href="/my-donees" />
             {data?.allFundraisers.slice(0, numOfCardsDisplayed).map((card) => (
-              <PanelCard>
+              <PanelCard key={card.id}>
                 <PanelCardImageWrapper>
                   <img
                     src={card?.photo.image.publicUrlTransformed}

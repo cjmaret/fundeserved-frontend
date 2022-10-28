@@ -73,6 +73,7 @@ export default function Donate({ id }) {
     setAmountValue(amount);
   }
 
+
   useEffect(() => {
     if (amountValue > 50000) {
       setInputError(true);

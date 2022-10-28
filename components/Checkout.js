@@ -96,10 +96,12 @@ function CheckoutForm({ amount, fundraiserId }) {
     })
       .then((res) => {
         router.push({
-          pathname: `/my-fundraisers`,
+          pathname: `/fundraiser/${fundraiserId}`,
         });
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+      });
     // 6. change the page to view the order
     // 8. turn off loader
     setLoading(false);
