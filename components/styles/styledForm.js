@@ -35,11 +35,14 @@ export const Form = styled.form`
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     font-family: 'Lato';
-    font-size: 2rem;
+    font-size: 1rem;
     resize: none;
     &:focus {
       outline: 0;
       border-color: var(--salmon);
+    }
+    @media (min-width: 500px) {
+      font-size: 2rem;
     }
   }
   textarea {

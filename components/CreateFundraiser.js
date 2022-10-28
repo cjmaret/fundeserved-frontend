@@ -16,6 +16,8 @@ import {
   InstructionsSubtitle,
   InstructionsTitle,
 } from './styles/styledCreateFundraiser';
+import { MobileContext } from '../contexts/mobileContext';
+import { useContext } from 'react';
 
 export const CREATE_FUNDRAISER_MUTATION = gql`
   mutation CREATE_FUNDRAISER_MUTATION(
@@ -44,6 +46,7 @@ export const CREATE_FUNDRAISER_MUTATION = gql`
 
 export default function CreateFundraiser() {
   const router = useRouter();
+  const mobileWidth = useContext(MobileContext);
   const { inputs, handleChange, resetForm, clearForm } = useForm({
     image: '',
     name: '',
@@ -62,6 +65,8 @@ export default function CreateFundraiser() {
       ],
     }
   );
+
+  const textAreaRows = mobileWidth ? 6 : 9;
 
   return (
     <CreateFundraiserComponent>
@@ -120,7 +125,7 @@ export default function CreateFundraiser() {
                   placeholder="Description"
                   value={inputs.description}
                   onChange={handleChange}
-                  rows="11"
+                  rows={textAreaRows}
                 />
               </label>
               <label htmlFor="goal">
