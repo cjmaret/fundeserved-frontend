@@ -11,7 +11,34 @@ export const CURRENT_USER_QUERY = gql`
         avatar {
           publicUrlTransformed
         }
-        # TODO: query the cart if we need it?
+        fundraisers(sortBy: dateCreated_ASC) {
+          id
+          name
+          amount
+          description
+          goal
+          dateCreated
+          photo {
+            image {
+              publicUrlTransformed
+            }
+          }
+        }
+        donations(sortBy: dateCreated_ASC) {
+          id
+          total
+          dateCreated
+          fundraiser {
+            id
+            name
+            description
+            photo {
+              image {
+                publicUrlTransformed
+              }
+            }
+          }
+        }
       }
     }
   }

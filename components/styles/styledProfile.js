@@ -6,6 +6,7 @@ import {
   CardDetails,
   CardTitle,
   CardParagraph,
+  AmountRaised,
 } from './styledFeatured';
 
 export const ProfileComponent = styled.section`
@@ -14,6 +15,7 @@ export const ProfileComponent = styled.section`
   align-items: center;
   width: 100%;
   position: relative;
+  margin-bottom: 500px;
 `;
 
 export const ProfileLead = styled.div`
@@ -119,25 +121,11 @@ export const MyFundraisersPanel = styled(Panel)``;
 
 export const DonatedToPanel = styled(Panel)``;
 
-export const PanelCardGroup = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-`;
+export const PanelCardGroup = styled.div``;
 
-export const PanelCard = styled(Card)`
-  max-width: 500px;
-  margin-right: 15px;
-  flex: 1;
-  &:last-child {
-    margin-right: 0;
-  }
-  @media (min-width: 700px) {
-    margin-right: 30px;
-  }
-`;
+export const PanelCard = styled(Card)``;
 
-export const PanelLink = styled(CardLink)``;
+export const PanelCardLink = styled(CardLink)``;
 
 export const PanelCardImageWrapper = styled(CardImageWrapper)``;
 
@@ -146,12 +134,49 @@ export const PanelCardDetails = styled(CardDetails)`
 `;
 
 export const PanelCardTitle = styled(CardTitle)`
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
   @media (min-width: 500px) {
+    margin-bottom: 0.75rem;
     font-size: 2rem;
   }
 `;
 
 export const PanelCardDescription = styled(CardParagraph)`
   font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+`;
+
+export const PanelCardMinorInfo = styled(AmountRaised)`
+  font-size: 1.1rem;
+  margin-bottom: 0.35rem;
+  @media (min-width: 500px) {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+`;
+
+export const PanelCardCreatedDate = styled(PanelCardMinorInfo)``;
+
+export const PanelCardAmount = styled(PanelCardMinorInfo)``;
+
+export const PanelCardDonationDate = styled(PanelCardMinorInfo)``;
+
+export const EmptyFundraisers = styled.h2`
+  font-size: 1.5rem;
+  text-align: center;
+  width: 100%;
+  /* border: 1px solid red; */
+  padding: 3rem;
+  background-color: var(--offWhite);
+  border-radius: 10px;
+  color: var(--black);
+  @media (min-width: 500px) {
+    font-size: 2rem;
+    padding: 4rem;
+  }
+  @media (min-width: 900px) {
+    font-size: 2.5rem;
+    padding: 4rem;
+  }
 `;

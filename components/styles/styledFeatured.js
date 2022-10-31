@@ -109,6 +109,7 @@ export const CardImageWrapper = styled.div`
 export const CardDetails = styled.div`
   display: flex;
   flex-direction: column;
+  justify-items: center;
   padding: 0 0.5rem;
   color: var(--white);
   @media (min-width: 500px) {
@@ -121,7 +122,11 @@ export const CardTitle = styled.h3`
   width: 95%;
   font-size: 1.2rem;
   line-height: 1.2;
-
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   @media (min-width: 450px) {
     font-size: 1.7rem;
     margin: 0.5rem 0;

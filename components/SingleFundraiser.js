@@ -53,6 +53,8 @@ import useForm from '../lib/useForm';
 import CloseIconImage from '../images/close-icon.png';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import BlankProfileImage from '../images/blank-profile.jpg';
+
 
 export const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -360,7 +362,10 @@ export default function SingleFundraiser({ id }) {
               {Fundraiser.donations.slice(0, 3).map((donor, i) => (
                 <DonorCard key={i}>
                   <DonorCardPhoto
-                    src={donor.user.avatar.publicUrlTransformed}
+                    src={
+                      donor.user.avatar?.publicUrlTransformed ||
+                      BlankProfileImage
+                    }
                     alt=""
                   />
                   <DonorCardDetails>
@@ -459,7 +464,9 @@ export default function SingleFundraiser({ id }) {
             {Fundraiser.donations.map((donor, i) => (
               <DonorsModalCard key={i}>
                 <DonorsModalPhoto
-                  src={donor.user.avatar.publicUrlTransformed}
+                  src={
+                    donor.user.avatar?.publicUrlTransformed || BlankProfileImage
+                  }
                   alt=""
                 />
                 <DonorsModalDetails>
