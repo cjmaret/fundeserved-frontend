@@ -8,6 +8,8 @@ import {
   CardParagraph,
   AmountRaised,
 } from './styledFeatured';
+import { Modal } from './styledSingleFundraiser';
+import { ModalForm } from './styledForm';
 
 export const ProfileComponent = styled.section`
   display: flex;
@@ -38,11 +40,36 @@ export const ProfileContentGroup = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  position: relative;
   @media (min-width: 700px) {
     padding-left: 100px;
     max-width: 1080px;
     flex-direction: row;
     justify-content: flex-start;
+  }
+`;
+
+export const EditProfileButton = styled.button`
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 10%;
+  right: 5%;
+  background: none;
+  border: none;
+  z-index: 2;
+  .edit-icon {
+    opacity: 0.7;
+    width: 100%;
+    transition: opacity 0.4s ease;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+  @media (min-width: 500px) {
+    width: 40px;
+    height: 40px;
   }
 `;
 
@@ -180,3 +207,10 @@ export const EmptyFundraisers = styled.h2`
     padding: 4rem;
   }
 `;
+
+export const EditModal = styled(Modal)`
+  visibility: ${(props) => (props.isEditModalOpen ? 'visible' : 'hidden')};
+  z-index: 2;
+`;
+
+export const EditForm = styled(ModalForm)``;

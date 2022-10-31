@@ -55,7 +55,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import BlankProfileImage from '../images/blank-profile.jpg';
 
-
 export const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
     Fundraiser(where: { id: $id }) {

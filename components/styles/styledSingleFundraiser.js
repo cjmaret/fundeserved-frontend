@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Form } from './styledForm';
+import { ModalForm } from './styledForm';
 
 export const FundraiserSection = styled.section`
   display: flex;
@@ -63,7 +63,7 @@ export const UpdateButtonGroup = styled.div`
 
 export const UpdateButton = styled.button`
   font-size: 1.5rem;
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
   height: 50%;
   border: none;
   border-radius: 10px;
@@ -273,7 +273,6 @@ export const Modal = styled.div`
   justify-content: center;
   overflow: hidden;
   align-items: center;
-  /* overflow-y: hidden; */
 `;
 
 export const UpdateModal = styled(Modal)`
@@ -288,14 +287,7 @@ export const DonorsModal = styled(Modal)`
   visibility: ${(props) => (props.isDonorsModalOpen ? 'visible' : 'hidden')};
 `;
 
-export const UpdateForm = styled(Form)`
-  position: relative;
-  background-color: white;
-  width: 95%;
-  @media (min-width: 850px) {
-    width: 100%;
-  }
-`;
+export const UpdateForm = styled(ModalForm)``;
 
 export const CloseIcon = styled.img`
   position: absolute;

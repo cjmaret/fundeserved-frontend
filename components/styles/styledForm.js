@@ -131,8 +131,17 @@ export const ChangeFormButton = styled.a`
 
 export const RequestResetButton = styled(ChangeFormButton)`
   position: static;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   line-height: 1;
   width: 100%;
   text-align: center;
+`;
+
+export const ModalForm = styled(Form)`
+  position: relative;
+  background-color: white;
+  width: 95%;
+  @media (min-width: 850px) {
+    width: 100%;
+  }
 `;
