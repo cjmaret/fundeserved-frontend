@@ -70,7 +70,7 @@ export default function Header() {
         <Link href="/fundraisers">
           <NavLink onClick={closeAllMenus}>All Fundraisers</NavLink>
         </Link>
-        <Link href="/mario">
+        <Link href="/learn-more">
           <NavLink onClick={closeAllMenus}>How it works</NavLink>
         </Link>
         {!mobileMenu && renderLogo()}

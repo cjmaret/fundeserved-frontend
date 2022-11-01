@@ -394,6 +394,7 @@ export default function SingleFundraiser({ id }) {
           </Sidebar>
         </FundraiserInfo>
       </FundraiserSection>
+      <Footer />
       <UpdateModal
         isUpdateModalOpen={isUpdateModalOpen}
         onClick={checkIfClickedOutside}>
@@ -514,8 +515,6 @@ export default function SingleFundraiser({ id }) {
           </div>
         </SharePopup>
       </ShareModal>
-
-      <Footer />
     </>
   );
 }

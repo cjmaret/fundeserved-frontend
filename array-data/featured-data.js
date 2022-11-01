@@ -1,5 +1,5 @@
 import GamblingImage from '../images/gambling.png';
-import WomanArmsImage from '../images/woman-arms.jpg';
+// import WomanArmsImage from '../images/woman-arms.jpg';
 import WomanComputerImage from '../images/woman-computer.png';
 import WaspImage from '../images/wasp.jpg';
 
@@ -9,9 +9,9 @@ export const featuredCards = [
     title: `One woman's burnt offerings`,
     paragraph: `Marie Sandler faces mounting legal fees after being caught burning down her car rental agency for the insurance payout. She says,`,
     amount: 18,
-    image: WomanArmsImage,
-    mainImage: WomanArmsImage,
-    amount: 455300
+    image: WaspImage,
+    mainImage: WaspImage,
+    amount: 455300,
   },
   {
     id: 1,

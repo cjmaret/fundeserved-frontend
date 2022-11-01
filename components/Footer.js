@@ -16,6 +16,29 @@ import LogoImage from '../images/logo.jpg';
 import FooterLogo from '../images/header-logo-2.png';
 import Link from 'next/link';
 
+const fundraiserForLinks = [
+  'My Benefit',
+  "Someone Else's Loss",
+  'Fraud/Deceit',
+  'Mean Spirited Prank',
+  'A Good Cause (As If, Right?)',
+];
+
+const learnMoreLinks = [
+  'How GoFundYourself works',
+  'Common questions',
+  'Success stories',
+  'Supported countries',
+];
+
+const resourcesLinks = [
+  'Help center',
+  'Blog',
+  'Press center',
+  'Careers',
+  'About',
+];
+
 export default function Footer() {
   return (
     <FooterComponent>
@@ -29,57 +52,27 @@ export default function Footer() {
       <ListGroup>
         <FundraiseList>
           <ListTitle>Fundraise for</ListTitle>
-          <ListItem>
-            <ListLink>Medical</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Emergency</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Memorial</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Education</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Nonprofit</ListLink>
-          </ListItem>
+          {fundraiserForLinks.map((link) => (
+            <ListItem>
+              <ListLink href="/">{link}</ListLink>
+            </ListItem>
+          ))}
         </FundraiseList>
         <LearnMoreList>
           <ListTitle>Learn more</ListTitle>
-          <ListItem>
-            <ListLink>How Fundeserved works</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Common questions</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Success stories</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Supported countries</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Pricing</ListLink>
-          </ListItem>
+          {learnMoreLinks.map((link) => (
+            <ListItem>
+              <ListLink href="/learn-more">{link}</ListLink>
+            </ListItem>
+          ))}
         </LearnMoreList>
         <ResourcesList>
           <ListTitle>Resources</ListTitle>
-          <ListItem>
-            <ListLink>Help center</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Blog</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Press center</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>Careers</ListLink>
-          </ListItem>
-          <ListItem>
-            <ListLink>About</ListLink>
-          </ListItem>
+          {resourcesLinks.map((link) => (
+            <ListItem>
+              <ListLink href="/learn-more">{link}</ListLink>
+            </ListItem>
+          ))}
         </ResourcesList>
       </ListGroup>
       <RightsReserved>2022 All Rights Reserved</RightsReserved>

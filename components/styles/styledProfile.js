@@ -17,7 +17,7 @@ export const ProfileComponent = styled.section`
   align-items: center;
   width: 100%;
   position: relative;
-  margin-bottom: 500px;
+  margin-bottom: 75px;
 `;
 
 export const ProfileLead = styled.div`

@@ -43,6 +43,7 @@ import useForm from '../lib/useForm';
 import gql from 'graphql-tag';
 import { useMutation, useQuery } from '@apollo/client';
 import { CURRENT_USER_QUERY } from './User';
+import Footer from './Footer';
 
 export const UPDATE_USER_WITH_AVATAR_MUTATION = gql`
   mutation UPDATE_USER_WITH_AVATAR_MUTATION(
@@ -276,6 +277,7 @@ export default function Profile() {
           </PanelCardGroup>
         </DonatedToPanel>
       </ProfileComponent>
+      <Footer />
       <EditModal
         isEditModalOpen={isEditModalOpen}
         onClick={checkIfClickedOutside}>
