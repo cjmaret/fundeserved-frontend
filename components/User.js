@@ -11,7 +11,7 @@ export const CURRENT_USER_QUERY = gql`
         avatar {
           publicUrlTransformed
         }
-        fundraisers(sortBy: dateCreated_ASC) {
+        fundraisers(sortBy: dateCreated_DESC) {
           id
           name
           amount
@@ -24,7 +24,7 @@ export const CURRENT_USER_QUERY = gql`
             }
           }
         }
-        donations(sortBy: dateCreated_ASC) {
+        donations(sortBy: dateCreated_DESC) {
           id
           total
           dateCreated

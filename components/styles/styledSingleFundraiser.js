@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ModalForm } from './styledForm';
+import { Modal } from './styledModal';
 
 export const FundraiserSection = styled.section`
   display: flex;
@@ -261,41 +262,18 @@ export const DonorListSeeAllButton = styled(Button)`
   width: 60%;
 `;
 
-export const Modal = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  align-items: center;
-`;
-
 export const UpdateModal = styled(Modal)`
   visibility: ${(props) => (props.isUpdateModalOpen ? 'visible' : 'hidden')};
 `;
 
 export const UpdateForm = styled(ModalForm)``;
 
-export const CloseIcon = styled.img`
-  position: absolute;
-  width: 18px;
-  top: 5px;
-  left: 5px;
-  z-index: 1;
-  &:hover {
-    cursor: pointer;
-  }
-`;
 export const DeleteModal = styled(Modal)`
   visibility: ${(props) => (props.isDeleteModalOpen ? 'visible' : 'hidden')};
 `;
 
 export const DeleteFormGroup = styled.div`
+  position: relative;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -330,6 +308,7 @@ export const DonorsModal = styled(Modal)`
 `;
 
 export const DonorsModalContentGroup = styled.div`
+  position: relative;
   min-width: 300px;
   display: flex;
   flex-direction: column;

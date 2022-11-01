@@ -7,8 +7,8 @@ import {
   CardTitle,
   CardParagraph,
   AmountRaised,
-} from './styledFeatured';
-import { Modal } from './styledSingleFundraiser';
+} from './styledSliderCard';
+import { Modal } from './styledModal';
 import { ModalForm } from './styledForm';
 
 export const ProfileComponent = styled.section`

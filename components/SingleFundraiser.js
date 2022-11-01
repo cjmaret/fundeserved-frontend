@@ -31,7 +31,6 @@ import {
   UpdateModal,
   DeleteModal,
   UpdateForm,
-  CloseIcon,
   UpdateButtonGroup,
   DeleteFormTitle,
   DeleteFormButton,
@@ -49,6 +48,7 @@ import {
   ShareModal,
   SharePopup,
 } from './styles/styledSingleFundraiser';
+import { CloseIcon } from './styles/styledModal';
 import { donors } from '../array-data/donors';
 import { formatCentsToDollars } from '../lib/formatMoney';
 import useForm from '../lib/useForm';
@@ -458,6 +458,11 @@ export default function SingleFundraiser({ id }) {
         isDeleteModalOpen={isDeleteModalOpen}
         onClick={checkIfClickedOutside}>
         <DeleteFormGroup id="delete-form">
+          <CloseIcon
+            src={CloseIconImage}
+            alt=""
+            onClick={() => setIsDeleteModalOpen(false)}
+          />
           <DeleteFormTitle>Delete Fundraiser?</DeleteFormTitle>
           <DeleteFormButton
             onClick={handleDeleteFundraiser}
@@ -471,18 +476,24 @@ export default function SingleFundraiser({ id }) {
         isDonorsModalOpen={isDonorsModalOpen}
         onClick={checkIfClickedOutside}>
         <DonorsModalContentGroup>
+          <CloseIcon
+            src={CloseIconImage}
+            alt=""
+            onClick={() => setIsDonorsModalOpen(false)}
+          />
           <DonorsModalTitle>All Donors</DonorsModalTitle>
           <DonorsModalList id="donors-div">
             {Fundraiser.donations.map((donor, i) => (
               <DonorsModalCard key={i}>
                 <DonorsModalPhoto
                   src={
-                    donor.user.avatar?.publicUrlTransformed || BlankProfileImage
+                    donor.user?.avatar?.publicUrlTransformed ||
+                    BlankProfileImage
                   }
                   alt=""
                 />
                 <DonorsModalDetails>
-                  <DonorsModalName>{donor.user.name}</DonorsModalName>
+                  <DonorsModalName>{donor.user?.name}</DonorsModalName>
                   <DonorsModalAmount>
                     Donated {formatCentsToDollars(donor.total)}
                   </DonorsModalAmount>

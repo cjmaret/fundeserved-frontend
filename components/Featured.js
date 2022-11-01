@@ -2,22 +2,20 @@ import {
   FeaturedComponent,
   FeaturedTitle,
   FeaturedParagraph,
-  MainCard,
+  CardGroup,
+  Category,
+  FeaturedTitleGroup,
+  FeaturedContentGroup,
+} from './styles/styledFeatured';
+import {
   Card,
+  CardLink,
   CardImageWrapper,
   CardDetails,
   CardTitle,
   CardParagraph,
-  CardGroup,
-  ReadMore,
-  MainCardDetails,
-  MainCardImage,
   AmountRaised,
-  Category,
-  CardLink,
-  FeaturedTitleGroup,
-  FeaturedContentGroup,
-} from './styles/styledFeatured';
+} from './styles/styledSliderCard';
 
 import Image from 'next/image';
 import { featuredCards } from '../array-data/featured-data';

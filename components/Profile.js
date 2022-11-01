@@ -38,7 +38,7 @@ import 'keen-slider/keen-slider.min.css';
 import { formatCentsToDollars } from '../lib/formatMoney';
 import EditPen from '../images/edit-pen.png';
 import DisplayError from './ErrorMessage';
-import { CloseIcon } from './styles/styledSingleFundraiser';
+import { CloseIcon } from './styles/styledModal';
 import useForm from '../lib/useForm';
 import gql from 'graphql-tag';
 import { useMutation, useQuery } from '@apollo/client';
@@ -241,7 +241,7 @@ export default function Profile() {
             {user?.donations.length > 0 ? (
               user?.donations.map((donation, i) => (
                 <PanelCard
-                  key={donation.fundraiser.id}
+                  key={i}
                   className={`keen-slider__slide number-slide${i}`}>
                   <PanelCardLink
                     href={`/fundraiser/${donation.fundraiser.id}`}
