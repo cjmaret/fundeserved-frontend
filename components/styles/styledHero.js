@@ -38,11 +38,11 @@ export const HeroTitle = styled.h1`
   margin: 0 0 1rem 0;
   font-size: 2.5rem;
   @media (min-width: 500px) {
-    font-size: 4rem;
+    font-size: 3rem;
+    margin: 0 0 2rem 0;
   }
   @media (min-width: 700px) {
     font-size: 5rem;
-
     margin: 0 0 3rem 0;
   }
 `;
@@ -59,10 +59,10 @@ export const HeroButton = styled.button`
   transition: transform 0.4s ease;
   &:hover {
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
   @media (min-width: 500px) {
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 1rem 2rem;
   }
 `;

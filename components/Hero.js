@@ -25,10 +25,6 @@ export default function Hero() {
             <HeroButton>GoFundYourself</HeroButton>
           </Link>
         </HeroDetails>
-        {/* <HeroImageWrapper>
-        <img src={HeroImage} alt="hero-image" className="hero-image" />
-      </HeroImageWrapper> */}
-        {/* <FlamingoImage src={FlamHeroImage} alt="" /> */}
         <FlamingoImage5 src={FlamHeroImage5} alt="" />
       </HeroContentGroup>
     </HeroComponent>

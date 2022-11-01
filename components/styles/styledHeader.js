@@ -103,7 +103,7 @@ export const MobileDropdown = styled.div`
   top: 47px;
   height: 100vh;
   overflow: hidden;
-  z-index: 2;
+  z-index: 3;
   font-size: 2rem;
   text-align: center;
   & > * {
