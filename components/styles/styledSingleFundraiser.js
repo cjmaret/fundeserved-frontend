@@ -279,25 +279,20 @@ export const UpdateModal = styled(Modal)`
   visibility: ${(props) => (props.isUpdateModalOpen ? 'visible' : 'hidden')};
 `;
 
-export const DeleteModal = styled(Modal)`
-  visibility: ${(props) => (props.isDeleteModalOpen ? 'visible' : 'hidden')};
-`;
-
-export const DonorsModal = styled(Modal)`
-  visibility: ${(props) => (props.isDonorsModalOpen ? 'visible' : 'hidden')};
-`;
-
 export const UpdateForm = styled(ModalForm)``;
 
 export const CloseIcon = styled.img`
   position: absolute;
   width: 18px;
-  top: 3px;
-  left: 3px;
+  top: 5px;
+  left: 5px;
   z-index: 1;
   &:hover {
     cursor: pointer;
   }
+`;
+export const DeleteModal = styled(Modal)`
+  visibility: ${(props) => (props.isDeleteModalOpen ? 'visible' : 'hidden')};
 `;
 
 export const DeleteFormGroup = styled.div`
@@ -328,6 +323,10 @@ export const DeleteFormButton = styled.button`
     cursor: pointer;
     opacity: 0.7;
   }
+`;
+
+export const DonorsModal = styled(Modal)`
+  visibility: ${(props) => (props.isDonorsModalOpen ? 'visible' : 'hidden')};
 `;
 
 export const DonorsModalContentGroup = styled.div`
@@ -377,4 +376,63 @@ export const DonorsModalName = styled(DonorCardName)`
 
 export const DonorsModalAmount = styled(DonorCardAmount)`
   font-size: 1.5rem;
+`;
+
+export const ShareModal = styled(Modal)`
+  visibility: ${(props) => (props.isShareModalOpen ? 'visible' : 'hidden')};
+`;
+
+export const SharePopup = styled.div`
+  background-color: white;
+  width: 90%;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 450px;
+  position: relative;
+  @media (min-width: 500px) {
+    padding: 2rem 2rem 3rem 2rem;
+  }
+  & > h3 {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+  }
+  & > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    @media (min-width: 500px) {
+      flex-direction: row;
+      justify-content: center;
+    }
+    & > p {
+      width: 100%;
+      word-wrap: break-word;
+      background-color: var(--offWhite);
+      border-radius: 5px;
+      padding: 0 1rem;
+      margin: 0 0 1rem 0;
+      user-select: all;
+      @media (min-width: 500px) {
+        width: 85%;
+        margin: 0 1rem 0 0;
+      }
+    }
+    & > button {
+      width: 40px;
+      background-color: transparent;
+      border: none;
+      transition: opacity 0.4s ease;
+      & > img {
+        width: 100%;
+      }
+      &:hover {
+        cursor: pointer;
+        opacity: 0.7;
+      }
+    }
+  }
 `;

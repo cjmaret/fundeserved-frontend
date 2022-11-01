@@ -46,6 +46,8 @@ import {
   DonorsModalAmount,
   DonorsModalPhoto,
   DonorsModalCard,
+  ShareModal,
+  SharePopup,
 } from './styles/styledSingleFundraiser';
 import { donors } from '../array-data/donors';
 import { formatCentsToDollars } from '../lib/formatMoney';
@@ -54,6 +56,7 @@ import CloseIconImage from '../images/close-icon.png';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import BlankProfileImage from '../images/blank-profile.jpg';
+import CopyIconImage from '../images/copy-icon.png';
 
 export const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -160,6 +163,11 @@ function update(cache, payload) {
 
 export default function SingleFundraiser({ id }) {
   const router = useRouter();
+  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDonorsModalOpen, setIsDonorsModalOpen] = useState(false);
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
+
   const { data, loading, error } = useQuery(SINGLE_FUNDRAISER_QUERY, {
     variables: { id },
   });
@@ -212,10 +220,6 @@ export default function SingleFundraiser({ id }) {
     },
   ] = useMutation(DELETE_FUNDRAISER_IMAGE_MUTATION);
 
-  const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isDonorsModalOpen, setIsDonorsModalOpen] = useState(false);
-
   const Fundraiser = data?.Fundraiser;
   const FundraiserImageSource = Fundraiser?.photo?.image?.publicUrlTransformed;
   const { inputs, handleChange, clearForm, resetForm } = useForm({
@@ -228,6 +232,7 @@ export default function SingleFundraiser({ id }) {
     const innerUpdateFormDiv = document.getElementById('update-form');
     const innerDeleteFormDiv = document.getElementById('delete-form');
     const innerDonorsDiv = document.getElementById('donors-div');
+    const innerShareDiv = document.getElementById('share-div');
     if (isUpdateModalOpen) {
       if (!innerUpdateFormDiv.contains(e.target)) {
         setIsUpdateModalOpen(false);
@@ -241,6 +246,11 @@ export default function SingleFundraiser({ id }) {
     if (isDonorsModalOpen) {
       if (!innerDonorsDiv.contains(e.target)) {
         setIsDonorsModalOpen(false);
+      }
+    }
+    if (isShareModalOpen) {
+      if (!innerShareDiv.contains(e.target)) {
+        setIsShareModalOpen(false);
       }
     }
   }
@@ -352,7 +362,9 @@ export default function SingleFundraiser({ id }) {
               <PercentageBar />
             </PercentageBarGroup>
             <ButtonGroup>
-              <ShareButton>Share</ShareButton>
+              <ShareButton onClick={() => setIsShareModalOpen(true)}>
+                Share
+              </ShareButton>
               <DonateButton href={`/donate/${Fundraiser.id}`}>
                 Donate now
               </DonateButton>
@@ -479,6 +491,30 @@ export default function SingleFundraiser({ id }) {
           </DonorsModalList>
         </DonorsModalContentGroup>
       </DonorsModal>
+      <ShareModal
+        isShareModalOpen={isShareModalOpen}
+        onClick={checkIfClickedOutside}>
+        <SharePopup id="share-div">
+          <CloseIcon
+            src={CloseIconImage}
+            alt=""
+            onClick={() => setIsShareModalOpen(false)}
+          />
+          <h3>Share this fundraiser!</h3>
+          <div>
+            <p>{`www.gofundyourself.com/fundraiser/${id}`}</p>
+            <button
+              onClick={() => {
+                navigator.clipboard.writeText(
+                  `www.gofundyourself.com/fundraiser/${id}`
+                );
+              }}>
+              <img src={CopyIconImage} alt="" />
+            </button>
+          </div>
+        </SharePopup>
+      </ShareModal>
+
       <Footer />
     </>
   );
