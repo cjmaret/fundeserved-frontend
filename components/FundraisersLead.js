@@ -6,26 +6,13 @@ import {
   CreateFundraiserButton,
 } from './styles/styledFundraisersLead';
 
-const allFundraisersLeadData = {
-  title: 'Browse fundraisers',
-  subtitle: `There's always something stupid to give your money to`,
-};
-
-const myFundraisersLeadData = {
-  title: 'My fundraisers',
-  subtitle: `Keep asking for money, you little entrepreneur, you.`,
-};
-
-export default function FundraisersLead({ pathname }) {
-  const leadData =
-    pathname === '/my-fundraisers'
-      ? myFundraisersLeadData
-      : allFundraisersLeadData;
-
+export default function FundraisersLead() {
   return (
     <FundraisersLeadComponent>
-      <FundraisersTitle>{leadData.title}</FundraisersTitle>
-      <FundraisersSubtitle>{leadData.subtitle}</FundraisersSubtitle>
+      <FundraisersTitle>Browse fundraisers</FundraisersTitle>
+      <FundraisersSubtitle>
+        A fool and their money are soon parted.
+      </FundraisersSubtitle>
       <Link href="/create-fundraiser">
         <CreateFundraiserButton>Start a GoFundYourself</CreateFundraiserButton>
       </Link>

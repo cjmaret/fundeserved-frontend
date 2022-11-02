@@ -13,7 +13,7 @@ export default function Stats() {
     <>
       <StatsComponent>
         <Title>
-          The fundraising engine of choice for 50,000+ losers from millions of
+          The fundraising engine of choice for 50,000+ people from millions of
           countries
         </Title>
         <StatsGroup>

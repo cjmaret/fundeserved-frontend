@@ -16,19 +16,35 @@ import {
   CardParagraph,
   AmountRaised,
 } from './styles/styledSliderCard';
-
-import Image from 'next/image';
-import { featuredCards } from '../array-data/featured-data';
 import { useContext } from 'react';
 import { MobileContext } from '../contexts/mobileContext';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-
 import { formatCentsToDollars } from '../lib/formatMoney';
+import { gql, useQuery } from '@apollo/client';
+
+export const ALL_FUNDRAISERS_QUERY = gql`
+  query ALL_FUNDRAISERS_QUERY {
+    allFundraisers(skip: 0, first: 7, sortBy: dateCreated_ASC) {
+      id
+      name
+      amount
+      description
+      goal
+      dateCreated
+      photo {
+        image {
+          publicUrlTransformed
+        }
+      }
+    }
+  }
+`;
 
 export default function Featured() {
   const mobileWidth = useContext(MobileContext);
-  const mainCard = featuredCards[0];
+
+  const { data, error, loading } = useQuery(ALL_FUNDRAISERS_QUERY);
 
   const [sliderRef] = useKeenSlider({
     loop: false,
@@ -51,28 +67,32 @@ export default function Featured() {
           </FeaturedParagraph>
         </FeaturedTitleGroup>
         <CardGroup ref={sliderRef} className="keen-slider">
-          {featuredCards.map((card, i) => (
+          {data?.allFundraisers.map((card, i) => (
             <Card className={`keen-slider__slide number-slide${i}`}>
-              {/* <CardLink href={`/fundraiser/${card.id}`} /> */}
-              <Category>Murder</Category>
+              <CardLink href={`/fundraiser/${card.id}`} />
+              {/* <Category>Murder</Category> */}
               <CardImageWrapper>
-                <img src={card.image} className="card-image" />
+                <img
+                  src={card.photo.image.publicUrlTransformed}
+                  className="card-image"
+                />
               </CardImageWrapper>
               <CardDetails>
                 <CardTitle>
-                  {card.title.length > 50
-                    ? `${card.title.substring(0, 50)}...`
-                    : card.title}
+                  {card.name.length > 50
+                    ? `${card.name.substring(0, 50)}...`
+                    : card.name}
                 </CardTitle>
                 {!mobileWidth && (
                   <>
                     <CardParagraph>
-                      {card.paragraph.substring(0, 100)}...
+                      {card.description.substring(0, 100)}...
                     </CardParagraph>
                   </>
                 )}
                 <AmountRaised>
-                  {formatCentsToDollars(card.amount)} raised
+                  {formatCentsToDollars(card.amount)} raised of{' '}
+                  {formatCentsToDollars(card.goal)}
                 </AmountRaised>
               </CardDetails>
             </Card>

@@ -1,5 +1,6 @@
 import {
   LearnMoreComponent,
+  LearnMoreImageWrapper,
   LearnMoreInfoGroup,
   LearnMoreParagraph,
   LearnMoreQuestion,
@@ -17,10 +18,14 @@ import {
 } from './styles/styledLearnMore';
 import Success1Image from '../images/success-1.png';
 import Success2Image from '../images/success-2.png';
+import FlamHeroImage5 from '../images/flam-heroes/flam-hero-5.png';
 
 export default function LearnMore() {
   return (
     <LearnMoreComponent>
+      <LearnMoreImageWrapper>
+        <img src={FlamHeroImage5} alt="" />
+      </LearnMoreImageWrapper>
       <LearnMoreInfoGroup>
         <LearnMoreTitle>About GoFundYourself</LearnMoreTitle>
         <LearnMoreParagraph>

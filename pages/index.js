@@ -12,7 +12,7 @@ export default function Home() {
       <Hero />
       <Lead />
       <Featured />
-      <Categories />
+      {/* <Categories /> */}
       <Stats />
       <Join />
       <Footer />

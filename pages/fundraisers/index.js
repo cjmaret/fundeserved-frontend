@@ -12,13 +12,13 @@ export const FundraisersSection = styled.section`
 `;
 
 export default function FundraisersPage() {
-  const { query, pathname } = useRouter();
+  const { query } = useRouter();
   const page = parseInt(query.page);
   return (
     <FundraisersSection>
-      <FundraisersLead pathname={pathname} />
+      <FundraisersLead />
       <Pagination page={page || 1} />
-      <Fundraisers pathname={pathname} page={page || 1} />
+      <Fundraisers page={page || 1} />
       <Pagination page={page || 1} />
     </FundraisersSection>
   );

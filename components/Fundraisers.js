@@ -38,21 +38,13 @@ const FundraisersGrid = styled.div`
   }
 `;
 
-export default function Fundraisers({ page, pathname }) {
-  const { data, error, loading } =
-    pathname === '/my-fundraisers' || '/profile'
-      ? useQuery(ALL_FUNDRAISERS_QUERY, {
-          variables: {
-            skip: page * perPage - perPage,
-            first: perPage,
-          },
-        })
-      : useQuery(ALL_FUNDRAISERS_QUERY, {
-          variables: {
-            skip: page * perPage - perPage,
-            first: perPage,
-          },
-        });
+export default function Fundraisers({ page }) {
+  const { data, error, loading } = useQuery(ALL_FUNDRAISERS_QUERY, {
+    variables: {
+      skip: page * perPage - perPage,
+      first: perPage,
+    },
+  });
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

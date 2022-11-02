@@ -21,7 +21,7 @@ export default function Join() {
         <img src={FlamIcon} alt="" className="join-image" />
       </ImageWrapper>
       <Details>
-        <Title>Ready to get started? Join thousands of others today.</Title>
+        <Title>Ready to make some money? Join thousands of others today.</Title>
         <ButtonGroup>
           <StartButton href="/create-fundraiser">Start a GoFundYourself</StartButton>
           <DonateButton href="/fundraisers">Donate</DonateButton>
