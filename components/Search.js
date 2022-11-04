@@ -14,18 +14,18 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import MagnifyingGlassIcon from '../images/magnifying-glass.png';
 
-// Only mount `Search` component on the client to stop infinite re-renders
-function ClientOnly({ children, ...delegated }) {
-  const [hasMounted, setHasMounted] = useState(false);
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
-  if (!hasMounted) {
-    return null;
-  }
-  // return <div {...delegated}>{children}</div>;
-  return children;
-}
+// // Only mount `Search` component on the client to stop infinite re-renders
+// function ClientOnly({ children, ...delegated }) {
+//   const [hasMounted, setHasMounted] = useState(false);
+//   useEffect(() => {
+//     setHasMounted(true);
+//   }, []);
+//   if (!hasMounted) {
+//     return null;
+//   }
+//   // return <div {...delegated}>{children}</div>;
+//   return children;
+// }
 
 const SEARCH_FUNDRAISERS_QUERY = gql`
   query SEARCH_FUNDRAISERS_QUERY($searchTerm: String!) {
@@ -111,45 +111,45 @@ export default function Search({
         </SearchIconWrapper>
       </SearchHeaderGroup>
       <SearchMenu isSearchMenuOpen={isSearchMenuOpen}>
-        <ClientOnly>
-          <SearchComponent>
-            <div {...getComboboxProps()}>
-              <input
-                {...getInputProps({
-                  type: 'search',
-                  placeholder: 'Search for a fundraiser',
-                  id: 'search',
-                  className: loading ? 'loading' : '',
-                })}
-              />
-            </div>
-            <DropDown {...getMenuProps()} isOpen={isOpen}>
-              {isOpen &&
-                items.map((item, index) => (
-                  <DropDownItem
-                    key={item.id}
-                    {...getItemProps({ item, index })}
-                    highlighted={index === highlightedIndex}
-                    href={`/fundraiser/${item.id}`}
-                    onClick={() => closeAllMenus(false)}>
-                    {item.photo && (
-                      <img
-                        src={item.photo?.image.publicUrlTransformed}
-                        alt={item.name}
-                        width="50"
-                      />
-                    )}
-                    {item.name}
-                  </DropDownItem>
-                ))}
-              {isOpen && !items.length && !loading && (
-                <DropDownItem className="no-items-found">
-                  Sorry, no items found for {inputValue}
+        {/* <ClientOnly> */}
+        <SearchComponent>
+          <div {...getComboboxProps()}>
+            <input
+              {...getInputProps({
+                type: 'search',
+                placeholder: 'Search for a fundraiser',
+                id: 'search',
+                className: loading ? 'loading' : '',
+              })}
+            />
+          </div>
+          <DropDown {...getMenuProps()} isOpen={isOpen}>
+            {isOpen &&
+              items.map((item, index) => (
+                <DropDownItem
+                  key={item.id}
+                  {...getItemProps({ item, index })}
+                  highlighted={index === highlightedIndex}
+                  href={`/fundraiser/${item.id}`}
+                  onClick={() => closeAllMenus()}>
+                  {item.photo && (
+                    <img
+                      src={item.photo?.image.publicUrlTransformed}
+                      alt={item.name}
+                      width="50"
+                    />
+                  )}
+                  {item.name}
                 </DropDownItem>
-              )}
-            </DropDown>
-          </SearchComponent>
-        </ClientOnly>
+              ))}
+            {isOpen && !items.length && !loading && (
+              <DropDownItem className="no-items-found">
+                Sorry, no items found for {inputValue}
+              </DropDownItem>
+            )}
+          </DropDown>
+        </SearchComponent>
+        {/* </ClientOnly> */}
       </SearchMenu>
     </>
   );

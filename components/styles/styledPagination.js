@@ -6,7 +6,7 @@ export const PaginationComponent = styled.div`
   width: 90%;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0 2rem 0;
+  margin: 1rem 0 1rem 0;
   max-width: 400px;
   font-size: 1.5rem;
   & > * {

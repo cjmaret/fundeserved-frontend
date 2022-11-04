@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧁 GoFundYourself Frontend 🧁
 
-## Getting Started
+---
 
-First, run the development server:
+## Welcome! To get started, go to [gofundyourself.com](https://gofundyourself.com).
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### 1. Sign in using a new email
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Browse fundraisers, or create your own fundraiser
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#### To donate to a fundraiser, use Stripe test credit card:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### - Stripe card number: 4242424242424242
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### - Exp date: 01/40 (or any future date)
 
-## Learn More
+#### - Zip: 11111 (or any five numbers)
 
-To learn more about Next.js, take a look at the following resources:
+### 3. To use the Keystone manager, go to the [Keystone dashboard](https://api.gofundyourself.com/).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project Description / Functionality:
 
-## Deploy on Vercel
+- This part of the project serves as the front-end for [History Muffin API](https://github.com/cjmaret/gofundyourself-api)
+- GoFundYourself is a fundraising site where users can create an account, create fundraisers, and donate to other people's fundraisers
+- Users make API requests through GraphQL to CRUD account / fundraiser details.
+- Sign up/in functionality, as well as resetting a user's password
+- Donations can be made through Stripe, updating the fundraiser as well as attaching the user's info to the fundraiser's "Donors" section
+- Major components tested through React Testing Library
+- Frontend hosted on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Project Technologies/Techniques:
+
+- React
+- Next.js
+- GraphQL
+- Apollo
+- Stripe
+- Keystone
+- Styled components
+
+---
+
+## Links
+
+### ➡️ [Github Link](https://github.com/cjmaret/gofundyourself-frontend)
+
+### ➡️ [Link to History Muffin API Github](https://github.com/cjmaret/gofundyourself-api)
+
+### ➡️ [Link to History Muffin Live Site](https://gofundyourself.com/)
+
+---
+
+## ✨ Demo
+
+TBA

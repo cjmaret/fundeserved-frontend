@@ -52,24 +52,24 @@ export default function Footer() {
       <ListGroup>
         <FundraiseList>
           <ListTitle>Fundraise for</ListTitle>
-          {fundraiserForLinks.map((link) => (
-            <ListItem>
+          {fundraiserForLinks.map((link, i) => (
+            <ListItem key={i}>
               <ListLink href="/">{link}</ListLink>
             </ListItem>
           ))}
         </FundraiseList>
         <LearnMoreList>
           <ListTitle>Learn more</ListTitle>
-          {learnMoreLinks.map((link) => (
-            <ListItem>
+          {learnMoreLinks.map((link, i) => (
+            <ListItem key={i}>
               <ListLink href="/learn-more">{link}</ListLink>
             </ListItem>
           ))}
         </LearnMoreList>
         <ResourcesList>
           <ListTitle>Resources</ListTitle>
-          {resourcesLinks.map((link) => (
-            <ListItem>
+          {resourcesLinks.map((link, i) => (
+            <ListItem key={i}>
               <ListLink href="/learn-more">{link}</ListLink>
             </ListItem>
           ))}

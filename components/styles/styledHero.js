@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const HeroComponent = styled.section`
   position: relative;
   width: 100%;
-  /* max-height: 700px; */
-  /* height: 100vh; */
   background-color: var(--salmon);
   display: flex;
   justify-content: center;
@@ -23,17 +21,12 @@ export const HeroContentGroup = styled.div`
 `;
 
 export const HeroDetails = styled.div`
-  /* margin: 5rem 0 5rem 0; */
   width: 55%;
   z-index: 1;
-  /* @media (min-width: 700px) {
-    margin: 20rem 0 20rem 0;
-  } */
 `;
 
 export const HeroTitle = styled.h1`
   color: white;
-  /* text-shadow: 1px 1px 5px #000; */
   line-height: 1.2;
   margin: 0 0 1rem 0;
   font-size: 2.5rem;
@@ -51,7 +44,6 @@ export const HeroButton = styled.button`
   padding: .75rem 1.5rem;
   border-radius: 1.5rem;
   border: none;
-  /* box-shadow: 1px 1px 5px var(--green); */
   color: var(--white);
   background-color: var(--green);
   font-size: 1.2rem;
@@ -68,11 +60,8 @@ export const HeroButton = styled.button`
 `;
 
 export const HeroImageWrapper = styled.div`
-  /* border-radius: 2rem; */
   border: 1px solid green;
   overflow: hidden;
-  /* height: 100%;
-  max-height: 700px; */
   height: 100vh;
   .hero-image {
     width: 100%;
@@ -89,6 +78,4 @@ export const FlamingoImage = styled.img`
 export const FlamingoImage5 = styled(FlamingoImage)`
   max-width: 500px;
   width: 50%;
-  /* position: absolute;
-  right: 1%; */
 `;

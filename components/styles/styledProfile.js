@@ -96,7 +96,6 @@ export const ProfileImage = styled.img`
 export const ProfileDetails = styled.div`
   z-index: 1;
   color: var(--black);
-  /* width: 40%; */
   width: 300px;
   margin: 2rem 0;
   & > * {
@@ -193,7 +192,6 @@ export const EmptyFundraisers = styled.h2`
   font-size: 1.5rem;
   text-align: center;
   width: 100%;
-  /* border: 1px solid red; */
   padding: 3rem;
   background-color: var(--offWhite);
   border-radius: 10px;

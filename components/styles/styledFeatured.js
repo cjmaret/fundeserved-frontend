@@ -27,7 +27,7 @@ export const FeaturedContentGroup = styled.div`
   align-items: center;
   max-width: 1080px;
   width: 100%;
-  padding: 8rem 0 8rem 2rem;
+  padding: 10rem 0 10rem 1rem;
   @media (min-width: 500px) {
     padding: 15rem 0 15rem 2rem;
   }
@@ -60,23 +60,3 @@ export const FeaturedParagraph = styled.p`
 `;
 
 export const CardGroup = styled.div``;
-
-export const Category = styled.p`
-  position: absolute;
-  padding: 0 0.25rem;
-  top: 3%;
-  right: 5%;
-  background-color: white;
-  border-radius: 10px;
-  text-align: center;
-  color: var(--grey);
-  font-size: 0.75rem;
-  @media (min-width: 450px) {
-    padding: 0 0.5rem;
-    font-size: 1rem;
-  }
-  @media (min-width: 850px) {
-    padding: 0 1rem;
-    font-size: 1.2rem;
-  }
-`;

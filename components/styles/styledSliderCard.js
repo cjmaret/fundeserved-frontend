@@ -9,7 +9,6 @@ export const Card = styled.div`
   position: relative;
   max-width: 200px;
   box-sizing: border-box;
-  /* background-color: rgba(255, 255, 255, 1); */
 `;
 
 export const CardLink = styled.a`

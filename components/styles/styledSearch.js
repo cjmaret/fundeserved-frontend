@@ -21,6 +21,9 @@ export const SearchMenu = styled(MobileDropdown)`
   display: ${(props) => (props.isSearchMenuOpen ? 'flex' : 'none')};
   left: 0;
   width: 100vw;
+  & > * {
+    margin: 0;
+  }
 `;
 
 export const SearchComponent = styled.div`
@@ -46,7 +49,7 @@ export const DropDown = styled.div`
   position: absolute;
   width: 100%;
   z-index: 2;
-  border: 1px solid var(--green);
+
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
   .no-items-found {
     &:hover {

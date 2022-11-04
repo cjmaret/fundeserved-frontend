@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 const GlobalStyles = createGlobalStyle`
 
   html {
-    --salmon: #A31621; /*#FE192F A31621 */
+    --red: #A31621; /*#FE192F A31621 */
     --black: #393939;
      --grey: #3A3A3A;
     --lightGrey: #e1e1e1;
@@ -33,7 +33,6 @@ const GlobalStyles = createGlobalStyle`
     line-height: 2;
     color: var(--grey);
     @media (min-width: 1080px) {
-      /* max-width: 1080px; */
     }
   }
 
@@ -52,15 +51,11 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const InnerStyles = styled.div`
-  /* max-width: var(--maxWidth); */
   margin: 0 auto;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* @media (min-width: 640px) {
-    padding: 1rem;
-  } */
 `;
 
 export default function Page({ children }) {

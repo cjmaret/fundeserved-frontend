@@ -3,7 +3,6 @@ import {
   FeaturedTitle,
   FeaturedParagraph,
   CardGroup,
-  Category,
   FeaturedTitleGroup,
   FeaturedContentGroup,
 } from './styles/styledFeatured';
@@ -68,9 +67,8 @@ export default function Featured() {
         </FeaturedTitleGroup>
         <CardGroup ref={sliderRef} className="keen-slider">
           {data?.allFundraisers.map((card, i) => (
-            <Card className={`keen-slider__slide number-slide${i}`}>
+            <Card className={`keen-slider__slide number-slide${i}`} key={i}>
               <CardLink href={`/fundraiser/${card.id}`} />
-              {/* <Category>Murder</Category> */}
               <CardImageWrapper>
                 <img
                   src={card.photo.image.publicUrlTransformed}
@@ -102,32 +100,3 @@ export default function Featured() {
     </FeaturedComponent>
   );
 }
-
-/*
-<MainCard>
-          <MainCardDetails>
-            <CardTitle>{mainCard.title}</CardTitle>
-            <CardParagraph>
-              {mainCard.paragraph.substring(0, 150)}...
-            </CardParagraph>
-            <AmountRaised>{formatCentsToDollars(mainCard.amount)} raised</AmountRaised>
-            <ReadMore>Read more</ReadMore>
-          </MainCardDetails>
-          <MainCardImage src={mainCard.image} alt="" />
-        </MainCard>
-        {featuredCards.slice(1).map((card) => (
-          <Card key={card.id}>
-            <CardImageWrapper>
-              <img src={card.image} alt="" className="card-image" />
-            </CardImageWrapper>
-            <CardDetails>
-              <CardTitle>{card.title}</CardTitle>
-              <CardParagraph>
-                {card.paragraph.substring(0, 150)}...
-              </CardParagraph>
-              <AmountRaised>{formatCentsToDollars(card.amount)} raised</AmountRaised>
-              <ReadMore>Read more</ReadMore>
-            </CardDetails>
-          </Card>
-        ))}
-        */

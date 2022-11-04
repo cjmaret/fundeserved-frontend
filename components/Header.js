@@ -101,8 +101,3 @@ export default function Header() {
     </HeaderComponent>
   );
 }
-
-/*           <Link href="/my-fundraisers">
-              <NavLink onClick={closeAllMenus}>My Fundraisers</NavLink>
-            </Link>
-            */
