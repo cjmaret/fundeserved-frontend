@@ -98,7 +98,7 @@ export default function Profile() {
     },
   ] = useMutation(UPDATE_USER_WITH_AVATAR_MUTATION, {
     variables: {
-      id: '633e27614ff4a3208d756797',
+      id: user?.id,
       name: inputs.name,
       email: inputs.email,
       avatar: inputs.avatar,
@@ -115,7 +115,7 @@ export default function Profile() {
     { data: dataNoAvatar, loading: loadingNoAvatar, error: errorNoAvatar },
   ] = useMutation(UPDATE_USER_NO_AVATAR_MUTATION, {
     variables: {
-      id: '633e27614ff4a3208d756797',
+      id: user?.id,
       name: inputs.name,
       email: inputs.email,
     },
