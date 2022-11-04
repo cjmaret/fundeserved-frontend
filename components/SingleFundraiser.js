@@ -47,6 +47,12 @@ import {
   DonorsModalCard,
   ShareModal,
   SharePopup,
+  Dot,
+  DonorsModalDate,
+  ModalDot,
+  DonorsModalDonationDetails,
+  DonorCardDonationDetails,
+  DonorCardDate,
 } from './styles/styledSingleFundraiser';
 import { CloseIcon } from './styles/styledModal';
 import { donors } from '../array-data/donors';
@@ -57,6 +63,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import BlankProfileImage from '../images/blank-profile.jpg';
 import CopyIconImage from '../images/copy-icon.png';
+import daysAgo from '../lib/daysAgo';
 
 export const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -76,6 +83,7 @@ export const SINGLE_FUNDRAISER_QUERY = gql`
       }
       donations {
         total
+        dateCreated
         user {
           name
           avatar {
@@ -255,9 +263,9 @@ export default function SingleFundraiser({ id }) {
     }
   }
 
-  function runImageMutationOrNoImageMutation() {
+  async function runImageMutationOrNoImageMutation() {
     if (inputs.image === FundraiserImageSource) {
-      updateFundraiserNoImage({
+      await updateFundraiserNoImage({
         variables: {
           id,
           name: inputs.name,
@@ -270,7 +278,7 @@ export default function SingleFundraiser({ id }) {
         })
         .catch((err) => console.error(err));
     } else {
-      updateFundraiserWithImage({
+      await updateFundraiserWithImage({
         variables: {
           id,
           name: inputs.name,
@@ -328,7 +336,7 @@ export default function SingleFundraiser({ id }) {
       />
     );
   }
-
+  
   return (
     <>
       <FundraiserSection>
@@ -381,9 +389,14 @@ export default function SingleFundraiser({ id }) {
                   />
                   <DonorCardDetails>
                     <DonorCardName>{donor.user.name}</DonorCardName>
-                    <DonorCardAmount>
-                      Donated {formatCentsToDollars(donor.total)}
-                    </DonorCardAmount>
+                    <DonorCardDonationDetails>
+                      <DonorCardAmount>
+                        Donated {formatCentsToDollars(donor.total)}
+                      </DonorCardAmount>
+                      <DonorCardDate>
+                        {daysAgo(donor.dateCreated)} days ago
+                      </DonorCardDate>
+                    </DonorCardDonationDetails>
                   </DonorCardDetails>
                 </DonorCard>
               ))}
@@ -400,9 +413,9 @@ export default function SingleFundraiser({ id }) {
         onClick={checkIfClickedOutside}>
         <UpdateForm
           id="update-form"
-          onSubmit={async (e) => {
+          onSubmit={(e) => {
             e.preventDefault();
-            await runImageMutationOrNoImageMutation();
+            runImageMutationOrNoImageMutation();
           }}>
           <CloseIcon
             src={CloseIconImage}
@@ -494,9 +507,14 @@ export default function SingleFundraiser({ id }) {
                 />
                 <DonorsModalDetails>
                   <DonorsModalName>{donor.user?.name}</DonorsModalName>
-                  <DonorsModalAmount>
-                    Donated {formatCentsToDollars(donor.total)}
-                  </DonorsModalAmount>
+                  <DonorsModalDonationDetails>
+                    <DonorsModalAmount>
+                      Donated {formatCentsToDollars(donor.total)}
+                    </DonorsModalAmount>
+                    <DonorsModalDate>
+                      {daysAgo(donor.dateCreated)} days ago
+                    </DonorsModalDate>
+                  </DonorsModalDonationDetails>
                 </DonorsModalDetails>
               </DonorsModalCard>
             ))}

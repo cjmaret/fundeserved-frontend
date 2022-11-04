@@ -251,12 +251,24 @@ export const DonorCardDetails = styled.div`
 `;
 
 export const DonorCardName = styled.h3`
-  margin: 0;
+  margin: 0 0 3px 0;
+`;
+
+export const DonorCardDonationDetails = styled.div`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const DonorCardAmount = styled.p`
-  margin: 0;
+  margin: 0 0 3px 0;
+  display: flex;
+  align-items: center;
+  &:last-child {
+    margin: 0;
+  }
 `;
+
+export const DonorCardDate = styled(DonorCardAmount)``;
 
 export const DonorListSeeAllButton = styled(Button)`
   width: 60%;
@@ -347,15 +359,36 @@ export const DonorsModalPhoto = styled(DonorCardPhoto)`
   height: 100px;
 `;
 
-export const DonorsModalDetails = styled(DonorCardDetails)``;
+export const DonorsModalDetails = styled(DonorCardDetails)`
+  display: flex;
+  flex-direction: column;
+  & > * {
+    margin: 0 0 4px 0;
+  }
+`;
 
 export const DonorsModalName = styled(DonorCardName)`
   font-size: 2rem;
 `;
 
+export const DonorsModalDonationDetails = styled(DonorCardDonationDetails)``;
+
 export const DonorsModalAmount = styled(DonorCardAmount)`
   font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin: 0 0 4px 0;
+  &:last-child {
+    margin: 0;
+  }
+  @media (min-width: 500px) {
+    flex-direction: row;
+  }
 `;
+
+export const DonorsModalDate = styled(DonorCardDate)``;
 
 export const ShareModal = styled(Modal)`
   visibility: ${(props) => (props.isShareModalOpen ? 'visible' : 'hidden')};
