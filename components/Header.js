@@ -68,7 +68,7 @@ export default function Header() {
         setIsMenuOpen={setIsMenuOpen}
         mobileMenu={mobileMenu}>
         <Link href="/fundraisers">
-          <NavLink onClick={closeAllMenus}>All Fundraisers</NavLink>
+          <NavLink onClick={closeAllMenus}>Fundraisers</NavLink>
         </Link>
         <Link href="/learn-more">
           <NavLink onClick={closeAllMenus}>How it works</NavLink>

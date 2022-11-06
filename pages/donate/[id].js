@@ -1,5 +1,10 @@
 import Donate from '../../components/Donate';
+import PleaseSignIn from '../../components/PleaseSignIn';
 
 export default function DonatePage({ query }) {
-  return <Donate id={query.id} />;
+  return (
+    <PleaseSignIn>
+      <Donate id={query.id} />
+    </PleaseSignIn>
+  );
 }

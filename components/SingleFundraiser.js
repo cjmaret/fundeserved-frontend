@@ -64,6 +64,7 @@ import { useRouter } from 'next/router';
 import BlankProfileImage from '../images/blank-profile.jpg';
 import CopyIconImage from '../images/copy-icon.png';
 import daysAgo from '../lib/daysAgo';
+import { useUser } from './User';
 
 export const SINGLE_FUNDRAISER_QUERY = gql`
   query SINGLE_FUNDRAISER_QUERY($id: ID!) {
@@ -74,6 +75,9 @@ export const SINGLE_FUNDRAISER_QUERY = gql`
       status
       amount
       goal
+      user {
+        id
+      }
       photo {
         id
         altText
@@ -170,6 +174,7 @@ function update(cache, payload) {
 }
 
 export default function SingleFundraiser({ id }) {
+  const user = useUser();
   const router = useRouter();
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
@@ -273,7 +278,6 @@ export default function SingleFundraiser({ id }) {
         },
       })
         .then((res) => {
-          console.log(res);
           setIsUpdateModalOpen(false);
         })
         .catch((err) => console.error(err));
@@ -287,7 +291,6 @@ export default function SingleFundraiser({ id }) {
         },
       })
         .then((res) => {
-          console.log(res);
           deleteFundraiserImage({
             variables: {
               fundraiserImageId: Fundraiser.photo.id,
@@ -302,7 +305,6 @@ export default function SingleFundraiser({ id }) {
   function handleDeleteFundraiser() {
     deleteFundraiser()
       .then((res) => {
-        console.log(res);
         deleteFundraiserImage({
           variables: {
             fundraiserImageId: Fundraiser.photo.id,
@@ -336,19 +338,21 @@ export default function SingleFundraiser({ id }) {
       />
     );
   }
-  
+
   return (
     <>
       <FundraiserSection>
         <TitleGroup>
-          <UpdateButtonGroup>
-            <UpdateButton onClick={() => setIsUpdateModalOpen(true)}>
-              Edit Fundraiser
-            </UpdateButton>
-            <UpdateButton onClick={() => setIsDeleteModalOpen(true)}>
-              Delete Fundraiser
-            </UpdateButton>
-          </UpdateButtonGroup>
+          {Fundraiser.user?.id === user?.id && (
+            <UpdateButtonGroup>
+              <UpdateButton onClick={() => setIsUpdateModalOpen(true)}>
+                Edit Fundraiser
+              </UpdateButton>
+              <UpdateButton onClick={() => setIsDeleteModalOpen(true)}>
+                Delete Fundraiser
+              </UpdateButton>
+            </UpdateButtonGroup>
+          )}
           <Title>{Fundraiser.name}</Title>
         </TitleGroup>
         <FundraiserInfo>
@@ -382,13 +386,13 @@ export default function SingleFundraiser({ id }) {
                 <DonorCard key={i}>
                   <DonorCardPhoto
                     src={
-                      donor.user.avatar?.publicUrlTransformed ||
+                      donor.user?.avatar?.publicUrlTransformed ||
                       BlankProfileImage
                     }
                     alt=""
                   />
                   <DonorCardDetails>
-                    <DonorCardName>{donor.user.name}</DonorCardName>
+                    <DonorCardName>{donor.user?.name}</DonorCardName>
                     <DonorCardDonationDetails>
                       <DonorCardAmount>
                         Donated {formatCentsToDollars(donor.total)}

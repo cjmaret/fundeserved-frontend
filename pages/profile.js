@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import Fundraisers from '../components/Fundraisers';
+import PleaseSignIn from '../components/PleaseSignIn';
 import Profile from '../components/Profile';
 
 export default function MyProfilePage() {
@@ -7,7 +8,9 @@ export default function MyProfilePage() {
   const page = parseInt(query.page);
   return (
     <>
-      <Profile />
+      <PleaseSignIn>
+        <Profile />
+      </PleaseSignIn>
     </>
   );
 }
