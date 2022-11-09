@@ -23,16 +23,16 @@ export default function Pagination({ page }) {
   const pageCount = Math.ceil(count / perPage);
 
   return (
-    <PaginationComponent>
+    <PaginationComponent data-testid="pagination">
       <Head>
         <title>
-          Fundeserved - Page {page} of {pageCount}
+          GoFundYourself - Page {page} of {pageCount}
         </title>
       </Head>
       <Link href={`/fundraisers/${page - 1}`}>
         <a aria-disabled={page <= 1}>← Prev</a>
       </Link>
-      <p>
+      <p data-testid="page-count">
         Page {page} of {pageCount}
       </p>
       <Link href={`/fundraisers/${page + 1}`}>

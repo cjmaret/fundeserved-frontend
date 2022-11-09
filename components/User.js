@@ -14,8 +14,8 @@ export const CURRENT_USER_QUERY = gql`
         fundraisers(sortBy: dateCreated_DESC) {
           id
           name
-          amount
           description
+          amount
           goal
           dateCreated
           photo {

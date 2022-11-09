@@ -218,7 +218,7 @@ export default function Profile() {
                     {!mobileWidth && (
                       <>
                         <PanelCardDescription>
-                          {card?.description?.substring(0, 100)}...
+                          {card?.description?.substring(0, 90)}...
                         </PanelCardDescription>
                       </>
                     )}

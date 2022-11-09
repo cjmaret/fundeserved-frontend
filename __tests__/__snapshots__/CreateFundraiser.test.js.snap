@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CreateFundraiser/> renders and matches snapshot 1`] = `
+<div>
+  <section
+    class="styledCreateFundraiser__CreateFundraiserComponent-sc-xgujwq-0 gSHtxs"
+  >
+    <div
+      class="styledCreateFundraiser__FormGroup-sc-xgujwq-1 jlnXCk"
+    >
+      <div
+        class="styledCreateFundraiser__InstructionsSection-sc-xgujwq-2 fMeKWX"
+      >
+        <h3
+          class="styledCreateFundraiser__InstructionsTitle-sc-xgujwq-3 krGzIg"
+        >
+          Create your Fundeserved fundraiser here
+        </h3>
+        <p
+          class="styledCreateFundraiser__InstructionsSubtitle-sc-xgujwq-4 kZfMtL"
+        >
+          Tell us why your fundraiser won't help anyone
+        </p>
+      </div>
+      <div
+        class="styledCreateFundraiser__FormSection-sc-xgujwq-5 fqKHSE"
+      >
+        <form
+          class="styledForm__Form-sc-174guj4-0 eWUBJi"
+        >
+          <fieldset
+            aria-busy="false"
+          >
+            <label
+              for="name"
+            >
+              Fundraiser Name
+              <input
+                id="name"
+                name="name"
+                placeholder="Name"
+                type="text"
+                value=""
+              />
+            </label>
+            <label
+              for="image"
+            >
+              Fundraiser Image
+              <input
+                id="image"
+                name="image"
+                required=""
+                type="file"
+              />
+            </label>
+            <label
+              for="description"
+            >
+              Fundraiser Description
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Description"
+                rows="9"
+                type="textarea"
+              />
+            </label>
+            <label
+              for="goal"
+            >
+              Fundraiser Goal
+              <input
+                id="goal"
+                name="goal"
+                placeholder="Goal"
+                type="number"
+                value=""
+              />
+            </label>
+            <div
+              class="button-group"
+            >
+              <button
+                type="submit"
+              >
+                Create Fundraiser
+              </button>
+              <button
+                type="button"
+              >
+                Clear Form
+              </button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+`;

@@ -3,9 +3,9 @@ import useForm from '../lib/useForm';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import DisplayError from './ErrorMessage';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 
-const SIGNUP_MUTATION = gql`
+export const SIGNUP_MUTATION = gql`
   mutation SIGNUP_MUTATION(
     $name: String!
     $email: String!
@@ -20,7 +20,6 @@ const SIGNUP_MUTATION = gql`
 `;
 
 export default function SignUp() {
-  const router = useRouter();
   const { inputs, handleChange, resetForm } = useForm({
     name: '',
     email: '',
@@ -35,9 +34,8 @@ export default function SignUp() {
     e.preventDefault();
     await signup()
       .then((res) => {
-        console.log(res);
         resetForm();
-        router.push({
+        Router.push({
           pathname: '/sign-in',
         });
       })
@@ -71,7 +69,7 @@ export default function SignUp() {
           <input
             type="email"
             name="email"
-            placeholder="email"
+            placeholder="Email"
             autoComplete="email"
             value={inputs.email}
             onChange={handleChange}

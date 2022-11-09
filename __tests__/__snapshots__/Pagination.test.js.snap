@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pagination/> renders pagination for 18 items 1`] = `
+<div>
+  <div
+    class="styledPagination__PaginationComponent-sc-1rvu2b0-0 dcsXht"
+    data-testid="pagination"
+  >
+    <a
+      aria-disabled="true"
+      href="/fundraisers/0"
+    >
+      ← Prev
+    </a>
+    <p
+      data-testid="page-count"
+    >
+      Page 
+      1
+       of 
+      3
+    </p>
+    <a
+      aria-disabled="false"
+      href="/fundraisers/2"
+    >
+      Next →
+    </a>
+  </div>
+</div>
+`;

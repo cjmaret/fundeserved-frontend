@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import {
   FooterComponent,
   ListGroup,
@@ -12,7 +11,6 @@ import {
   RightsReserved,
   NavLink,
 } from './styles/styledFooter';
-import LogoImage from '../images/logo.jpg';
 import FooterLogo from '../images/header-logo-2.png';
 import Link from 'next/link';
 

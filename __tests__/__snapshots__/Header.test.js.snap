@@ -1,0 +1,281 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header /> renders a full header when signed in 1`] = `
+<div>
+  <header
+    class="styledHeader__HeaderComponent-sc-zui0ns-0 hEvuag"
+  >
+    <div
+      class="styledSearch__SearchHeaderGroup-sc-q3k94-0 hcocDp"
+    >
+      <div
+        class="styledHeader__IconWrapper-sc-zui0ns-5 styledSearch__SearchIconWrapper-sc-q3k94-1 dcDjBj"
+      >
+        <img
+          alt=""
+          class="icon-image"
+          name="mobile-search"
+          src="[object Object]"
+        />
+      </div>
+    </div>
+    <div
+      class="styledHeader__MobileDropdown-sc-zui0ns-6 styledSearch__SearchMenu-sc-q3k94-2 hHOOVM lptXsH"
+    >
+      <div
+        class="styledSearch__SearchComponent-sc-q3k94-3 jquTMK"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="downshift-0-menu"
+          role="combobox"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="downshift-0-menu"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            class=""
+            id="search"
+            placeholder="Search for a fundraiser"
+            type="search"
+            value=""
+          />
+        </div>
+        <div
+          aria-labelledby="downshift-0-label"
+          class="styledSearch__DropDown-sc-q3k94-4 fvMoFz"
+          id="downshift-0-menu"
+          role="listbox"
+        />
+      </div>
+    </div>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      Fundraisers
+    </a>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      How it works
+    </a>
+    <div
+      class="styledHeader__Logo-sc-zui0ns-1 LsOqq"
+    >
+      <a
+        class="styledHeader__NavLink-sc-zui0ns-2 govIsg logo__anchor"
+      >
+        <img
+          alt=""
+          class="logo-image"
+          src="[object Object]"
+        />
+      </a>
+    </div>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      My Profile
+    </a>
+    <button
+      class="SignOut__SignOutButton-sc-oloevi-0 cMdazv"
+      type="button"
+    >
+      Sign Out
+    </button>
+    <a
+      class="styledHeader__NavButton-sc-zui0ns-3 eEHdYO"
+    >
+      Start a Fundraiser
+    </a>
+  </header>
+</div>
+`;
+
+exports[`<Header /> renders a minimal header when signed out 1`] = `
+<div>
+  <header
+    class="styledHeader__HeaderComponent-sc-zui0ns-0 hEvuag"
+  >
+    <div
+      class="styledSearch__SearchHeaderGroup-sc-q3k94-0 hcocDp"
+    >
+      <div
+        class="styledHeader__IconWrapper-sc-zui0ns-5 styledSearch__SearchIconWrapper-sc-q3k94-1 dcDjBj"
+      >
+        <img
+          alt=""
+          class="icon-image"
+          name="mobile-search"
+          src="[object Object]"
+        />
+      </div>
+    </div>
+    <div
+      class="styledHeader__MobileDropdown-sc-zui0ns-6 styledSearch__SearchMenu-sc-q3k94-2 hHOOVM lptXsH"
+    >
+      <div
+        class="styledSearch__SearchComponent-sc-q3k94-3 jquTMK"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="downshift-0-menu"
+          role="combobox"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="downshift-0-menu"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            class=""
+            id="search"
+            placeholder="Search for a fundraiser"
+            type="search"
+            value=""
+          />
+        </div>
+        <div
+          aria-labelledby="downshift-0-label"
+          class="styledSearch__DropDown-sc-q3k94-4 fvMoFz"
+          id="downshift-0-menu"
+          role="listbox"
+        />
+      </div>
+    </div>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      Fundraisers
+    </a>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      How it works
+    </a>
+    <div
+      class="styledHeader__Logo-sc-zui0ns-1 LsOqq"
+    >
+      <a
+        class="styledHeader__NavLink-sc-zui0ns-2 govIsg logo__anchor"
+      >
+        <img
+          alt=""
+          class="logo-image"
+          src="[object Object]"
+        />
+      </a>
+    </div>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      Sign In
+    </a>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      Sign Up
+    </a>
+    <a
+      class="styledHeader__NavButton-sc-zui0ns-3 eEHdYO"
+    >
+      Start a Fundraiser
+    </a>
+  </header>
+</div>
+`;
+
+exports[`<Header /> renders a minimal header when signed out 2`] = `
+<div>
+  <header
+    class="styledHeader__HeaderComponent-sc-zui0ns-0 hEvuag"
+  >
+    <div
+      class="styledSearch__SearchHeaderGroup-sc-q3k94-0 hcocDp"
+    >
+      <div
+        class="styledHeader__IconWrapper-sc-zui0ns-5 styledSearch__SearchIconWrapper-sc-q3k94-1 dcDjBj"
+      >
+        <img
+          alt=""
+          class="icon-image"
+          name="mobile-search"
+          src="[object Object]"
+        />
+      </div>
+    </div>
+    <div
+      class="styledHeader__MobileDropdown-sc-zui0ns-6 styledSearch__SearchMenu-sc-q3k94-2 hHOOVM lptXsH"
+    >
+      <div
+        class="styledSearch__SearchComponent-sc-q3k94-3 jquTMK"
+      >
+        <div
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="downshift-0-menu"
+          role="combobox"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="downshift-0-menu"
+            aria-labelledby="downshift-0-label"
+            autocomplete="off"
+            class=""
+            id="search"
+            placeholder="Search for a fundraiser"
+            type="search"
+            value=""
+          />
+        </div>
+        <div
+          aria-labelledby="downshift-0-label"
+          class="styledSearch__DropDown-sc-q3k94-4 fvMoFz"
+          id="downshift-0-menu"
+          role="listbox"
+        />
+      </div>
+    </div>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      Fundraisers
+    </a>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      How it works
+    </a>
+    <div
+      class="styledHeader__Logo-sc-zui0ns-1 LsOqq"
+    >
+      <a
+        class="styledHeader__NavLink-sc-zui0ns-2 govIsg logo__anchor"
+      >
+        <img
+          alt=""
+          class="logo-image"
+          src="[object Object]"
+        />
+      </a>
+    </div>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      Sign In
+    </a>
+    <a
+      class="styledHeader__NavLink-sc-zui0ns-2 govIsg"
+    >
+      Sign Up
+    </a>
+    <a
+      class="styledHeader__NavButton-sc-zui0ns-3 eEHdYO"
+    >
+      Start a Fundraiser
+    </a>
+  </header>
+</div>
+`;

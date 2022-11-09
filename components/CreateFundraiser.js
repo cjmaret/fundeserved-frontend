@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import { formatDollarsToCents } from '../lib/formatMoney';
 import useForm from '../lib/useForm';
 import DisplayError from './ErrorMessage';
@@ -32,7 +32,7 @@ export const CREATE_FUNDRAISER_MUTATION = gql`
         description: $description
         amount: 0
         goal: $goal
-        status: "AVAILABLE"
+        status: "ACTIVE"
         photo: { create: { image: $image, altText: $name } }
       }
     ) {
@@ -45,13 +45,12 @@ export const CREATE_FUNDRAISER_MUTATION = gql`
 `;
 
 export default function CreateFundraiser() {
-  const router = useRouter();
   const mobileWidth = useContext(MobileContext);
   const { inputs, handleChange, resetForm, clearForm } = useForm({
     image: '',
     name: '',
     description: '',
-    goal: 0,
+    goal: '',
   });
 
   const [createFundraiser, { loading, error, data }] = useMutation(
@@ -86,8 +85,7 @@ export default function CreateFundraiser() {
               await createFundraiser()
                 .then((res) => {
                   clearForm();
-                  console.log(res);
-                  router.push({
+                  Router.push({
                     pathname: `/fundraiser/${res.data.createFundraiser.id}`,
                   });
                 })

@@ -24,17 +24,21 @@ export default function FundraiserCard({ fundraiser }) {
 
   return (
     <FundraiserCardComponent>
-      <FundraiserLink href={`/fundraiser/${fundraiser.id}`} />
+      <FundraiserLink href={`/fundraiser/${fundraiser?.id}`} />
       <FundraiserImageWrapper>
-        <img src={fundraiserImage} alt="" className="fundraiser-image" />
+        <img
+          src={fundraiserImage}
+          alt={fundraiser?.name}
+          className="fundraiser-image"
+        />
       </FundraiserImageWrapper>
       <FundraiserDetails>
-        <FundraiserTitle>{fundraiser.name}</FundraiserTitle>
+        <FundraiserTitle>{fundraiser?.name}</FundraiserTitle>
         <FundraiserParagraph>{fundraiser?.description}</FundraiserParagraph>
         <CreatedOn>Created on {convertDate(fundraiserDate)}</CreatedOn>
         <PercentageBarGroup>
           <PercentageBarFilled
-            filled={(fundraiser.amount / fundraiser.goal) * 100}
+            filled={(fundraiser?.amount / fundraiser?.goal) * 100}
           />
           <PercentageBar />
         </PercentageBarGroup>
@@ -42,7 +46,7 @@ export default function FundraiserCard({ fundraiser }) {
           <AmountSpan>
             {formatCentsToDollars(fundraiser?.amount)} raised{' '}
           </AmountSpan>
-          of {formatCentsToDollars(fundraiser.goal)}
+          of {formatCentsToDollars(fundraiser?.goal)}
         </FundraiserAmount>
       </FundraiserDetails>
     </FundraiserCardComponent>

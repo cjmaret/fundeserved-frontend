@@ -341,7 +341,7 @@ export default function SingleFundraiser({ id }) {
 
   return (
     <>
-      <FundraiserSection>
+      <FundraiserSection data-testid="single-fundraiser">
         <TitleGroup>
           {Fundraiser.user?.id === user?.id && (
             <UpdateButtonGroup>
