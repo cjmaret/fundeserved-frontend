@@ -104,7 +104,7 @@ exports[`<SingleFundraiser renders with proper data 1`] = `
                 <p
                   class="styledSingleFundraiser__DonorCardAmount-sc-1kf0v44-26 styledSingleFundraiser__DonorCardDate-sc-1kf0v44-27 eLEVWx"
                 >
-                  17
+                  16
                    days ago
                 </p>
               </div>
@@ -453,7 +453,7 @@ exports[`<SingleFundraiser renders with proper data 1`] = `
               <p
                 class="styledSingleFundraiser__DonorCardAmount-sc-1kf0v44-26 styledSingleFundraiser__DonorCardDate-sc-1kf0v44-27 styledSingleFundraiser__DonorsModalDate-sc-1kf0v44-45 eLEVWx"
               >
-                17
+                16
                  days ago
               </p>
             </div>

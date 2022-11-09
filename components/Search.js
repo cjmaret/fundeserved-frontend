@@ -10,7 +10,7 @@ import {
   SearchMenu,
   SearchHeaderGroup,
 } from './styles/styledSearch';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import MagnifyingGlassIcon from '../images/magnifying-glass.png';
 
@@ -56,7 +56,6 @@ export default function Search({
   closeAllMenus,
   mobileMenu,
 }) {
-  const router = useRouter();
   const [findItems, { loading, data, error }] = useLazyQuery(
     SEARCH_FUNDRAISERS_QUERY,
     {
@@ -86,7 +85,7 @@ export default function Search({
       });
     },
     onSelectedItemChange({ selectedItem }) {
-      router.push({
+      Router.push({
         pathname: `/fundraiser/${selectedItem.id}`,
       });
     },

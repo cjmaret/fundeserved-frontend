@@ -6,7 +6,7 @@ import {
   useStripe,
 } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import { useRouter } from 'next/dist/client/router';
+import Router from 'next/dist/client/router';
 import nProgress from 'nprogress';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -60,7 +60,6 @@ function CheckoutForm({ amount, fundraiserId }) {
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  const router = useRouter();
 
   const [checkout, { error: graphQLError }] = useMutation(
     CREATE_ORDER_MUTATION,
@@ -95,7 +94,7 @@ function CheckoutForm({ amount, fundraiserId }) {
       },
     })
       .then((res) => {
-        router.push({
+        Router.push({
           pathname: `/fundraiser/${fundraiserId}`,
         });
       })

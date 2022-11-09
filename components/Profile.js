@@ -173,7 +173,7 @@ export default function Profile() {
 
   return (
     <>
-      <ProfileComponent>
+      <ProfileComponent data-testid="profile">
         <ProfileLead>
           <ProfileBanner />
           <ProfileContentGroup>
@@ -183,6 +183,7 @@ export default function Profile() {
             <ProfileImageWrapper>
               <ProfileImage
                 src={user?.avatar?.publicUrlTransformed || BlankProfileImage}
+                alt="avatar"
               />
             </ProfileImageWrapper>
             <ProfileDetails>
