@@ -178,7 +178,7 @@ export default function Profile() {
           <ProfileBanner />
           <ProfileContentGroup>
             <EditProfileButton onClick={() => setIsEditModalOpen(true)}>
-              <img src={EditPen} alt="" className="edit-icon" />
+              <img src={EditPen} alt="edit-pen" className="edit-icon" />
             </EditProfileButton>
             <ProfileImageWrapper>
               <ProfileImage
