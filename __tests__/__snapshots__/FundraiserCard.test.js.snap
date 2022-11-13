@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FundraiserCard/> renders and matches the snapshot 1`] = `
+<div>
+  <div
+    class="styledFundraiserCard__FundraiserCardComponent-sc-2xi0y7-0 fTrHup"
+  >
+    <a
+      class="styledFundraiserCard__FundraiserLink-sc-2xi0y7-1 dgaaRK"
+      href="/fundraiser/abc123"
+    />
+    <div
+      class="styledFundraiserCard__FundraiserImageWrapper-sc-2xi0y7-2 osxpu"
+    >
+      <img
+        alt="test-fundraiser"
+        class="fundraiser-image"
+        src="dog.jpg"
+      />
+    </div>
+    <div
+      class="styledFundraiserCard__FundraiserDetails-sc-2xi0y7-3 kYeYAz"
+    >
+      <h1
+        class="styledFundraiserCard__FundraiserTitle-sc-2xi0y7-4 QTDWe"
+      >
+        test-fundraiser
+      </h1>
+      <p
+        class="styledFundraiserCard__FundraiserParagraph-sc-2xi0y7-5 eEGTVv"
+      >
+        fundraiser description
+      </p>
+      <div
+        class="styledFundraiserCard__CreatedOn-sc-2xi0y7-6 gbDDxP"
+      >
+        Created on 
+        August 25, 2022
+      </div>
+      <div
+        class="styledFundraiserCard__PercentageBarGroup-sc-2xi0y7-7 fyhWNB"
+      >
+        <div
+          class="styledFundraiserCard__PercentageBarFilled-sc-2xi0y7-9 dIZjJJ"
+        />
+        <div
+          class="styledFundraiserCard__PercentageBar-sc-2xi0y7-8 bZwITN"
+        />
+      </div>
+      <p
+        class="styledFundraiserCard__FundraiserAmount-sc-2xi0y7-10 eAXCly"
+      >
+        <span
+          class="styledFundraiserCard__AmountSpan-sc-2xi0y7-11 dDlhku"
+        >
+          $5
+           raised
+           
+        </span>
+        of 
+        $6
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -173,16 +173,17 @@ export default function Profile() {
 
   return (
     <>
-      <ProfileComponent>
+      <ProfileComponent data-testid="profile">
         <ProfileLead>
           <ProfileBanner />
           <ProfileContentGroup>
             <EditProfileButton onClick={() => setIsEditModalOpen(true)}>
-              <img src={EditPen} alt="" className="edit-icon" />
+              <img src={EditPen} alt="edit-pen" className="edit-icon" />
             </EditProfileButton>
             <ProfileImageWrapper>
               <ProfileImage
                 src={user?.avatar?.publicUrlTransformed || BlankProfileImage}
+                alt="avatar"
               />
             </ProfileImageWrapper>
             <ProfileDetails>
@@ -218,7 +219,7 @@ export default function Profile() {
                     {!mobileWidth && (
                       <>
                         <PanelCardDescription>
-                          {card?.description?.substring(0, 100)}...
+                          {card?.description?.substring(0, 90)}...
                         </PanelCardDescription>
                       </>
                     )}

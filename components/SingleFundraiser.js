@@ -60,7 +60,7 @@ import { formatCentsToDollars } from '../lib/formatMoney';
 import useForm from '../lib/useForm';
 import CloseIconImage from '../images/close-icon.png';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import Router from 'next/router';
 import BlankProfileImage from '../images/blank-profile.jpg';
 import CopyIconImage from '../images/copy-icon.png';
 import daysAgo from '../lib/daysAgo';
@@ -175,7 +175,6 @@ function update(cache, payload) {
 
 export default function SingleFundraiser({ id }) {
   const user = useUser();
-  const router = useRouter();
   const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isDonorsModalOpen, setIsDonorsModalOpen] = useState(false);
@@ -310,7 +309,7 @@ export default function SingleFundraiser({ id }) {
             fundraiserImageId: Fundraiser.photo.id,
           },
         });
-        router.push({
+        Router.push({
           pathname: `/fundraisers`,
         });
         alert('Fundraiser deleted');
@@ -341,7 +340,7 @@ export default function SingleFundraiser({ id }) {
 
   return (
     <>
-      <FundraiserSection>
+      <FundraiserSection data-testid="single-fundraiser">
         <TitleGroup>
           {Fundraiser.user?.id === user?.id && (
             <UpdateButtonGroup>

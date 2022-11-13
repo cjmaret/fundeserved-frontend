@@ -69,10 +69,8 @@ export default function Donate({ id }) {
 
   function handleAmountChange(e) {
     let amount = e.target.value.replace(/[^0-9.]/g, '');
-    // let limitedAmount = Math.max(0, Math.min(50000, amount)).toString();
     setAmountValue(amount);
   }
-
 
   useEffect(() => {
     if (amountValue > 50000) {

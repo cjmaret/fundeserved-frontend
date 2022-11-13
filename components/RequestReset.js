@@ -4,7 +4,7 @@ import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import DisplayError from './ErrorMessage';
 
-const REQUEST_RESET_MUTATION = gql`
+export const REQUEST_RESET_MUTATION = gql`
   mutation REQUEST_RESET_MUTATION($email: String!) {
     sendUserPasswordResetLink(email: $email) {
       code
@@ -26,7 +26,6 @@ export default function RequestReset() {
     e.preventDefault();
     await reset()
       .then((res) => {
-        console.log(res);
         resetForm();
       })
       .catch((err) => console.error(err));
@@ -45,7 +44,7 @@ export default function RequestReset() {
           <input
             type="email"
             name="email"
-            placeholder="email"
+            placeholder="Email"
             autoComplete="email"
             value={inputs.email}
             onChange={handleChange}

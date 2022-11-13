@@ -1,0 +1,494 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SingleFundraiser renders with proper data 1`] = `
+<div>
+  <section
+    class="styledSingleFundraiser__FundraiserSection-sc-1kf0v44-0 fiSzri"
+    data-testid="single-fundraiser"
+  >
+    <div
+      class="styledSingleFundraiser__TitleGroup-sc-1kf0v44-1 fyDjWg"
+    >
+      <h1
+        class="styledSingleFundraiser__Title-sc-1kf0v44-2 bRZaIS"
+      >
+        test-fundraiser
+      </h1>
+    </div>
+    <div
+      class="styledSingleFundraiser__FundraiserInfo-sc-1kf0v44-5 ffpKJd"
+    >
+      <div
+        class="styledSingleFundraiser__Details-sc-1kf0v44-6 eBrvyO"
+      >
+        <img
+          alt=""
+          class="styledSingleFundraiser__Image-sc-1kf0v44-7 hqyATv"
+          src="dog.jpg"
+        />
+        <p
+          class="styledSingleFundraiser__Description-sc-1kf0v44-8 iHahmf"
+        >
+          fundraiser description
+        </p>
+      </div>
+      <div
+        class="styledSingleFundraiser__Sidebar-sc-1kf0v44-9 estGAC"
+      >
+        <p
+          class="styledSingleFundraiser__AmountGroup-sc-1kf0v44-10 fyzxGu"
+        >
+          <span
+            class="styledSingleFundraiser__AmountRaised-sc-1kf0v44-12 xxUbi"
+          >
+            $5
+             
+          </span>
+          raised of 
+          $6
+           goal
+        </p>
+        <div
+          class="styledSingleFundraiser__PercentageBarGroup-sc-1kf0v44-13 feXyLQ"
+        >
+          <div
+            class="styledSingleFundraiser__PercentageBarFilled-sc-1kf0v44-15 ivPvKp"
+          />
+          <div
+            class="styledSingleFundraiser__PercentageBar-sc-1kf0v44-14 edWDpo"
+          />
+        </div>
+        <div
+          class="styledSingleFundraiser__ButtonGroup-sc-1kf0v44-16 hMoLLM"
+        >
+          <a
+            class="styledSingleFundraiser__Button-sc-1kf0v44-17 styledSingleFundraiser__ShareButton-sc-1kf0v44-18 enLOzC eeJqmn"
+          >
+            Share
+          </a>
+          <a
+            class="styledSingleFundraiser__Button-sc-1kf0v44-17 styledSingleFundraiser__DonateButton-sc-1kf0v44-19 enLOzC"
+            href="/donate/abc123"
+          >
+            Donate now
+          </a>
+        </div>
+        <div
+          class="styledSingleFundraiser__DonorList-sc-1kf0v44-20 jAeREC"
+        >
+          <div
+            class="styledSingleFundraiser__DonorCard-sc-1kf0v44-21 iNSKhh"
+          >
+            <img
+              alt=""
+              class="styledSingleFundraiser__DonorCardPhoto-sc-1kf0v44-22 hmQezd"
+              src="dog.jpg"
+            />
+            <div
+              class="styledSingleFundraiser__DonorCardDetails-sc-1kf0v44-23 jSQEnr"
+            >
+              <h3
+                class="styledSingleFundraiser__DonorCardName-sc-1kf0v44-24 iWuQGw"
+              >
+                Colin
+              </h3>
+              <div
+                class="styledSingleFundraiser__DonorCardDonationDetails-sc-1kf0v44-25 iaQEVo"
+              >
+                <p
+                  class="styledSingleFundraiser__DonorCardAmount-sc-1kf0v44-26 eLEVWx"
+                >
+                  Donated 
+                  $0.50
+                </p>
+                <p
+                  class="styledSingleFundraiser__DonorCardAmount-sc-1kf0v44-26 styledSingleFundraiser__DonorCardDate-sc-1kf0v44-27 eLEVWx"
+                >
+                  16
+                   days ago
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="styledSingleFundraiser__Button-sc-1kf0v44-17 styledSingleFundraiser__DonorListSeeAllButton-sc-1kf0v44-28 enLOzC cVFrHB"
+        >
+          See all
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer
+    class="styledFooter__FooterComponent-sc-1e1bsv4-0 jyrief"
+  >
+    <div
+      class="styledFooter__Logo-sc-1e1bsv4-2 fXPONK"
+    >
+      <a
+        class="styledFooter__NavLink-sc-1e1bsv4-1 bBbVVU logo__anchor"
+      >
+        <img
+          alt=""
+          class="footer-logo-image"
+          src="[object Object]"
+        />
+      </a>
+    </div>
+    <div
+      class="styledFooter__ListGroup-sc-1e1bsv4-3 eLUlUf"
+    >
+      <ul
+        class="styledFooter__List-sc-1e1bsv4-4 styledFooter__FundraiseList-sc-1e1bsv4-6 gYgrfI"
+      >
+        <h4
+          class="styledFooter__ListTitle-sc-1e1bsv4-5 iCvyLs"
+        >
+          Fundraise for
+        </h4>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/"
+          >
+            My Benefit
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/"
+          >
+            Someone Else's Loss
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/"
+          >
+            Fraud/Deceit
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/"
+          >
+            Mean Spirited Prank
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/"
+          >
+            A Good Cause (As If, Right?)
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="styledFooter__List-sc-1e1bsv4-4 styledFooter__LearnMoreList-sc-1e1bsv4-7 gYgrfI"
+      >
+        <h4
+          class="styledFooter__ListTitle-sc-1e1bsv4-5 iCvyLs"
+        >
+          Learn more
+        </h4>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            How GoFundYourself works
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            Common questions
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            Success stories
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            Supported countries
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="styledFooter__List-sc-1e1bsv4-4 styledFooter__ResourcesList-sc-1e1bsv4-8 gYgrfI"
+      >
+        <h4
+          class="styledFooter__ListTitle-sc-1e1bsv4-5 iCvyLs"
+        >
+          Resources
+        </h4>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            Help center
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            Blog
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            Press center
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            Careers
+          </a>
+        </li>
+        <li
+          class="styledFooter__ListItem-sc-1e1bsv4-9 gxZrWY"
+        >
+          <a
+            class="styledFooter__ListLink-sc-1e1bsv4-10 dGPkaC"
+            href="/learn-more"
+          >
+            About
+          </a>
+        </li>
+      </ul>
+    </div>
+    <p
+      class="styledFooter__RightsReserved-sc-1e1bsv4-11"
+    >
+      2022 All Rights Reserved
+    </p>
+  </footer>
+  <div
+    class="styledModal__Modal-sc-1l007rp-0 styledSingleFundraiser__UpdateModal-sc-1kf0v44-29 thicZ eTgUEy"
+  >
+    <form
+      class="styledForm__Form-sc-174guj4-0 styledForm__ModalForm-sc-174guj4-4 styledSingleFundraiser__UpdateForm-sc-1kf0v44-30 eWUBJi bgZiUv"
+      id="update-form"
+    >
+      <img
+        alt="close icon"
+        class="styledModal__CloseIcon-sc-1l007rp-1 cYbGot"
+        src="[object Object]"
+      />
+      <fieldset
+        aria-busy="false"
+      >
+        <label
+          for="name"
+        >
+          Name
+          <input
+            id="name"
+            name="name"
+            placeholder="Name"
+            type="text"
+            value="test-fundraiser"
+          />
+        </label>
+        <label
+          for="image"
+        >
+          Image
+          <input
+            id="image"
+            name="image"
+            type="file"
+          />
+        </label>
+        <label
+          for="description"
+        >
+          Description
+          <textarea
+            id="description"
+            name="description"
+            placeholder="description"
+            rows="11"
+            type="textarea"
+          >
+            fundraiser description
+          </textarea>
+        </label>
+        <div
+          class="button-group"
+        >
+          <button
+            type="submit"
+          >
+            Update Fundraiser
+          </button>
+          <button
+            type="button"
+          >
+            Clear Form
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <div
+    class="styledModal__Modal-sc-1l007rp-0 styledSingleFundraiser__DeleteModal-sc-1kf0v44-31 thicZ cBMYYP"
+  >
+    <div
+      class="styledSingleFundraiser__DeleteFormGroup-sc-1kf0v44-32 ctmzIK"
+      id="delete-form"
+    >
+      <img
+        alt=""
+        class="styledModal__CloseIcon-sc-1l007rp-1 cYbGot"
+        src="[object Object]"
+      />
+      <h2
+        class="styledSingleFundraiser__DeleteFormTitle-sc-1kf0v44-33"
+      >
+        Delete Fundraiser?
+      </h2>
+      <button
+        aria-busy="false"
+        class="styledSingleFundraiser__DeleteFormButton-sc-1kf0v44-34 cfeeAz"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  <div
+    class="styledModal__Modal-sc-1l007rp-0 styledSingleFundraiser__DonorsModal-sc-1kf0v44-35 thicZ itYXt"
+  >
+    <div
+      class="styledSingleFundraiser__DonorsModalContentGroup-sc-1kf0v44-36 ffdInM"
+    >
+      <img
+        alt=""
+        class="styledModal__CloseIcon-sc-1l007rp-1 cYbGot"
+        src="[object Object]"
+      />
+      <h3
+        class="styledSingleFundraiser__DonorsModalTitle-sc-1kf0v44-37 izOrtq"
+      >
+        All Donors
+      </h3>
+      <div
+        class="styledSingleFundraiser__DonorsModalList-sc-1kf0v44-38 jzUTjj"
+        id="donors-div"
+      >
+        <div
+          class="styledSingleFundraiser__DonorCard-sc-1kf0v44-21 styledSingleFundraiser__DonorsModalCard-sc-1kf0v44-39 iNSKhh hZfEeK"
+        >
+          <img
+            alt=""
+            class="styledSingleFundraiser__DonorCardPhoto-sc-1kf0v44-22 styledSingleFundraiser__DonorsModalPhoto-sc-1kf0v44-40 hmQezd dmZaxY"
+            src="dog.jpg"
+          />
+          <div
+            class="styledSingleFundraiser__DonorCardDetails-sc-1kf0v44-23 styledSingleFundraiser__DonorsModalDetails-sc-1kf0v44-41 jSQEnr btIObx"
+          >
+            <h3
+              class="styledSingleFundraiser__DonorCardName-sc-1kf0v44-24 styledSingleFundraiser__DonorsModalName-sc-1kf0v44-42 iWuQGw MYflW"
+            >
+              Colin
+            </h3>
+            <div
+              class="styledSingleFundraiser__DonorCardDonationDetails-sc-1kf0v44-25 styledSingleFundraiser__DonorsModalDonationDetails-sc-1kf0v44-43 iaQEVo"
+            >
+              <p
+                class="styledSingleFundraiser__DonorCardAmount-sc-1kf0v44-26 styledSingleFundraiser__DonorsModalAmount-sc-1kf0v44-44 eLEVWx gnoGTj"
+              >
+                Donated 
+                $0.50
+              </p>
+              <p
+                class="styledSingleFundraiser__DonorCardAmount-sc-1kf0v44-26 styledSingleFundraiser__DonorCardDate-sc-1kf0v44-27 styledSingleFundraiser__DonorsModalDate-sc-1kf0v44-45 eLEVWx"
+              >
+                16
+                 days ago
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="styledModal__Modal-sc-1l007rp-0 styledSingleFundraiser__ShareModal-sc-1kf0v44-46 thicZ kUAetP"
+  >
+    <div
+      class="styledSingleFundraiser__SharePopup-sc-1kf0v44-47 xhjwx"
+      id="share-div"
+    >
+      <img
+        alt=""
+        class="styledModal__CloseIcon-sc-1l007rp-1 cYbGot"
+        src="[object Object]"
+      />
+      <h3>
+        Share this fundraiser!
+      </h3>
+      <div>
+        <p>
+          www.gofundyourself.com/fundraiser/123
+        </p>
+        <button>
+          <img
+            alt=""
+            src="[object Object]"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
