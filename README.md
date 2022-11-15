@@ -1,4 +1,4 @@
-# 🧁 GoFundYourself Frontend 🧁
+# 🦩 GoFundYourself Frontend 🦩
 
 ---
 
