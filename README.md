@@ -22,7 +22,7 @@
 
 ## Project Description / Functionality:
 
-- This part of the project serves as the front-end for [History Muffin API](https://github.com/cjmaret/gofundyourself-api)
+- This part of the project serves as the front-end for the [GoFundYourself Backend](https://github.com/cjmaret/gofundyourself-api)
 - GoFundYourself is a fundraising site where users can create an account, create fundraisers, and donate to other people's fundraisers
 - Users make API requests through GraphQL to CRUD account / fundraiser details.
 - Sign up/in functionality, as well as resetting a user's password
