@@ -11,7 +11,7 @@ export default function FundraisersLead() {
     <FundraisersLeadComponent>
       <FundraisersTitle>Browse fundraisers</FundraisersTitle>
       <FundraisersSubtitle>
-        A fool and their money are soon parted.
+        <em>"Be the lack of change you wish to see in the world"</em>
       </FundraisersSubtitle>
       <Link href="/create-fundraiser">
         <CreateFundraiserButton>Start a GoFundYourself</CreateFundraiserButton>
