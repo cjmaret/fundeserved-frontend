@@ -69,6 +69,7 @@ export const DropDownItem = styled.a`
   ${(props) => (props.highlighted ? 'padding-left: 2rem;' : null)};
   display: flex;
   align-items: center;
+  text-align: left;
   border-left: 10px solid
     ${(props) => (props.highlighted ? 'var(--salmon)' : 'white')};
   img {
