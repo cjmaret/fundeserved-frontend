@@ -49,7 +49,7 @@ export const DropDown = styled.div`
   position: absolute;
   width: 100%;
   z-index: 2;
-
+  top: 48px;
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
   .no-items-found {
     &:hover {
@@ -59,7 +59,6 @@ export const DropDown = styled.div`
 `;
 
 export const DropDownItem = styled.a`
-  border-bottom: 1px solid var(--green);
   background: ${(props) => (props.highlighted ? '#f7f7f7' : 'white')};
   padding: 1rem;
   transition: all 0.2s;
@@ -67,8 +66,11 @@ export const DropDownItem = styled.a`
   display: flex;
   align-items: center;
   border-left: 10px solid
-    ${(props) => (props.highlighted ? props.theme.lightgrey : 'white')};
+    ${(props) => (props.highlighted ? 'var(--salmon)' : 'white')};
   img {
     margin-right: 10px;
+  }
+  &:hover {
+    text-decoration: none;
   }
 `;

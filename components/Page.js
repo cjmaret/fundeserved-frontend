@@ -60,6 +60,8 @@ const InnerStyles = styled.div`
 
 export default function Page({ children }) {
   const [mobileMenu, setMobileMenu] = useState();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
 
   useEffect(() => {
     function getWindowWidth() {
@@ -76,11 +78,24 @@ export default function Page({ children }) {
     return () => window.removeEventListener('resize', getWindowWidth);
   });
 
+  useEffect(() => {
+    if (isMenuOpen || isSearchMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isMenuOpen, isSearchMenuOpen]);
+
   return (
     <MobileContext.Provider value={mobileMenu}>
       <GlobalStyles />
-      <Header />
-      <InnerStyles>{children}</InnerStyles>
+      <Header
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+        isSearchMenuOpen={isSearchMenuOpen}
+        setIsSearchMenuOpen={setIsSearchMenuOpen}
+      />
+      <InnerStyles id="scrollable">{children}</InnerStyles>
     </MobileContext.Provider>
   );
 }

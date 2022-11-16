@@ -13,9 +13,12 @@ import { useUser } from './User';
 import SignOut from './SignOut';
 import Search from './Search';
 
-export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchMenuOpen, setIsSearchMenuOpen] = useState(false);
+export default function Header({
+  isMenuOpen,
+  setIsMenuOpen,
+  isSearchMenuOpen,
+  setIsSearchMenuOpen,
+}) {
   const mobileMenu = useContext(MobileContext);
   const user = useUser();
 
