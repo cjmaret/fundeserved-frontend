@@ -15,7 +15,6 @@ const mocks = [
         id: '123',
       },
     },
-    // return
     result: {
       data: {
         Fundraiser: fundraiser,

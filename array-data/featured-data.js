@@ -1,5 +1,4 @@
 import GamblingImage from '../images/gambling.png';
-// import WomanArmsImage from '../images/woman-arms.jpg';
 import WomanComputerImage from '../images/woman-computer.png';
 import WaspImage from '../images/wasp.jpg';
 

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import FundraiserCard from './FundraiserCard';
 import { perPage } from '../config';
 
-// change to only user-created fundraisers later
 export const ALL_FUNDRAISERS_QUERY = gql`
   query ALL_FUNDRAISERS_QUERY($skip: Int = 0, $first: Int) {
     allFundraisers(first: $first, skip: $skip, sortBy: dateCreated_ASC) {

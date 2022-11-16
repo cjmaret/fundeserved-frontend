@@ -14,7 +14,6 @@ jest.mock('next/router', () => ({
 const me = fakeUser();
 const password = '1234abcd';
 const mocks = [
-  // Mutation Mock
   {
     request: {
       query: SIGNUP_MUTATION,
@@ -35,11 +34,6 @@ const mocks = [
       },
     },
   },
-  // Current user mock
-  // {
-  //   request: { query: CURRENT_USER_QUERY },
-  //   result: { data: { authenticatedItem: me } },
-  // },
 ];
 
 describe('<SignUp/>', () => {
@@ -57,11 +51,9 @@ describe('<SignUp/>', () => {
         <SignUp />
       </MockedProvider>
     );
-    // Type into the boxes
     await userEvent.type(screen.getByPlaceholderText(/name/i), me.name);
     await userEvent.type(screen.getByPlaceholderText(/email/i), me.email);
     await userEvent.type(screen.getByPlaceholderText(/password/i), password);
-    // Click the submit
     await userEvent.click(screen.getByText('Sign Up'));
     await screen.findByText(
       `Signed up with ${me.email} - Please go ahead and sign in`

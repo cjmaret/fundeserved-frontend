@@ -69,23 +69,19 @@ function CheckoutForm({ amount, fundraiserId }) {
   );
 
   async function handleSubmit(e) {
-    // stop form from submitting and turn loader on
     e.preventDefault();
     setLoading(true);
-    // 2. start the page transition
     nProgress.start();
-    // 3. create the payment method via stripe (token comes back here if successful)
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: elements.getElement(CardElement),
     });
-    // 4. handle any errors from stripe
     if (error) {
       setError(error);
       nProgress.done();
-      return; // stops the checkout from happening
+      return; 
     }
-    // 5. send the token from step 3 to our keystone server, via a custom mutation
     await checkout({
       variables: {
         token: paymentMethod.id,
@@ -101,8 +97,6 @@ function CheckoutForm({ amount, fundraiserId }) {
       .catch((err) => {
         console.error(err);
       });
-    // 6. change the page to view the order
-    // 8. turn off loader
     setLoading(false);
     nProgress.done();
   }
@@ -117,7 +111,6 @@ function CheckoutForm({ amount, fundraiserId }) {
   );
 }
 
-// useStripe needs to be wrapped in the Elements provider before it can be used
 export default function Checkout({ amount, fundraiserId }) {
   return (
     <Elements stripe={stripeLib}>
