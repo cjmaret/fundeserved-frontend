@@ -29,9 +29,9 @@ export const HeroTitle = styled.h1`
   color: white;
   line-height: 1.2;
   margin: 0 0 1rem 0;
-  font-size: 2.5rem;
+  font-size: 3rem;
   @media (min-width: 500px) {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 0 0 2rem 0;
   }
   @media (min-width: 700px) {
@@ -46,7 +46,7 @@ export const HeroButton = styled.button`
   border: none;
   color: var(--white);
   background-color: var(--green);
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: 600;
   transition: transform 0.4s ease;
   &:hover {

@@ -36,8 +36,9 @@ export const SearchComponent = styled.div`
   width: 90%;
   max-width: 700px;
   input {
+    background-color: white;
     width: 100%;
-    padding: 10px;
+    padding: 0 10px;
     border: 0;
     font-size: 2rem;
     outline: none;
@@ -61,6 +62,7 @@ export const DropDown = styled.div`
 `;
 
 export const DropDownItem = styled.a`
+  line-height: 1.3;
   background: ${(props) => (props.highlighted ? '#f7f7f7' : 'white')};
   padding: 1rem;
   transition: all 0.2s;

@@ -14,14 +14,14 @@ export const Title = styled.h2`
   margin: 0 0 3rem 0;
   line-height: 1.2;
   width: 100%;
-  font-size: 3.5rem;
+  font-size: 3rem;
   @media (min-width: 750px) {
-    font-size: 5rem;
+    font-size: 4.5rem;
     margin: 0 0 5rem 0;
     align-self: flex-start;
   }
   @media (min-width: 1000px) {
-    font-size: 6rem;
+    font-size: 5.5rem;
   }
 `;
 

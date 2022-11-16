@@ -27,9 +27,9 @@ export const FeaturedContentGroup = styled.div`
   align-items: center;
   max-width: 1080px;
   width: 100%;
-  padding: 10rem 0 10rem 1rem;
+  padding: 15rem 0 15rem 1rem;
   @media (min-width: 500px) {
-    padding: 15rem 0 15rem 2rem;
+    padding: 20rem 0 20rem 2rem;
   }
 `;
 
