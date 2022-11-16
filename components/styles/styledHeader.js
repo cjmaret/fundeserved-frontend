@@ -40,6 +40,8 @@ export const Logo = styled.div`
 
 export const NavLink = styled.a`
   line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+
   &:hover {
     text-decoration: none;
     cursor: pointer;

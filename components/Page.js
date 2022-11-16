@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import Header from './Header';
 import { MobileContext } from '../contexts/mobileContext';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -88,6 +89,9 @@ export default function Page({ children }) {
 
   return (
     <MobileContext.Provider value={mobileMenu}>
+      <Head>
+        <title>GoFundYourself</title>
+      </Head>
       <GlobalStyles />
       <Header
         isMenuOpen={isMenuOpen}

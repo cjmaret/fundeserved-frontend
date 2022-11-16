@@ -52,7 +52,7 @@ export default function Lead() {
               <StepSpan>3. </StepSpan>Profit!
             </StepTitle>
             <StepParagraph>
-              Live and learn nothing!
+              Live and learn - nothing!
             </StepParagraph>
           </StepDetails>
           <StepImage>

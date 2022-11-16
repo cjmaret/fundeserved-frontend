@@ -15,7 +15,9 @@ export const SearchHeaderGroup = styled.div`
   justify-content: ${(props) => (props.mobileMenu ? 'flex-start' : 'center')};
 `;
 
-export const SearchIconWrapper = styled(IconWrapper)``;
+export const SearchIconWrapper = styled(IconWrapper)`
+  -webkit-tap-highlight-color: transparent;
+`;
 
 export const SearchMenu = styled(MobileDropdown)`
   display: ${(props) => (props.isSearchMenuOpen ? 'flex' : 'none')};
