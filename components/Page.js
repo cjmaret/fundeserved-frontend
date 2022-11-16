@@ -41,13 +41,12 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
     color: var(--grey);
       -webkit-tap-highlight-color: transparent;
-
   }
 
   button {
       -webkit-tap-highlight-color: transparent;
-
   }
+  
   a:hover {
     text-decoration: underline;
   }
