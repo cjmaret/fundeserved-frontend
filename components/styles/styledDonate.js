@@ -171,6 +171,7 @@ export const TallyDue = styled.p`
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
+  line-height: 1.4;
 `;
 
 export const GuaranteeGroup = styled.div`
