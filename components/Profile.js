@@ -206,7 +206,7 @@ export default function Profile() {
                   <PanelCardLink href={`/fundraiser/${card.id}`} />
                   <PanelCardImageWrapper>
                     <img
-                      src={card?.photo.image.publicUrlTransformed}
+                      src={card?.photo?.image.publicUrlTransformed}
                       className="card-image"
                     />
                   </PanelCardImageWrapper>
@@ -250,7 +250,7 @@ export default function Profile() {
                   <PanelCardImageWrapper>
                     <img
                       src={
-                        donation.fundraiser?.photo.image.publicUrlTransformed
+                        donation.fundraiser?.photo?.image.publicUrlTransformed
                       }
                       className="card-image"
                     />
