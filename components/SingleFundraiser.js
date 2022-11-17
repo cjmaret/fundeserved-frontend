@@ -397,7 +397,7 @@ export default function SingleFundraiser({ id }) {
                         Donated {formatCentsToDollars(donor.total)}
                       </DonorCardAmount>
                       <DonorCardDate>
-                        {daysAgo(donor.dateCreated)} days ago
+                        {`${daysAgo(donor.dateCreated)} day${daysAgo(donor.dateCreated) === 1 ? '' : 's'} ago`}
                       </DonorCardDate>
                     </DonorCardDonationDetails>
                   </DonorCardDetails>
