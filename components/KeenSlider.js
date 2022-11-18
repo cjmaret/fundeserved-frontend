@@ -17,19 +17,22 @@ import {
 export default function KeenSlider({ data }) {
   const mobileWidth = useContext(MobileContext);
 
-  const [sliderOptions, setSliderOptions] = useState({});
-  const [sliderRef] = useKeenSlider(sliderOptions);
+  const sliderOptions = {
+    loop: false,
+    mode: 'free',
+    slides: {
+      perView: 2.5,
+      spacing: mobileWidth ? 15 : 35,
+    },
+  };
+
+  const [sliderRef, slider] = useKeenSlider(sliderOptions);
 
   useEffect(() => {
-    setSliderOptions({
-      loop: false,
-      mode: 'free',
-      slides: {
-        perView: 2.5,
-        spacing: mobileWidth ? 15 : 35,
-      },
+    slider.current?.update({
+      ...sliderOptions,
     });
-  }, [data]);
+  }, [slider, sliderOptions]);
 
   return (
     <CardGroup ref={sliderRef} className="keen-slider">
