@@ -15,7 +15,7 @@ import {
   CardParagraph,
   AmountRaised,
 } from './styles/styledSliderCard';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MobileContext } from '../contexts/mobileContext';
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
@@ -45,14 +45,28 @@ export default function Featured() {
 
   const { data, error, loading } = useQuery(ALL_FUNDRAISERS_QUERY);
 
-  const [sliderRef] = useKeenSlider({
-    loop: false,
-    mode: 'free',
-    slides: {
-      perView: 2.5,
-      spacing: mobileWidth ? 15 : 35,
-    },
-  });
+  // const [sliderRef] = useKeenSlider({
+  //   loop: false,
+  //   mode: 'free',
+  //   slides: {
+  //     perView: 2.5,
+  //     spacing: mobileWidth ? 15 : 35,
+  //   },
+  // });
+
+  const [sliderOptions, setSliderOptions] = useState({});
+  const [sliderRef] = useKeenSlider(sliderOptions);
+
+  useEffect(() => {
+    setSliderOptions({
+      loop: false,
+      mode: 'free',
+      slides: {
+        perView: 2.5,
+        spacing: mobileWidth ? 15 : 35,
+      },
+    });
+  }, [data]);
 
   return (
     <FeaturedComponent>
