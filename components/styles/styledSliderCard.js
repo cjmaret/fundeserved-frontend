@@ -72,13 +72,13 @@ export const CardParagraph = styled.p`
 
 export const AmountRaised = styled.p`
   margin: 0 0 0.5rem 0;
-  font-size: 1rem;
+  font-size: .8rem;
   font-weight: 700;
   line-height: 1.2;
   @media (min-width: 450px) {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   @media (min-width: 850px) {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 `;
