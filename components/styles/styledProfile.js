@@ -1,13 +1,5 @@
 import styled from 'styled-components';
-import {
-  Card,
-  CardLink,
-  CardImageWrapper,
-  CardDetails,
-  CardTitle,
-  CardParagraph,
-  AmountRaised,
-} from './styledSliderCard';
+import { AmountRaised } from './styledSliderCard';
 import { Modal } from './styledModal';
 import { ModalForm } from './styledForm';
 
@@ -147,33 +139,7 @@ export const MyFundraisersPanel = styled(Panel)``;
 
 export const DonatedToPanel = styled(Panel)``;
 
-export const PanelCardGroup = styled.div``;
-
-export const PanelCard = styled(Card)``;
-
-export const PanelCardLink = styled(CardLink)``;
-
-export const PanelCardImageWrapper = styled(CardImageWrapper)``;
-
-export const PanelCardDetails = styled(CardDetails)`
-  color: var(--black);
-`;
-
-export const PanelCardTitle = styled(CardTitle)`
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  @media (min-width: 500px) {
-    margin-bottom: 0.75rem;
-    font-size: 2rem;
-  }
-`;
-
-export const PanelCardDescription = styled(CardParagraph)`
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-`;
-
-export const PanelCardMinorInfo = styled(AmountRaised)`
+const PanelCardMinorInfo = styled(AmountRaised)`
   font-size: 1.1rem;
   margin-bottom: 0.35rem;
   @media (min-width: 500px) {

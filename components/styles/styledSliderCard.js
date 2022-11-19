@@ -39,9 +39,23 @@ export const CardDetails = styled.div`
   flex-direction: column;
   justify-items: center;
   padding: 0 0.5rem;
-  color: var(--white);
+  color: ${(props) =>
+    props.sliderType === 'featured' ? 'var(--white)' : 'var(--black)'};
   @media (min-width: 500px) {
     padding: 1rem;
+  }
+  .panel-paragraph {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .panel-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    @media (min-width: 500px) {
+      margin-bottom: 0.75rem;
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -72,7 +86,7 @@ export const CardParagraph = styled.p`
 
 export const AmountRaised = styled.p`
   margin: 0 0 0.5rem 0;
-  font-size: .8rem;
+  font-size: 0.8rem;
   font-weight: 700;
   line-height: 1.2;
   @media (min-width: 450px) {

@@ -40,7 +40,7 @@ export default function Featured() {
             Featuring some of our least deserving fundraisers
           </FeaturedParagraph>
         </FeaturedTitleGroup>
-        <KeenSlider data={data} />
+        <KeenSlider data={data?.allFundraisers} sliderType={'featured'} />
       </FeaturedContentGroup>
     </FeaturedComponent>
   );

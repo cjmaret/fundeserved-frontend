@@ -11,39 +11,27 @@ import {
   DateCreated,
   MyFundraisersPanel,
   DonatedToPanel,
-  PanelCard,
-  PanelCardImageWrapper,
-  PanelCardDetails,
-  PanelCardTitle,
-  PanelCardDescription,
   PanelTitle,
-  PanelCardGroup,
-  PanelCardLink,
-  PanelCardAmount,
-  PanelCardDonationDate,
-  PanelCardCreatedDate,
-  EmptyFundraisers,
   EditProfileButton,
   EditModal,
   EditForm,
 } from './styles/styledProfile';
 import { useUser } from './User';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { MobileContext } from '../contexts/mobileContext';
 import BlankProfileImage from '../images/blank-profile.jpg';
 import CloseIconImage from '../images/close-icon.png';
 import convertDate from '../lib/convertDate';
-import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-import { formatCentsToDollars } from '../lib/formatMoney';
 import EditPen from '../images/edit-pen.png';
 import DisplayError from './ErrorMessage';
 import { CloseIcon } from './styles/styledModal';
 import useForm from '../lib/useForm';
 import gql from 'graphql-tag';
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { CURRENT_USER_QUERY } from './User';
 import Footer from './Footer';
+import KeenSlider from './KeenSlider';
 
 export const UPDATE_USER_WITH_AVATAR_MUTATION = gql`
   mutation UPDATE_USER_WITH_AVATAR_MUTATION(
@@ -126,24 +114,6 @@ export default function Profile() {
     ],
   });
 
-  const [createdSliderRef] = useKeenSlider({
-    loop: false,
-    mode: 'free',
-    slides: {
-      perView: mobileWidth ? 2.5 : 3.5,
-      spacing: mobileWidth ? 15 : 35,
-    },
-  });
-
-  const [donatedSliderRef] = useKeenSlider({
-    loop: false,
-    mode: 'free',
-    slides: {
-      perView: mobileWidth ? 2.5 : 3.5,
-      spacing: mobileWidth ? 15 : 35,
-    },
-  });
-
   function checkIfClickedOutside(e) {
     const innerEditFormDiv = document.getElementById('edit-form');
     if (isEditModalOpen) {
@@ -197,85 +167,14 @@ export default function Profile() {
         </ProfileLead>
         <MyFundraisersPanel>
           <PanelTitle>Your fundraisers</PanelTitle>
-          <PanelCardGroup ref={createdSliderRef} className="keen-slider">
-            {user?.fundraisers.length > 0 ? (
-              user?.fundraisers.map((card, i) => (
-                <PanelCard
-                  key={card.id}
-                  className={`keen-slider__slide number-slide${i}`}>
-                  <PanelCardLink href={`/fundraiser/${card.id}`} />
-                  <PanelCardImageWrapper>
-                    <img
-                      src={card?.photo?.image.publicUrlTransformed}
-                      className="card-image"
-                    />
-                  </PanelCardImageWrapper>
-                  <PanelCardDetails>
-                    <PanelCardTitle>
-                      {card?.name.length > 50
-                        ? `${card?.name.substring(0, 50)}...`
-                        : card?.name}
-                    </PanelCardTitle>
-                    {!mobileWidth && (
-                      <>
-                        <PanelCardDescription>
-                          {card?.description?.substring(0, 90)}...
-                        </PanelCardDescription>
-                      </>
-                    )}
-                    <PanelCardCreatedDate>
-                      Created on {convertDate(card.dateCreated)}
-                    </PanelCardCreatedDate>
-                  </PanelCardDetails>
-                </PanelCard>
-              ))
-            ) : (
-              <EmptyFundraisers>
-                Fundraisers you created will appear here!
-              </EmptyFundraisers>
-            )}
-          </PanelCardGroup>
+          <KeenSlider
+            data={user?.fundraisers}
+            sliderType="profile-fundraisers"
+          />
         </MyFundraisersPanel>
         <DonatedToPanel>
           <PanelTitle>Your donations</PanelTitle>
-          <PanelCardGroup ref={donatedSliderRef} className="keen-slider">
-            {user?.donations.length > 0 ? (
-              user?.donations.map((donation, i) => (
-                <PanelCard
-                  key={i}
-                  className={`keen-slider__slide number-slide${i}`}>
-                  <PanelCardLink
-                    href={`/fundraiser/${donation.fundraiser.id}`}
-                  />
-                  <PanelCardImageWrapper>
-                    <img
-                      src={
-                        donation.fundraiser?.photo?.image.publicUrlTransformed
-                      }
-                      className="card-image"
-                    />
-                  </PanelCardImageWrapper>
-                  <PanelCardDetails>
-                    <PanelCardTitle>
-                      {donation.fundraiser?.name.length > 50
-                        ? `${donation.fundraiser?.name.substring(0, 50)}...`
-                        : donation.fundraiser?.name}
-                    </PanelCardTitle>
-                    <PanelCardAmount>
-                      You donated {formatCentsToDollars(donation.total)}
-                    </PanelCardAmount>
-                    <PanelCardDonationDate>
-                      Donated on {convertDate(donation.dateCreated)}
-                    </PanelCardDonationDate>
-                  </PanelCardDetails>
-                </PanelCard>
-              ))
-            ) : (
-              <EmptyFundraisers>
-                Donations you've made will appear here!
-              </EmptyFundraisers>
-            )}
-          </PanelCardGroup>
+          <KeenSlider data={user?.donations} sliderType="profile-donated" />
         </DonatedToPanel>
       </ProfileComponent>
       <Footer />
