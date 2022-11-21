@@ -49,7 +49,7 @@ export const SearchComponent = styled.div`
 `;
 
 export const DropDown = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 2;
   top: 48px;

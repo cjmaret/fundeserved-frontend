@@ -103,9 +103,8 @@ export const MobileDropdown = styled.div`
   padding: 1rem 0.5rem;
   position: fixed;
   top: 47px;
-  height: 100vh;
+  height: 200vh;
   overflow-y: hidden;
-  
   z-index: 3;
   font-size: 2rem;
   text-align: center;

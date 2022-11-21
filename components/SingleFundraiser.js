@@ -535,11 +535,11 @@ export default function SingleFundraiser({ id }) {
           />
           <h3>Share this fundraiser!</h3>
           <div>
-            <p>{`www.gofundyourself.com/fundraiser/${id}`}</p>
+            <p>{`www.gofundyourself.lol/fundraiser/${id}`}</p>
             <button
               onClick={() => {
                 navigator.clipboard.writeText(
-                  `www.gofundyourself.com/fundraiser/${id}`
+                  `www.gofundyourself.lol/fundraiser/${id}`
                 );
               }}>
               <img src={CopyIconImage} alt="" />
