@@ -539,7 +539,7 @@ export default function SingleFundraiser({ id }) {
             <button
               onClick={() => {
                 navigator.clipboard.writeText(
-                  `www.gofundyourself.lol/fundraiser/${id}`
+                  `gofundyourself.lol/fundraiser/${id}`
                 );
               }}>
               <img src={CopyIconImage} alt="" />
