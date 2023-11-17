@@ -535,7 +535,7 @@ export default function SingleFundraiser({ id }) {
           />
           <h3>Share this fundraiser!</h3>
           <div>
-            <p>{`www.gofundyourself.lol/fundraiser/${id}`}</p>
+            <p>{`gofundyourself.lol/fundraiser/${id}`}</p>
             <button
               onClick={() => {
                 navigator.clipboard.writeText(
