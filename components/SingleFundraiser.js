@@ -347,9 +347,6 @@ export default function SingleFundraiser({ id }) {
               <UpdateButton onClick={() => setIsUpdateModalOpen(true)}>
                 Edit Fundraiser
               </UpdateButton>
-              <UpdateButton onClick={() => setIsDeleteModalOpen(true)}>
-                Delete Fundraiser
-              </UpdateButton>
             </UpdateButtonGroup>
           )}
           <Title>{Fundraiser.name}</Title>
